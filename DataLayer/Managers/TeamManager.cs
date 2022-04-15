@@ -6,7 +6,6 @@ namespace Utility.Models
 {
     public class TeamManager
     {
-        private static readonly string endpoint = Settings.GenderSelected == Gender.Male ? ApiConstants.MaleEndpoint : ApiConstants.FemaleEndpoint;
 
         public static List<Team>? LoadFromFile(string json)
         {
@@ -17,12 +16,12 @@ namespace Utility.Models
             return JsonConvert.DeserializeObject<List<Team>>(json);
         }
 
-        public static List<Team>? LoadFromApi()
-        {
-            var apiClient = new RestClient(endpoint);
-            var apiResult = apiClient.Execute<Team>(new RestRequest());
+        //public static List<Team>? LoadFromApi()
+        //{
+        //    ////var apiClient = new RestClient(endpoint);
+        //    //var apiResult = apiClient.Execute<Team>(new RestRequest());
 
-            return JsonConvert.DeserializeObject<List<Team>>(apiResult.Content);
-        }
+        //    //return JsonConvert.DeserializeObject<List<Team>>(apiResult.Content);
+        //}
     }
 }

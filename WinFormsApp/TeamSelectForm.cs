@@ -27,7 +27,7 @@ namespace WinFormsApp
 
             try
             {
-                e.Result = MatchManager.LoadFromApi();
+                e.Result = DataManager<Team>.LoadFromApi();
                 //e.Result = MatchManager.LoadFromFile(_repository.LoadJson());
                 //e.Result = Settings.AccessSelected == Access.Online ? TeamManager.LoadFromApi() : TeamManager.LoadFromJson(_repository.LoadJson());
             }
@@ -60,5 +60,14 @@ namespace WinFormsApp
 
         private void btnCancel_Click(object sender, EventArgs e) 
             => Close();
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            Settings.TeamSelected = cbTeams.SelectedItem.ToString();
+            this.Hide();
+            MainForm mainForm = new();
+            mainForm.Show();
+            this.Close();
+        }
     }
 }

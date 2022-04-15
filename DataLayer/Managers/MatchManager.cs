@@ -16,12 +16,12 @@ namespace Utility.Managers
             return JsonConvert.DeserializeObject<List<Match>>(json);
         }
 
-        public static List<Match>? LoadFromApi()
-        {
-            var apiClient = new RestClient(ApiConstants.MatchEndpoint);
-            var apiResult = apiClient.Execute<Match>(new RestRequest());
+        //public static List<Match>? LoadFromApi()
+        //{
+        //    var apiClient = new RestClient(ApiConstants.MaleMatchEndpoint);
+        //    var apiResult = apiClient.Execute<Match>(new RestRequest());
 
-            return JsonConvert.DeserializeObject<List<Match>>(apiResult.Content);
-        }
+        //    return JsonConvert.DeserializeObject<List<Match>>(apiResult.Content);
+        //}
     }
 }

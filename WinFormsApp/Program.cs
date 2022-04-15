@@ -13,7 +13,8 @@ namespace WinFormsApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(FileRepository.SettingsExists() ? new TeamSelectForm() : new WelcomeForm());
+            Application.Run(new WelcomeForm());
+            //Application.Run(FileRepository.SettingsExists() ? new TeamSelectForm() : new WelcomeForm());
         }
     }
 }

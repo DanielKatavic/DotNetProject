@@ -95,6 +95,7 @@
             this.btnContinue.Text = "Dalje";
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.UseWaitCursor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // btnCancel
             // 

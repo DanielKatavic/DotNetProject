@@ -28,12 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTeamName = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 109);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(869, 154);
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
+            // lblTeamName
+            // 
+            this.lblTeamName.AutoSize = true;
+            this.lblTeamName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTeamName.Location = new System.Drawing.Point(347, 58);
+            this.lblTeamName.Name = "lblTeamName";
+            this.lblTeamName.Size = new System.Drawing.Size(199, 37);
+            this.lblTeamName.TabIndex = 1;
+            this.lblTeamName.Text = "Germany (DEU)";
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(893, 540);
+            this.Controls.Add(this.lblTeamName);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label lblTeamName;
     }
 }

@@ -16,6 +16,9 @@ namespace Utility.Models
         public long ShirtNumber { get; set; }
 
         [JsonProperty("position")]
-        public Position Position { get; set; }
+        public string? Position { get; set; }
+
+        public override string ToString() 
+            => $"{Name} | {ShirtNumber}";
     }
 }
