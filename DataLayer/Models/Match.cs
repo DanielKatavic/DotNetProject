@@ -75,6 +75,6 @@ namespace Utility.Models
         public string? LastScoreUpdateAt { get; set; }
 
         public override string ToString() 
-            => $"{Venue} | {HomeTeam}";
+            => $"{Location} | {HomeTeam}";
     }
 }

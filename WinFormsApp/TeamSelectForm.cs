@@ -27,7 +27,8 @@ namespace WinFormsApp
 
             try
             {
-                e.Result = MatchManager.LoadFromJson(_repository.LoadJson());
+                e.Result = MatchManager.LoadFromApi();
+                //e.Result = MatchManager.LoadFromFile(_repository.LoadJson());
                 //e.Result = Settings.AccessSelected == Access.Online ? TeamManager.LoadFromApi() : TeamManager.LoadFromJson(_repository.LoadJson());
             }
             catch (Exception ex)
@@ -57,9 +58,7 @@ namespace WinFormsApp
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void btnCancel_Click(object sender, EventArgs e) 
+            => Close();
     }
 }

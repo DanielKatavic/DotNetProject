@@ -8,7 +8,7 @@ namespace Utility.Models
     {
         private static readonly string endpoint = Settings.GenderSelected == Gender.Male ? ApiConstants.MaleEndpoint : ApiConstants.FemaleEndpoint;
 
-        public static List<Team>? LoadFromJson(string json)
+        public static List<Team>? LoadFromFile(string json)
         {
             if (string.IsNullOrWhiteSpace(json))
             {
