@@ -7,21 +7,21 @@ namespace Utility.Managers
 {
     public class DataManager<T>
     {
-        public static List<T>? LoadFromFile(string json)
+        public static IList<T>? LoadFromFile(string json)
         {
             if (string.IsNullOrWhiteSpace(json))
             {
                 throw new ArgumentException("Dogodila se greška prilikom učitavanja datoteke!");
             }
-            return JsonConvert.DeserializeObject<List<T>>(json);
+            return JsonConvert.DeserializeObject<IList<T>>(json);
         }
 
-        public static List<T>? LoadFromApi()
+        public static IList<T>? LoadFromApi()
         {
             var apiClient = new RestClient(typeof(T) == typeof(Team) ? ApiConstants.TeamEndpoint : ApiConstants.MatchEndpoint);
             var apiResult = apiClient.Execute<T>(new RestRequest());
 
-            return JsonConvert.DeserializeObject<List<T>>(apiResult.Content);
+            return JsonConvert.DeserializeObject<IList<T>>(apiResult.Content);
         }
     }
 }
