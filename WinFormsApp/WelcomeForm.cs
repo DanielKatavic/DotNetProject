@@ -1,4 +1,5 @@
 using Utility.Dal;
+using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp
@@ -20,7 +21,7 @@ namespace WinFormsApp
         }
 
         private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e) 
-            => _repository.SaveSettings(Settings.ParseForFileLine());
+            => _repository.SaveSettings(SettingsManager.ParseForFileLine());
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
