@@ -9,9 +9,18 @@ namespace Utility.Constants
         private static string MaleMatchEndpoint = $"http://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
         private static string FemaleMatchEndpoint = $"http://worldcup.sfg.io/matches/country?fifa_code=";
 
-        public static readonly string TeamEndpoint = Settings.GenderSelected == Gender.Male ? MaleTeamEndpoint : FemaleTeamEndpoint;
+        private static readonly string TeamEndpoint = Settings.GenderSelected == Gender.Male ? MaleTeamEndpoint : FemaleTeamEndpoint;
         
-        public static string GetMatchEndpoint(string fifaCode) 
+        private static string GetMatchEndpoint(string fifaCode) 
             =>  Settings.GenderSelected == Gender.Male ? MaleMatchEndpoint + fifaCode : FemaleMatchEndpoint + fifaCode;
+
+        public static string GetEndpoint(Type t, string fifaCode)
+        {
+            if(t == typeof(Team)) return TeamEndpoint;
+            
+            if(t == typeof(Match)) return GetMatchEndpoint(fifaCode);
+            
+            return string.Empty;
+        }
     }
 }
