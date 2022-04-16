@@ -18,7 +18,7 @@ namespace Utility.Managers
 
         public static IList<T>? LoadFromApi()
         {
-            var apiClient = new RestClient(typeof(T) == typeof(Team) ? ApiConstants.TeamEndpoint : ApiConstants.MatchEndpoint);
+            var apiClient = new RestClient(typeof(T) == typeof(Team) ? ApiConstants.TeamEndpoint : ApiConstants.GetMatchEndpoint(Settings.TeamSelected.FifaCode));
             var apiResult = apiClient.Execute<T>(new RestRequest());
 
             return JsonConvert.DeserializeObject<IList<T>>(apiResult.Content);

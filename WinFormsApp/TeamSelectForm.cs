@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Utility.Constants;
 using Utility.Dal;
 using Utility.Managers;
 using Utility.Models;
@@ -63,7 +64,7 @@ namespace WinFormsApp
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            Settings.TeamSelected = cbTeams.SelectedItem.ToString();
+            Settings.TeamSelected = cbTeams.SelectedItem as Team;
             this.Hide();
             MainForm mainForm = new();
             mainForm.Show();

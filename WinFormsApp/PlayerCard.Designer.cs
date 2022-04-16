@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp
 {
-    partial class PlayerCard
+    partial class PlayerCardForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,30 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCard));
-            this.imgPlayer = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCardForm));
             this.lblName = new System.Windows.Forms.Label();
             this.lblShirtNumber = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
+            this.lblFavourite = new System.Windows.Forms.Label();
+            this.pnlImage = new System.Windows.Forms.Panel();
+            this.lblCaptain = new System.Windows.Forms.Label();
+            this.pnlImage.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // imgPlayer
-            // 
-            this.imgPlayer.ErrorImage = null;
-            this.imgPlayer.Image = ((System.Drawing.Image)(resources.GetObject("imgPlayer.Image")));
-            this.imgPlayer.InitialImage = null;
-            this.imgPlayer.Location = new System.Drawing.Point(0, 0);
-            this.imgPlayer.Name = "imgPlayer";
-            this.imgPlayer.Size = new System.Drawing.Size(200, 250);
-            this.imgPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgPlayer.TabIndex = 0;
-            this.imgPlayer.TabStop = false;
             // 
             // lblName
             // 
-            this.lblName.BackColor = System.Drawing.SystemColors.Control;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(3, 68);
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(2, 66);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(194, 35);
             this.lblName.TabIndex = 1;
@@ -60,34 +50,76 @@
             // 
             // lblShirtNumber
             // 
-            this.lblShirtNumber.BackColor = System.Drawing.SystemColors.Control;
+            this.lblShirtNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblShirtNumber.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblShirtNumber.Location = new System.Drawing.Point(45, 112);
+            this.lblShirtNumber.Location = new System.Drawing.Point(28, 101);
             this.lblShirtNumber.Name = "lblShirtNumber";
-            this.lblShirtNumber.Size = new System.Drawing.Size(110, 74);
+            this.lblShirtNumber.Size = new System.Drawing.Size(141, 105);
             this.lblShirtNumber.TabIndex = 2;
             this.lblShirtNumber.Text = "7";
             this.lblShirtNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PlayerCard
+            // lblFavourite
+            // 
+            this.lblFavourite.AutoSize = true;
+            this.lblFavourite.BackColor = System.Drawing.Color.Transparent;
+            this.lblFavourite.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFavourite.Location = new System.Drawing.Point(148, 204);
+            this.lblFavourite.Margin = new System.Windows.Forms.Padding(0);
+            this.lblFavourite.Name = "lblFavourite";
+            this.lblFavourite.Size = new System.Drawing.Size(48, 46);
+            this.lblFavourite.TabIndex = 3;
+            this.lblFavourite.Text = "☆";
+            this.lblFavourite.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblFavourite_MouseDown);
+            // 
+            // pnlImage
+            // 
+            this.pnlImage.BackColor = System.Drawing.Color.Transparent;
+            this.pnlImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlImage.BackgroundImage")));
+            this.pnlImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlImage.Controls.Add(this.lblCaptain);
+            this.pnlImage.Controls.Add(this.lblName);
+            this.pnlImage.Controls.Add(this.lblShirtNumber);
+            this.pnlImage.Controls.Add(this.lblFavourite);
+            this.pnlImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlImage.Location = new System.Drawing.Point(2, 0);
+            this.pnlImage.Name = "pnlImage";
+            this.pnlImage.Size = new System.Drawing.Size(196, 250);
+            this.pnlImage.TabIndex = 4;
+            // 
+            // lblCaptain
+            // 
+            this.lblCaptain.AutoSize = true;
+            this.lblCaptain.BackColor = System.Drawing.Color.Transparent;
+            this.lblCaptain.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCaptain.ForeColor = System.Drawing.Color.Red;
+            this.lblCaptain.Location = new System.Drawing.Point(114, 210);
+            this.lblCaptain.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCaptain.Name = "lblCaptain";
+            this.lblCaptain.Size = new System.Drawing.Size(34, 37);
+            this.lblCaptain.TabIndex = 4;
+            this.lblCaptain.Text = "C";
+            this.lblCaptain.Visible = false;
+            // 
+            // PlayerCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblShirtNumber);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.imgPlayer);
-            this.Name = "PlayerCard";
+            this.Controls.Add(this.pnlImage);
+            this.Name = "PlayerCardForm";
             this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Size = new System.Drawing.Size(200, 250);
-            ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).EndInit();
+            this.pnlImage.ResumeLayout(false);
+            this.pnlImage.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private PictureBox imgPlayer;
         private Label lblName;
         private Label lblShirtNumber;
+        private Label lblFavourite;
+        private Panel pnlImage;
+        private Label lblCaptain;
     }
 }

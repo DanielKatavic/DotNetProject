@@ -25,15 +25,14 @@ namespace WinFormsApp
         private void btnContinue_Click(object sender, EventArgs e)
         {
             SetSettingsData();
-
-            TeamSelectForm nextForm = new();
-            nextForm.ShowDialog();
+            //this.Hide();
+            TeamSelectForm teamSelectForm = new();
+            teamSelectForm.ShowDialog();
+            //this.Close();
         }
 
-        private void WelcomeForm_Load(object sender, EventArgs e)
-        {
-            SetComboBoxesValues();
-        }
+        private void WelcomeForm_Load(object sender, EventArgs e) 
+            => SetComboBoxesValues();
 
         private void SetSettingsData()
         {

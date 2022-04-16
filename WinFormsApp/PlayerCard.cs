@@ -11,18 +11,39 @@ using Utility.Models;
 
 namespace WinFormsApp
 {
-    public partial class PlayerCard : UserControl
+    public partial class PlayerCardForm : UserControl
     {
-        public PlayerCard()
+        private bool playerIsFavourite = false;
+
+        public PlayerCardForm() 
+            => InitializeComponent();
+
+        public PlayerCardForm(StartingEleven player)
         {
             InitializeComponent();
+            FillForm(player);
         }
 
-        public PlayerCard(StartingEleven player)
+        private void FillForm(StartingEleven player)
         {
-            InitializeComponent();
-            lblName.Text = player.Name;
+            lblName.Text = player.Name?.ToUpper();
             lblShirtNumber.Text = player.ShirtNumber.ToString();
+            if (player.Captain) lblCaptain.Visible = true;
+        }
+
+        private void lblFavourite_MouseDown(object sender, MouseEventArgs e)
+        {
+            playerIsFavourite = !playerIsFavourite;
+            if (playerIsFavourite)
+            {
+                lblFavourite.Text = "★";
+                lblFavourite.ForeColor = Color.Orange;
+            }
+            else
+            {
+                lblFavourite.Text = "☆";
+                lblFavourite.ForeColor = Color.Black;
+            }
         }
     }
 }

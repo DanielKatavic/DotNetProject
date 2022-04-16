@@ -11,7 +11,7 @@
         public static Gender GenderSelected { get; set; }
         public static Language LangSelected { get; set; }
         public static Access AccessSelected { get; set; }
-        public static string? TeamSelected { get; set; }
+        public static Team? TeamSelected { get; set; }
 
         public static string ParseForFileLine() 
             => $"{GenderSelected}{Del}{LangSelected}{Del}{AccessSelected}{Del}{TeamSelected}";
