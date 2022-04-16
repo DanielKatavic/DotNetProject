@@ -45,5 +45,22 @@ namespace WinFormsApp
                 lblFavourite.ForeColor = Color.Black;
             }
         }
+
+        private void ChangePlayersImage_Click(object sender, EventArgs e) 
+            => ChangeImage();
+
+        private void ChangeImage()
+        {
+            OpenFileDialog ofp = new()
+            {
+                Filter = "Images|*.png;*.jpg;*.jpeg",
+                Title = "Change players image",
+                InitialDirectory = Application.StartupPath
+            };
+            if (ofp.ShowDialog() == DialogResult.OK)
+            {
+                pnlImage.BackgroundImage = Image.FromFile(ofp.FileName);
+            }
+        }
     }
 }

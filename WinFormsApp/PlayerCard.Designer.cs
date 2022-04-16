@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCardForm));
             this.lblName = new System.Windows.Forms.Label();
             this.lblShirtNumber = new System.Windows.Forms.Label();
             this.lblFavourite = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
             this.lblCaptain = new System.Windows.Forms.Label();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmChangePlayersImg = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlImage.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblName
@@ -101,16 +105,32 @@
             this.lblCaptain.Text = "C";
             this.lblCaptain.Visible = false;
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmChangePlayersImg});
+            this.contextMenuStrip.Name = "contextMenuStrip1";
+            this.contextMenuStrip.Size = new System.Drawing.Size(188, 26);
+            // 
+            // cmChangePlayersImg
+            // 
+            this.cmChangePlayersImg.Name = "cmChangePlayersImg";
+            this.cmChangePlayersImg.Size = new System.Drawing.Size(187, 22);
+            this.cmChangePlayersImg.Text = "Promijeni sliku igrača";
+            this.cmChangePlayersImg.Click += new System.EventHandler(this.ChangePlayersImage_Click);
+            // 
             // PlayerCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.pnlImage);
             this.Name = "PlayerCardForm";
             this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Size = new System.Drawing.Size(200, 250);
             this.pnlImage.ResumeLayout(false);
             this.pnlImage.PerformLayout();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -121,5 +141,7 @@
         private Label lblFavourite;
         private Panel pnlImage;
         private Label lblCaptain;
+        private ContextMenuStrip contextMenuStrip;
+        private ToolStripMenuItem cmChangePlayersImg;
     }
 }
