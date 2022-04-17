@@ -112,7 +112,7 @@
             this.cmChangePlayersImg,
             this.cmAddToFav});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(188, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(188, 48);
             // 
             // cmChangePlayersImg
             // 
@@ -130,6 +130,7 @@
             // 
             // PlayerCardForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ContextMenuStrip = this.contextMenuStrip;
@@ -137,6 +138,7 @@
             this.Name = "PlayerCardForm";
             this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Size = new System.Drawing.Size(200, 250);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
             this.pnlImage.ResumeLayout(false);
             this.pnlImage.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);

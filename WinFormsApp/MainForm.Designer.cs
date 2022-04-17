@@ -36,12 +36,15 @@
             // 
             // flpPlayers
             // 
+            this.flpPlayers.AllowDrop = true;
             this.flpPlayers.AutoScroll = true;
             this.flpPlayers.Location = new System.Drawing.Point(12, 109);
             this.flpPlayers.Name = "flpPlayers";
             this.flpPlayers.Size = new System.Drawing.Size(869, 275);
             this.flpPlayers.TabIndex = 0;
             this.flpPlayers.WrapContents = false;
+            this.flpPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.Players_DragDrop);
+            this.flpPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.Players_DragEnter);
             // 
             // lblTeamName
             // 
@@ -55,12 +58,15 @@
             // 
             // flpFavourites
             // 
+            this.flpFavourites.AllowDrop = true;
             this.flpFavourites.AutoScroll = true;
             this.flpFavourites.Location = new System.Drawing.Point(12, 467);
             this.flpFavourites.Name = "flpFavourites";
             this.flpFavourites.Size = new System.Drawing.Size(869, 275);
             this.flpFavourites.TabIndex = 2;
             this.flpFavourites.WrapContents = false;
+            this.flpFavourites.DragDrop += new System.Windows.Forms.DragEventHandler(this.Players_DragDrop);
+            this.flpFavourites.DragEnter += new System.Windows.Forms.DragEventHandler(this.Players_DragEnter);
             // 
             // label1
             // 

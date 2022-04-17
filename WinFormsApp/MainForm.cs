@@ -62,5 +62,15 @@ namespace WinFormsApp
 
             return players;
         }
+
+        private void Players_DragEnter(object sender, DragEventArgs e) 
+            => e.Effect = DragDropEffects.Move;
+
+        private void Players_DragDrop(object sender, DragEventArgs e)
+        {
+            PlayerCardForm panel = (PlayerCardForm)e.Data.GetData(typeof(PlayerCardForm));
+            panel.AddPlayerToFavourites();
+            flpFavourites.Controls.Add(panel);
+        }
     }
 }

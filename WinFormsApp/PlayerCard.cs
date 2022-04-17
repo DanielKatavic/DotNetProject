@@ -40,7 +40,7 @@ namespace WinFormsApp
         private void ChangePlayersImage_Click(object sender, EventArgs e)
             => ChangeImage();
 
-        private void AddPlayerToFavourites()
+        internal void AddPlayerToFavourites()
         {
             playerIsFavourite = !playerIsFavourite;
             if (playerIsFavourite)
@@ -70,6 +70,12 @@ namespace WinFormsApp
             {
                 pnlImage.BackgroundImage = Image.FromFile(ofp.FileName);
             }
+        }
+
+        private void PlayerCardForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            PlayerCardForm? form = sender as PlayerCardForm;
+            form?.DoDragDrop(form, DragDropEffects.Move);
         }
     }
 }
