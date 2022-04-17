@@ -15,7 +15,7 @@ namespace WinFormsApp
     public partial class MainForm : Form
     {
         private readonly ISet<StartingEleven> _players = LoadPlayers();
-        private readonly IList<PlayerCardForm> _playerCards = new List<PlayerCardForm>();
+        private readonly IList<PlayerCardControl> _playerCards = new List<PlayerCardControl>();
 
         public MainForm()
             => InitializeComponent();
@@ -26,7 +26,7 @@ namespace WinFormsApp
             ShowPlayers();
         }
 
-        internal void ShowFavourites(PlayerCardForm playerCard)
+        internal void ShowFavourites(PlayerCardControl playerCard)
         {
             if (playerCard.playerIsFavourite)
             {
@@ -42,7 +42,7 @@ namespace WinFormsApp
 
         private void ShowPlayers()
         {
-            _players?.ToList().ForEach(player => _playerCards.Add(new PlayerCardForm(player, this)));
+            _players?.ToList().ForEach(player => _playerCards.Add(new PlayerCardControl(player, this)));
 
             flpPlayers.Controls.AddRange(_playerCards.ToArray());
         }
@@ -68,7 +68,7 @@ namespace WinFormsApp
 
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
-            PlayerCardForm panel = (PlayerCardForm)e.Data.GetData(typeof(PlayerCardForm));
+            PlayerCardControl panel = (PlayerCardControl)e.Data.GetData(typeof(PlayerCardControl));
             panel.AddPlayerToFavourites();
             flpFavourites.Controls.Add(panel);
         }

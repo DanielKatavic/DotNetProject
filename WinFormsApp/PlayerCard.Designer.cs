@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp
 {
-    partial class PlayerCardForm
+    partial class PlayerCardControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCardForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCardControl));
             this.lblName = new System.Windows.Forms.Label();
             this.lblShirtNumber = new System.Windows.Forms.Label();
             this.lblFavourite = new System.Windows.Forms.Label();

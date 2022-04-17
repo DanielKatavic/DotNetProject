@@ -11,13 +11,13 @@ using Utility.Models;
 
 namespace WinFormsApp
 {
-    public partial class PlayerCardForm : UserControl
+    public partial class PlayerCardControl : UserControl
     {
         public bool playerIsFavourite = false;
         private readonly StartingEleven? _player;
         private readonly MainForm? _mainForm;
 
-        public PlayerCardForm(StartingEleven player, MainForm mainForm)
+        public PlayerCardControl(StartingEleven player, MainForm mainForm)
         {
             InitializeComponent();
             _player = player;
@@ -74,7 +74,7 @@ namespace WinFormsApp
 
         private void PlayerCardForm_MouseDown(object sender, MouseEventArgs e)
         {
-            PlayerCardForm? form = sender as PlayerCardForm;
+            PlayerCardControl? form = sender as PlayerCardControl;
             form?.DoDragDrop(form, DragDropEffects.Move);
         }
     }
