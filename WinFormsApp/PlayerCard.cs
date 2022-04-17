@@ -13,41 +13,50 @@ namespace WinFormsApp
 {
     public partial class PlayerCardForm : UserControl
     {
-        private bool playerIsFavourite = false;
+        public bool playerIsFavourite = false;
+        private readonly StartingEleven? _player;
+        private readonly MainForm? _mainForm;
 
-        public PlayerCardForm() 
-            => InitializeComponent();
-
-        public PlayerCardForm(StartingEleven player)
+        public PlayerCardForm(StartingEleven player, MainForm mainForm)
         {
             InitializeComponent();
-            FillForm(player);
+            _player = player;
+            _mainForm = mainForm;
+            FillForm();
         }
 
-        private void FillForm(StartingEleven player)
+        private void FillForm()
         {
-            lblName.Text = player.Name?.ToUpper();
-            lblShirtNumber.Text = player.ShirtNumber.ToString();
-            if (player.Captain) lblCaptain.Visible = true;
+            lblName.Text = _player?.Name?.ToUpper();
+            lblShirtNumber.Text = _player?.ShirtNumber.ToString();
+            if (_player.Captain) lblCaptain.Visible = true;
         }
 
-        private void lblFavourite_MouseDown(object sender, MouseEventArgs e)
+        private void AddToFavourites_Click(object sender, EventArgs e)
+        {
+            AddPlayerToFavourites();
+        }
+
+        private void ChangePlayersImage_Click(object sender, EventArgs e)
+            => ChangeImage();
+
+        private void AddPlayerToFavourites()
         {
             playerIsFavourite = !playerIsFavourite;
             if (playerIsFavourite)
             {
+                cmAddToFav.Text = "Ukloni iz favorita";
                 lblFavourite.Text = "★";
                 lblFavourite.ForeColor = Color.Orange;
             }
             else
             {
+                cmAddToFav.Text = "Dodaj u favorite";
                 lblFavourite.Text = "☆";
                 lblFavourite.ForeColor = Color.Black;
             }
+            _mainForm?.ShowFavourites(this);
         }
-
-        private void ChangePlayersImage_Click(object sender, EventArgs e) 
-            => ChangeImage();
 
         private void ChangeImage()
         {

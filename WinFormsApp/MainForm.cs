@@ -14,7 +14,10 @@ namespace WinFormsApp
 {
     public partial class MainForm : Form
     {
-        public MainForm() 
+        private readonly ISet<StartingEleven> _players = LoadPlayers();
+        private readonly IList<PlayerCardForm> _playerCards = new List<PlayerCardForm>();
+
+        public MainForm()
             => InitializeComponent();
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -23,20 +26,31 @@ namespace WinFormsApp
             ShowPlayers();
         }
 
-        private void ShowPlayers()
+        internal void ShowFavourites(PlayerCardForm playerCard)
         {
-            ISet<StartingEleven> players = LoadPlayers();
-            IList<PlayerCardForm> playerCards = new List<PlayerCardForm>();
-
-            players?.ToList().ForEach(player => playerCards.Add(new PlayerCardForm(player)));
-
-            flowLayoutPanel.Controls.AddRange(playerCards.ToArray());
+            if (playerCard.playerIsFavourite)
+            {
+                flpFavourites.Controls.Add(playerCard);
+                flpPlayers.Controls.Remove(playerCard);
+            }
+            else
+            {
+                flpFavourites.Controls.Remove(playerCard);
+                flpPlayers.Controls.Add(playerCard);
+            }
         }
 
-        private ISet<StartingEleven> LoadPlayers()
+        private void ShowPlayers()
+        {
+            _players?.ToList().ForEach(player => _playerCards.Add(new PlayerCardForm(player, this)));
+
+            flpPlayers.Controls.AddRange(_playerCards.ToArray());
+        }
+
+        private static ISet<StartingEleven> LoadPlayers()
         {
             IList<Match>? matches = DataManager<Match>.LoadFromApi();
-            
+
             var teamIndex = matches?.ToList().FindIndex(m => m.HomeTeam?.Country == Settings.TeamSelected?.Country);
 
             var startingEleven = matches?[(int)teamIndex].HomeTeamStatistics?.StartingEleven;

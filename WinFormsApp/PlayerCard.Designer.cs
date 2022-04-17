@@ -37,6 +37,7 @@
             this.lblCaptain = new System.Windows.Forms.Label();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmChangePlayersImg = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmAddToFav = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlImage.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +45,7 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblName.Location = new System.Drawing.Point(2, 66);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(194, 35);
@@ -55,7 +56,7 @@
             // lblShirtNumber
             // 
             this.lblShirtNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblShirtNumber.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblShirtNumber.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblShirtNumber.Location = new System.Drawing.Point(28, 101);
             this.lblShirtNumber.Name = "lblShirtNumber";
             this.lblShirtNumber.Size = new System.Drawing.Size(141, 105);
@@ -74,7 +75,7 @@
             this.lblFavourite.Size = new System.Drawing.Size(48, 46);
             this.lblFavourite.TabIndex = 3;
             this.lblFavourite.Text = "☆";
-            this.lblFavourite.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblFavourite_MouseDown);
+            this.lblFavourite.Click += new System.EventHandler(this.AddToFavourites_Click);
             // 
             // pnlImage
             // 
@@ -108,9 +109,10 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmChangePlayersImg});
+            this.cmChangePlayersImg,
+            this.cmAddToFav});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(188, 26);
+            this.contextMenuStrip.Size = new System.Drawing.Size(188, 70);
             // 
             // cmChangePlayersImg
             // 
@@ -118,6 +120,13 @@
             this.cmChangePlayersImg.Size = new System.Drawing.Size(187, 22);
             this.cmChangePlayersImg.Text = "Promijeni sliku igrača";
             this.cmChangePlayersImg.Click += new System.EventHandler(this.ChangePlayersImage_Click);
+            // 
+            // cmAddToFav
+            // 
+            this.cmAddToFav.Name = "cmAddToFav";
+            this.cmAddToFav.Size = new System.Drawing.Size(187, 22);
+            this.cmAddToFav.Text = "Dodaj u favorite";
+            this.cmAddToFav.Click += new System.EventHandler(this.AddToFavourites_Click);
             // 
             // PlayerCardForm
             // 
@@ -143,5 +152,6 @@
         private Label lblCaptain;
         private ContextMenuStrip contextMenuStrip;
         private ToolStripMenuItem cmChangePlayersImg;
+        private ToolStripMenuItem cmAddToFav;
     }
 }

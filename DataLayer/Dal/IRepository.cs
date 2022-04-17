@@ -3,6 +3,6 @@
     public interface IRepository
     {
         void SaveSettings(string informations);
-        string LoadJson();
+        string LoadFile();
     }
 }

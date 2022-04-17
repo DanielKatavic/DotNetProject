@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using Utility.Constants;
 using Utility.Dal;
 using Utility.Managers;
 using Utility.Models;
@@ -28,9 +27,9 @@ namespace WinFormsApp
 
             try
             {
-                e.Result = DataManager<Team>.LoadFromApi();
-                //e.Result = MatchManager.LoadFromFile(_repository.LoadJson());
-                //e.Result = Settings.AccessSelected == Access.Online ? TeamManager.LoadFromApi() : TeamManager.LoadFromJson(_repository.LoadJson());
+                e.Result = Settings.AccessSelected
+                          == Access.Online ? DataManager<Team>.LoadFromApi()
+                          : DataManager<Team>.LoadFromFile(_repository.LoadFile());
             }
             catch (Exception ex)
             {

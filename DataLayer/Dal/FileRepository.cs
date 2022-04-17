@@ -11,7 +11,7 @@ namespace Utility.Dal
         public void SaveSettings(string informations) 
             => File.WriteAllText(FileConstants.SettingsPath, informations);
 
-        public string LoadJson()
+        public string LoadFile()
         {
             if(!File.Exists(matchesFilePath))
             {
