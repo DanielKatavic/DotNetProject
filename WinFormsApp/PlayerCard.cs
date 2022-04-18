@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Utility.Models;
+﻿using Utility.Models;
 
 namespace WinFormsApp
 {
@@ -53,7 +44,7 @@ namespace WinFormsApp
                 lblFavourite.Text = "☆";
                 lblFavourite.ForeColor = Color.Black;
             }
-            _mainForm?.ShowFavourites(this);
+            _mainForm?.ShowFavouritePlayers(this);
         }
 
         private void ChangeImage()
@@ -66,14 +57,17 @@ namespace WinFormsApp
             };
             if (ofp.ShowDialog() == DialogResult.OK)
             {
-                pnlImage.BackgroundImage = Image.FromFile(ofp.FileName);
+                BackgroundImage = Image.FromFile(ofp.FileName);
             }
         }
 
         private void PlayerCardForm_MouseDown(object sender, MouseEventArgs e)
         {
-            Panel? pcc = sender as Panel;
-            pcc?.DoDragDrop(this, DragDropEffects.Move);
+            if(e.Button == MouseButtons.Left)
+            {
+                if (sender is PlayerCardControl pcc) pcc.DoDragDrop(this, DragDropEffects.Move);
+                if (sender is Label lbl) lbl.DoDragDrop(this, DragDropEffects.Move);
+            }
         }
     }
 }

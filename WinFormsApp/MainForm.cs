@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Utility.Managers;
+﻿using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp
@@ -26,7 +17,7 @@ namespace WinFormsApp
             ShowPlayers();
         }
 
-        internal void ShowFavourites(PlayerCardControl playerCard)
+        internal void ShowFavouritePlayers(PlayerCardControl playerCard)
         {
             if (playerCard.playerIsFavourite)
             {
@@ -83,14 +74,6 @@ namespace WinFormsApp
         {
             PlayerCardControl panel = (PlayerCardControl)e.Data.GetData(typeof(PlayerCardControl));
             panel.AddPlayerToFavourites();
-            if (panel.playerIsFavourite)
-            {
-                flpFavourites.Controls.Add(panel);
-            }
-            else
-            {
-                flpPlayers.Controls.Add(panel);
-            }
         }
     }
 }
