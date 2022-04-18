@@ -63,14 +63,34 @@ namespace WinFormsApp
             return players;
         }
 
-        private void Players_DragEnter(object sender, DragEventArgs e) 
-            => e.Effect = DragDropEffects.Move;
+        private void Players_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+            PlayerCardControl panel = (PlayerCardControl)e.Data.GetData(typeof(PlayerCardControl));
+            if (panel.playerIsFavourite)
+            {
+                flpPlayers.AllowDrop = true;
+                flpFavourites.AllowDrop = false;
+            }
+            else
+            {
+                flpPlayers.AllowDrop = false;
+                flpFavourites.AllowDrop = true;
+            }
+        }
 
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
             PlayerCardControl panel = (PlayerCardControl)e.Data.GetData(typeof(PlayerCardControl));
             panel.AddPlayerToFavourites();
-            flpFavourites.Controls.Add(panel);
+            if (panel.playerIsFavourite)
+            {
+                flpFavourites.Controls.Add(panel);
+            }
+            else
+            {
+                flpPlayers.Controls.Add(panel);
+            }
         }
     }
 }

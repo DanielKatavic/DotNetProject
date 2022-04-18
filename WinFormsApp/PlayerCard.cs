@@ -32,10 +32,8 @@ namespace WinFormsApp
             if (_player.Captain) lblCaptain.Visible = true;
         }
 
-        private void AddToFavourites_Click(object sender, EventArgs e)
-        {
-            AddPlayerToFavourites();
-        }
+        private void AddToFavourites_Click(object sender, EventArgs e) 
+            => AddPlayerToFavourites();
 
         private void ChangePlayersImage_Click(object sender, EventArgs e)
             => ChangeImage();
@@ -74,8 +72,8 @@ namespace WinFormsApp
 
         private void PlayerCardForm_MouseDown(object sender, MouseEventArgs e)
         {
-            PlayerCardControl? form = sender as PlayerCardControl;
-            form?.DoDragDrop(form, DragDropEffects.Move);
+            Panel? pcc = sender as Panel;
+            pcc?.DoDragDrop(this, DragDropEffects.Move);
         }
     }
 }

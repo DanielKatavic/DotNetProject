@@ -57,11 +57,11 @@
             // 
             this.lblShirtNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblShirtNumber.Font = new System.Drawing.Font("Segoe UI", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblShirtNumber.Location = new System.Drawing.Point(28, 101);
+            this.lblShirtNumber.Location = new System.Drawing.Point(44, 101);
             this.lblShirtNumber.Name = "lblShirtNumber";
-            this.lblShirtNumber.Size = new System.Drawing.Size(141, 105);
+            this.lblShirtNumber.Size = new System.Drawing.Size(109, 105);
             this.lblShirtNumber.TabIndex = 2;
-            this.lblShirtNumber.Text = "7";
+            this.lblShirtNumber.Text = "17";
             this.lblShirtNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFavourite
@@ -91,6 +91,7 @@
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Size = new System.Drawing.Size(196, 250);
             this.pnlImage.TabIndex = 4;
+            this.pnlImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
             // 
             // lblCaptain
             // 
@@ -128,14 +129,14 @@
             this.cmAddToFav.Text = "Dodaj u favorite";
             this.cmAddToFav.Click += new System.EventHandler(this.AddToFavourites_Click);
             // 
-            // PlayerCardForm
+            // PlayerCardControl
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.pnlImage);
-            this.Name = "PlayerCardForm";
+            this.Name = "PlayerCardControl";
             this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Size = new System.Drawing.Size(200, 250);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
