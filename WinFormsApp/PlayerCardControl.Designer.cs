@@ -37,6 +37,7 @@
             this.lblFavourite = new System.Windows.Forms.Label();
             this.lblShirtNumber = new System.Windows.Forms.Label();
             this.lblCaptain = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +109,19 @@
             this.lblCaptain.Text = "C";
             this.lblCaptain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCaptain.Visible = false;
+            this.lblCaptain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
+            // 
+            // lblPosition
+            // 
+            this.lblPosition.BackColor = System.Drawing.Color.Transparent;
+            this.lblPosition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPosition.Location = new System.Drawing.Point(0, 195);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(100, 55);
+            this.lblPosition.TabIndex = 5;
+            this.lblPosition.Text = "POS";
+            this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPosition.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
             // 
             // PlayerCardControl
             // 
@@ -117,6 +131,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ContextMenuStrip = this.contextMenuStrip;
+            this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.lblCaptain);
             this.Controls.Add(this.lblFavourite);
             this.Controls.Add(this.lblName);
@@ -138,5 +153,6 @@
         private Label lblFavourite;
         private Label lblShirtNumber;
         private Label lblCaptain;
+        private Label lblPosition;
     }
 }

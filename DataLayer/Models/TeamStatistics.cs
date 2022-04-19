@@ -67,9 +67,11 @@ namespace Utility.Models
         public string? Tactics { get; set; }
 
         [JsonProperty("starting_eleven")]
-        public List<StartingEleven>? StartingEleven { get; set; }
+        public IList<StartingEleven>? StartingEleven { get; set; }
 
         [JsonProperty("substitutes")]
-        public List<StartingEleven>? Substitutes { get; set; }
+        public IList<StartingEleven>? Substitutes { get; set; }
+
+        public ISet<StartingEleven>? AllPlayers => StartingEleven?.Concat(Substitutes).ToHashSet();
     }
 }

@@ -20,6 +20,7 @@ namespace WinFormsApp
         {
             lblName.Text = _player?.Name?.ToUpper();
             lblShirtNumber.Text = _player?.ShirtNumber.ToString();
+            lblPosition.Text = _player?.Position?.ToString();
             if (_player.Captain) lblCaptain.Visible = true;
         }
 

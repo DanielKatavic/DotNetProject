@@ -5,7 +5,7 @@ namespace WinFormsApp
 {
     public partial class MainForm : Form
     {
-        private readonly ISet<StartingEleven> _players = LoadPlayers();
+        private readonly ISet<StartingEleven>? _players = LoadPlayers();
         private readonly IList<PlayerCardControl> _playerCards = new List<PlayerCardControl>();
 
         public MainForm()
@@ -38,26 +38,19 @@ namespace WinFormsApp
             flpPlayers.Controls.AddRange(_playerCards.ToArray());
         }
 
-        private static ISet<StartingEleven> LoadPlayers()
+        private static ISet<StartingEleven>? LoadPlayers()
         {
             IList<Match>? matches = DataManager<Match>.LoadFromApi();
 
             var teamIndex = matches?.ToList().FindIndex(m => m.HomeTeam?.Country == Settings.TeamSelected?.Country);
 
-            var startingEleven = matches?[(int)teamIndex].HomeTeamStatistics?.StartingEleven;
-            var substitues = matches?[(int)teamIndex].HomeTeamStatistics?.Substitutes;
-
-            ISet<StartingEleven>? players = new HashSet<StartingEleven>(startingEleven);
-
-            substitues?.ToList().ForEach(s => players.Add(s));
-
-            return players;
+            return matches?[(int)teamIndex].HomeTeamStatistics?.AllPlayers;
         }
 
         private void Players_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
-            PlayerCardControl panel = (PlayerCardControl)e.Data.GetData(typeof(PlayerCardControl));
+            PlayerCardControl? panel = e.Data?.GetData(typeof(PlayerCardControl)) as PlayerCardControl;
             if (panel.playerIsFavourite)
             {
                 flpPlayers.AllowDrop = true;
@@ -72,8 +65,8 @@ namespace WinFormsApp
 
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
-            PlayerCardControl panel = (PlayerCardControl)e.Data.GetData(typeof(PlayerCardControl));
-            panel.AddPlayerToFavourites();
+            PlayerCardControl? panel = e.Data?.GetData(typeof(PlayerCardControl)) as PlayerCardControl;
+            panel?.AddPlayerToFavourites();
         }
     }
 }
