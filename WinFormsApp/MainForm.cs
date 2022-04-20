@@ -5,8 +5,8 @@ namespace WinFormsApp
 {
     public partial class MainForm : Form
     {
-        private readonly ISet<StartingEleven>? _players = LoadPlayers();
-        private readonly IList<PlayerCardControl> _playerCards = new List<PlayerCardControl>();
+        private readonly ISet<StartingEleven>? players = LoadPlayers();
+        private readonly IList<PlayerCardControl> playerCards = new List<PlayerCardControl>();
 
         public MainForm()
             => InitializeComponent();
@@ -33,9 +33,9 @@ namespace WinFormsApp
 
         private void ShowPlayers()
         {
-            _players?.ToList().ForEach(player => _playerCards.Add(new PlayerCardControl(player, this)));
+            players?.ToList().ForEach(player => playerCards.Add(new PlayerCardControl(player, this)));
 
-            flpPlayers.Controls.AddRange(_playerCards.ToArray());
+            flpPlayers.Controls.AddRange(playerCards.ToArray());
         }
 
         private static ISet<StartingEleven>? LoadPlayers()
@@ -50,8 +50,8 @@ namespace WinFormsApp
         private void Players_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
-            PlayerCardControl? panel = e.Data?.GetData(typeof(PlayerCardControl)) as PlayerCardControl;
-            if (panel.playerIsFavourite)
+            List<PlayerCardControl>? panelsList = e.Data?.GetData(typeof(List<PlayerCardControl>)) as List<PlayerCardControl>;
+            if (panelsList[0].playerIsFavourite)
             {
                 flpPlayers.AllowDrop = true;
                 flpFavourites.AllowDrop = false;
@@ -65,8 +65,9 @@ namespace WinFormsApp
 
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
-            PlayerCardControl? panel = e.Data?.GetData(typeof(PlayerCardControl)) as PlayerCardControl;
-            panel?.AddPlayerToFavourites();
+            List<PlayerCardControl>? panelsList = e.Data?.GetData(typeof(List<PlayerCardControl>)) as List<PlayerCardControl>;
+            panelsList?.ToList().ForEach(panel => panel.AddPlayerToFavourites());
+            PlayerCardControl.ResetSelectedControls();
         }
     }
 }

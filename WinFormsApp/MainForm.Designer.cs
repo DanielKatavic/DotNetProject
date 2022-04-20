@@ -32,6 +32,9 @@
             this.lblTeamName = new System.Windows.Forms.Label();
             this.flpFavourites = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flpPlayers
@@ -78,11 +81,27 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Omiljeni igrači";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblInfo});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 840);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(893, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 862);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flpFavourites);
             this.Controls.Add(this.lblTeamName);
@@ -91,8 +110,9 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +124,7 @@
         private Label lblTeamName;
         private FlowLayoutPanel flpFavourites;
         private Label label1;
+        private StatusStrip statusStrip1;
+        public ToolStripStatusLabel lblInfo;
     }
 }

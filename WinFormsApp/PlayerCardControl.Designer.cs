@@ -73,7 +73,7 @@
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Ime Prezime";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
+            this.lblName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardControl_MouseDown);
             // 
             // lblFavourite
             // 
@@ -96,7 +96,7 @@
             this.lblShirtNumber.TabIndex = 3;
             this.lblShirtNumber.Text = "17";
             this.lblShirtNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblShirtNumber.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
+            this.lblShirtNumber.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardControl_MouseDown);
             // 
             // lblCaptain
             // 
@@ -109,7 +109,7 @@
             this.lblCaptain.Text = "C";
             this.lblCaptain.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblCaptain.Visible = false;
-            this.lblCaptain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
+            this.lblCaptain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardControl_MouseDown);
             // 
             // lblPosition
             // 
@@ -121,7 +121,7 @@
             this.lblPosition.TabIndex = 5;
             this.lblPosition.Text = "POS";
             this.lblPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblPosition.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
+            this.lblPosition.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardControl_MouseDown);
             // 
             // PlayerCardControl
             // 
@@ -139,7 +139,7 @@
             this.Name = "PlayerCardControl";
             this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Size = new System.Drawing.Size(200, 250);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardForm_MouseDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardControl_MouseDown);
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
