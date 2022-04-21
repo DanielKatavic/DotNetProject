@@ -40,10 +40,11 @@
             // cbTeams
             // 
             this.cbTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeams.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbTeams.FormattingEnabled = true;
-            this.cbTeams.Location = new System.Drawing.Point(140, 26);
+            this.cbTeams.Location = new System.Drawing.Point(129, 20);
             this.cbTeams.Name = "cbTeams";
-            this.cbTeams.Size = new System.Drawing.Size(192, 23);
+            this.cbTeams.Size = new System.Drawing.Size(203, 29);
             this.cbTeams.TabIndex = 0;
             this.cbTeams.UseWaitCursor = true;
             // 

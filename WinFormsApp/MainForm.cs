@@ -66,7 +66,7 @@ namespace WinFormsApp
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
             List<PlayerCardControl>? panelsList = e.Data?.GetData(typeof(List<PlayerCardControl>)) as List<PlayerCardControl>;
-            panelsList?.ToList().ForEach(panel => panel.AddPlayerToFavourites());
+            panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
             PlayerCardControl.ResetSelectedControls();
         }
     }

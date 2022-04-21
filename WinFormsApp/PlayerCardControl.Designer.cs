@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerCardControl));
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmChangePlayersImg = new System.Windows.Forms.ToolStripMenuItem();
             this.cmAddToFav = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,7 +127,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::WinFormsApp.Properties.Resources._default;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.lblPosition);

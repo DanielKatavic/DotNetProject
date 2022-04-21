@@ -57,10 +57,11 @@ namespace WinFormsApp
             // cbGender
             // 
             this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Location = new System.Drawing.Point(254, 157);
             this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(116, 23);
+            this.cbGender.Size = new System.Drawing.Size(116, 29);
             this.cbGender.TabIndex = 1;
             // 
             // label2
@@ -76,10 +77,11 @@ namespace WinFormsApp
             // cbLanguage
             // 
             this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbLanguage.FormattingEnabled = true;
             this.cbLanguage.Location = new System.Drawing.Point(254, 197);
             this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.Size = new System.Drawing.Size(116, 23);
+            this.cbLanguage.Size = new System.Drawing.Size(116, 29);
             this.cbLanguage.TabIndex = 3;
             // 
             // btnContinue
@@ -115,10 +117,11 @@ namespace WinFormsApp
             // cbAccess
             // 
             this.cbAccess.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAccess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbAccess.FormattingEnabled = true;
             this.cbAccess.Location = new System.Drawing.Point(254, 239);
             this.cbAccess.Name = "cbAccess";
-            this.cbAccess.Size = new System.Drawing.Size(116, 23);
+            this.cbAccess.Size = new System.Drawing.Size(116, 29);
             this.cbAccess.TabIndex = 8;
             // 
             // label4
