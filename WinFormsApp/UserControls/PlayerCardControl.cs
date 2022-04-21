@@ -1,20 +1,20 @@
 ﻿using Utility.Models;
+using WinFormsApp.Forms;
 
-namespace WinFormsApp
+namespace WinFormsApp.UserControls
 {
     public partial class PlayerCardControl : UserControl
     {
-        internal bool playerIsFavourite = false;
         private readonly StartingEleven? player;
-        private readonly MainForm? mainForm;
-
         private static IList<PlayerCardControl> selectedPlayerCards = new List<PlayerCardControl>();
+        
+        internal bool playerIsFavourite = false;
 
-        public PlayerCardControl(StartingEleven player, MainForm mainForm)
+        public PlayerCardControl(StartingEleven player)
         {
             InitializeComponent();
             this.player = player;
-            this.mainForm = mainForm;
+            DoubleBuffered = true;
             FillForm();
         }
 
@@ -38,8 +38,8 @@ namespace WinFormsApp
 
             if (playerIsFavourite) SetPlayerFavStatus("Ukloni iz favorita", "★", Color.Orange);
             else SetPlayerFavStatus("Dodaj u favorite", "☆", Color.Black);
-            
-            mainForm?.ShowFavouritePlayers(this);
+
+            (ParentForm as MainForm)?.ShowFavouritePlayers(this);
         }
 
         private void SetPlayerFavStatus(string cmText, string lblText, Color color)

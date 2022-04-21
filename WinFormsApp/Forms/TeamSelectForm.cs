@@ -3,7 +3,7 @@ using Utility.Dal;
 using Utility.Managers;
 using Utility.Models;
 
-namespace WinFormsApp
+namespace WinFormsApp.Forms
 {
     public partial class TeamSelectForm : Form
     {

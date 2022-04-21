@@ -1,11 +1,12 @@
 ﻿using Utility.Managers;
 using Utility.Models;
+using WinFormsApp.UserControls;
 
-namespace WinFormsApp
+namespace WinFormsApp.Forms
 {
     public partial class MainForm : Form
     {
-        private readonly ISet<StartingEleven>? players = LoadPlayers();
+        private readonly ISet<StartingEleven>? players = PlayerManager.LoadPlayers();
         private readonly IList<PlayerCardControl> playerCards = new List<PlayerCardControl>();
 
         public MainForm()
@@ -33,18 +34,9 @@ namespace WinFormsApp
 
         private void ShowPlayers()
         {
-            players?.ToList().ForEach(player => playerCards.Add(new PlayerCardControl(player, this)));
+            players?.ToList().ForEach(player => playerCards.Add(new PlayerCardControl(player)));
 
             flpPlayers.Controls.AddRange(playerCards.ToArray());
-        }
-
-        private static ISet<StartingEleven>? LoadPlayers()
-        {
-            IList<Match>? matches = DataManager<Match>.LoadFromApi();
-
-            var teamIndex = matches?.ToList().FindIndex(m => m.HomeTeam?.Country == Settings.TeamSelected?.Country);
-
-            return matches?[(int)teamIndex].HomeTeamStatistics?.AllPlayers;
         }
 
         private void Players_DragEnter(object sender, DragEventArgs e)

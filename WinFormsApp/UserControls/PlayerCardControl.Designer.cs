@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsApp.UserControls
 {
     partial class PlayerCardControl
     {
@@ -65,7 +65,7 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblName.Location = new System.Drawing.Point(0, 55);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(200, 36);

@@ -2,15 +2,15 @@ using Utility.Dal;
 using Utility.Managers;
 using Utility.Models;
 
-namespace WinFormsApp
+namespace WinFormsApp.Forms
 {
     public partial class WelcomeForm : Form
     {
-        private readonly IRepository _repository;
+        private readonly IRepository repository;
 
         public WelcomeForm()
         {
-            _repository = RepositoryFactory.GetRepository();
+            repository = RepositoryFactory.GetRepository();
             InitializeComponent();
         }
 
@@ -21,7 +21,7 @@ namespace WinFormsApp
         }
 
         private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e) 
-            => _repository.SaveSettings(SettingsManager.ParseForFileLine());
+            => repository.SaveSettings(SettingsManager.ParseForFileLine());
 
         private void btnContinue_Click(object sender, EventArgs e)
         {

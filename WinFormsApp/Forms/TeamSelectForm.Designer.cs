@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsApp.Forms
 {
     partial class TeamSelectForm
     {

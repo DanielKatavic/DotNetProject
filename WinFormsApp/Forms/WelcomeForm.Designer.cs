@@ -1,6 +1,6 @@
 ﻿using Utility.Models;
 
-namespace WinFormsApp
+namespace WinFormsApp.Forms
 {
     partial class WelcomeForm
     {
