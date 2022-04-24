@@ -53,8 +53,8 @@ namespace WinFormsApp.UserControls
         {
             OpenFileDialog ofp = new()
             {
-                Filter = "Images|*.png;*.jpg;*.jpeg",
-                Title = "Change players image",
+                Filter = "Slike|*.png;*.jpg;*.jpeg",
+                Title = "Promijeni sliku igrača",
                 InitialDirectory = Application.StartupPath
             };
             if (ofp.ShowDialog() == DialogResult.OK)

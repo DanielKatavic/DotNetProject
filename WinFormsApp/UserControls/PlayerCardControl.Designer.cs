@@ -89,7 +89,7 @@
             // 
             this.lblShirtNumber.BackColor = System.Drawing.Color.Transparent;
             this.lblShirtNumber.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblShirtNumber.Location = new System.Drawing.Point(25, 91);
+            this.lblShirtNumber.Location = new System.Drawing.Point(25, 90);
             this.lblShirtNumber.Name = "lblShirtNumber";
             this.lblShirtNumber.Size = new System.Drawing.Size(151, 93);
             this.lblShirtNumber.TabIndex = 3;

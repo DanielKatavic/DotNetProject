@@ -34,9 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flpPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.flpYellowCards = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -99,31 +101,43 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.flpYellowCards);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(914, 834);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Sortirani igrači";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // flpYellowCards
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(922, 862);
-            this.tabControl1.TabIndex = 5;
+            this.flpYellowCards.AllowDrop = true;
+            this.flpYellowCards.AutoScroll = true;
+            this.flpYellowCards.Location = new System.Drawing.Point(3, 67);
+            this.flpYellowCards.Name = "flpYellowCards";
+            this.flpYellowCards.Size = new System.Drawing.Size(908, 275);
+            this.flpYellowCards.TabIndex = 1;
+            this.flpYellowCards.WrapContents = false;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(922, 862);
+            this.tabControl.TabIndex = 5;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 862);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -131,7 +145,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -144,6 +159,7 @@
         private Label label1;
         private FlowLayoutPanel flpPlayers;
         private TabPage tabPage2;
-        private TabControl tabControl1;
+        private TabControl tabControl;
+        private FlowLayoutPanel flpYellowCards;
     }
 }

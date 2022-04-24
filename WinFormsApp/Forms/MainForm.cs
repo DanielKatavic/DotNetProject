@@ -6,11 +6,22 @@ namespace WinFormsApp.Forms
 {
     public partial class MainForm : Form
     {
-        private readonly ISet<StartingEleven>? players = PlayerManager.LoadPlayers();
+        private readonly ISet<StartingEleven>? players;
         private readonly IList<PlayerCardControl> playerCards = new List<PlayerCardControl>();
+        private readonly IList<PlayerYellowCardControl> playerYellowCards = new List<PlayerYellowCardControl>();
 
         public MainForm()
-            => InitializeComponent();
+        {
+            try
+            {
+                players = PlayerManager.LoadPlayers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            InitializeComponent();
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -35,7 +46,6 @@ namespace WinFormsApp.Forms
         private void ShowPlayers()
         {
             players?.ToList().ForEach(player => playerCards.Add(new PlayerCardControl(player)));
-
             flpPlayers.Controls.AddRange(playerCards.ToArray());
         }
 
@@ -60,6 +70,13 @@ namespace WinFormsApp.Forms
             List<PlayerCardControl>? panelsList = e.Data?.GetData(typeof(List<PlayerCardControl>)) as List<PlayerCardControl>;
             panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
             PlayerCardControl.ResetSelectedControls();
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PlayerManager.LoadYellowCards(players);
+            players?.ToList().ForEach(player => playerYellowCards.Add(new PlayerYellowCardControl(player)));
+            flpYellowCards.Controls.AddRange(playerYellowCards.ToArray());
         }
     }
 }
