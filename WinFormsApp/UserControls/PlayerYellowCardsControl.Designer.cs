@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerYellowCardControl));
             this.lblName = new System.Windows.Forms.Label();
             this.imgYellowCard = new System.Windows.Forms.PictureBox();
+            this.lblNumberOfCards = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgYellowCard)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,13 +50,24 @@
             // 
             this.imgYellowCard.BackColor = System.Drawing.Color.Transparent;
             this.imgYellowCard.Image = ((System.Drawing.Image)(resources.GetObject("imgYellowCard.Image")));
-            this.imgYellowCard.Location = new System.Drawing.Point(96, 146);
+            this.imgYellowCard.Location = new System.Drawing.Point(61, 147);
             this.imgYellowCard.Name = "imgYellowCard";
-            this.imgYellowCard.Size = new System.Drawing.Size(104, 104);
+            this.imgYellowCard.Size = new System.Drawing.Size(139, 103);
             this.imgYellowCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgYellowCard.TabIndex = 3;
             this.imgYellowCard.TabStop = false;
             this.imgYellowCard.Visible = false;
+            // 
+            // lblNumberOfCards
+            // 
+            this.lblNumberOfCards.BackColor = System.Drawing.Color.Transparent;
+            this.lblNumberOfCards.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberOfCards.Location = new System.Drawing.Point(73, 172);
+            this.lblNumberOfCards.Name = "lblNumberOfCards";
+            this.lblNumberOfCards.Size = new System.Drawing.Size(27, 41);
+            this.lblNumberOfCards.TabIndex = 4;
+            this.lblNumberOfCards.Text = "1";
+            this.lblNumberOfCards.Visible = false;
             // 
             // PlayerYellowCardControl
             // 
@@ -63,6 +75,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WinFormsApp.Properties.Resources._default;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.lblNumberOfCards);
             this.Controls.Add(this.imgYellowCard);
             this.Controls.Add(this.lblName);
             this.Name = "PlayerYellowCardControl";
@@ -76,5 +89,6 @@
 
         private Label lblName;
         private PictureBox imgYellowCard;
+        private Label lblNumberOfCards;
     }
 }

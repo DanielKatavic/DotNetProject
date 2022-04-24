@@ -20,6 +20,8 @@ namespace Utility.Models
 
         public int NumberOfYellowCards { get; set; }
 
+        public int NumberOfGoals { get; set; }
+
         public int NumberOfRedCards => NumberOfYellowCards == 2 ? 1 : 0;
 
         public override string ToString() 

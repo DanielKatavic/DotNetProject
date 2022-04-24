@@ -36,6 +36,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flpYellowCards = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.flpGoals = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -43,6 +44,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.lblTeamName);
             this.tabPage1.Controls.Add(this.flpFavourites);
             this.tabPage1.Controls.Add(this.label1);
@@ -53,7 +55,6 @@
             this.tabPage1.Size = new System.Drawing.Size(914, 834);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Popis igrača";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // lblTeamName
             // 
@@ -101,6 +102,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.flpGoals);
             this.tabPage2.Controls.Add(this.flpYellowCards);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -108,15 +111,15 @@
             this.tabPage2.Size = new System.Drawing.Size(914, 834);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sortirani igrači";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // flpYellowCards
             // 
             this.flpYellowCards.AllowDrop = true;
             this.flpYellowCards.AutoScroll = true;
-            this.flpYellowCards.Location = new System.Drawing.Point(3, 67);
+            this.flpYellowCards.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpYellowCards.Location = new System.Drawing.Point(60, 70);
             this.flpYellowCards.Name = "flpYellowCards";
-            this.flpYellowCards.Size = new System.Drawing.Size(908, 275);
+            this.flpYellowCards.Size = new System.Drawing.Size(272, 759);
             this.flpYellowCards.TabIndex = 1;
             this.flpYellowCards.WrapContents = false;
             // 
@@ -130,7 +133,18 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(922, 862);
             this.tabControl.TabIndex = 5;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
+            // 
+            // flpGoals
+            // 
+            this.flpGoals.AllowDrop = true;
+            this.flpGoals.AutoScroll = true;
+            this.flpGoals.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpGoals.Location = new System.Drawing.Point(585, 70);
+            this.flpGoals.Name = "flpGoals";
+            this.flpGoals.Size = new System.Drawing.Size(272, 759);
+            this.flpGoals.TabIndex = 2;
+            this.flpGoals.WrapContents = false;
             // 
             // MainForm
             // 
@@ -161,5 +175,6 @@
         private TabPage tabPage2;
         private TabControl tabControl;
         private FlowLayoutPanel flpYellowCards;
+        private FlowLayoutPanel flpGoals;
     }
 }

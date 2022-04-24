@@ -7,8 +7,6 @@ namespace WinFormsApp.Forms
     public partial class MainForm : Form
     {
         private readonly ISet<StartingEleven>? players;
-        private readonly IList<PlayerCardControl> playerCards = new List<PlayerCardControl>();
-        private readonly IList<PlayerYellowCardControl> playerYellowCards = new List<PlayerYellowCardControl>();
 
         public MainForm()
         {
@@ -16,9 +14,10 @@ namespace WinFormsApp.Forms
             {
                 players = PlayerManager.LoadPlayers();
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Igrači nisu uspješno učitani!");
+                Application.Exit();
             }
             InitializeComponent();
         }
@@ -29,7 +28,7 @@ namespace WinFormsApp.Forms
             ShowPlayers();
         }
 
-        internal void ShowFavouritePlayers(PlayerCardControl playerCard)
+        internal void ShowFavouritePlayers(PlayerUserControl playerCard)
         {
             if (playerCard.playerIsFavourite)
             {
@@ -43,16 +42,13 @@ namespace WinFormsApp.Forms
             }
         }
 
-        private void ShowPlayers()
-        {
-            players?.ToList().ForEach(player => playerCards.Add(new PlayerCardControl(player)));
-            flpPlayers.Controls.AddRange(playerCards.ToArray());
-        }
+        private void ShowPlayers() 
+            => players?.ToList().ForEach(player => flpPlayers.Controls.Add(new PlayerUserControl(player)));
 
         private void Players_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
-            List<PlayerCardControl>? panelsList = e.Data?.GetData(typeof(List<PlayerCardControl>)) as List<PlayerCardControl>;
+            List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
             if (panelsList[0].playerIsFavourite)
             {
                 flpPlayers.AllowDrop = true;
@@ -67,16 +63,20 @@ namespace WinFormsApp.Forms
 
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
-            List<PlayerCardControl>? panelsList = e.Data?.GetData(typeof(List<PlayerCardControl>)) as List<PlayerCardControl>;
+            List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
             panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
-            PlayerCardControl.ResetSelectedControls();
+            PlayerUserControl.ResetSelectedControls();
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PlayerManager.LoadYellowCards(players);
-            players?.ToList().ForEach(player => playerYellowCards.Add(new PlayerYellowCardControl(player)));
-            flpYellowCards.Controls.AddRange(playerYellowCards.ToArray());
+            PlayerManager.players = players;
+
+            PlayerManager.LoadYellowCards();
+            players?.ToList().ForEach(player => flpYellowCards.Controls.Add(new PlayerYellowCardControl(player)));
+
+            PlayerManager.LoadGoals();
+            players?.ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
         }
     }
 }
