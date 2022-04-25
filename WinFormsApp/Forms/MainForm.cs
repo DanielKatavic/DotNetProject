@@ -7,6 +7,7 @@ namespace WinFormsApp.Forms
     public partial class MainForm : Form
     {
         private readonly ISet<StartingEleven>? players;
+        private readonly IList<Match>? matches = MatchManager.matches;
 
         private readonly ISet<StartingEleven>? playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
         private readonly ISet<StartingEleven>? playersWithGoals = PlayerManager.GetPlayersWithGoals();
@@ -73,17 +74,23 @@ namespace WinFormsApp.Forms
 
         private void SecondPage_Enter(object sender, EventArgs e)
         {
-            ClearPage();
-            FillPage();
+            ClearSecondPage();
+            FillSecondPage();
         }
 
-        private void ClearPage()
+        private void ThirdPage_Enter(object sender, EventArgs e)
+        {
+            ClearThirdPage();
+            FillThirdPage();
+        }
+
+        private void ClearSecondPage()
         {
             flpYellowCards.Controls.Clear();
             flpGoals.Controls.Clear();
         }
 
-        private void FillPage()
+        private void FillSecondPage()
         {
             playersWithYellowCards?
                 .OrderBy(p => p.NumberOfYellowCards)
@@ -93,5 +100,13 @@ namespace WinFormsApp.Forms
                 .OrderBy(p => p.NumberOfGoals)
                 .ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
         }
+
+        private void ClearThirdPage() 
+            => flpMatches.Controls.Clear();
+
+        private void FillThirdPage() 
+            => matches?
+                .OrderBy(m => m.Attendance)
+                .ToList().ForEach(match => flpMatches.Controls.Add(new TeamMatchesControl(match)));
     }
 }

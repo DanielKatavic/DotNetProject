@@ -37,9 +37,12 @@
             this.flpGoals = new System.Windows.Forms.FlowLayoutPanel();
             this.flpYellowCards = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.flpMatches = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -139,12 +142,34 @@
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(922, 862);
             this.tabControl.TabIndex = 5;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.flpMatches);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(914, 834);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Sve utakmice";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Enter += new System.EventHandler(this.ThirdPage_Enter);
+            // 
+            // flpMatches
+            // 
+            this.flpMatches.AutoScroll = true;
+            this.flpMatches.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpMatches.Location = new System.Drawing.Point(8, 138);
+            this.flpMatches.Name = "flpMatches";
+            this.flpMatches.Size = new System.Drawing.Size(898, 690);
+            this.flpMatches.TabIndex = 0;
+            this.flpMatches.WrapContents = false;
             // 
             // MainForm
             // 
@@ -161,6 +186,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -176,5 +202,7 @@
         private TabControl tabControl;
         private FlowLayoutPanel flpYellowCards;
         private FlowLayoutPanel flpGoals;
+        private TabPage tabPage3;
+        private FlowLayoutPanel flpMatches;
     }
 }
