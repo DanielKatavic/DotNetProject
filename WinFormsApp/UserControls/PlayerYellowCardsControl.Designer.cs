@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerYellowCardControl));
             this.lblName = new System.Windows.Forms.Label();
             this.imgYellowCard = new System.Windows.Forms.PictureBox();
             this.lblNumberOfCards = new System.Windows.Forms.Label();
@@ -49,7 +48,7 @@
             // imgYellowCard
             // 
             this.imgYellowCard.BackColor = System.Drawing.Color.Transparent;
-            this.imgYellowCard.Image = ((System.Drawing.Image)(resources.GetObject("imgYellowCard.Image")));
+            this.imgYellowCard.Image = global::WinFormsApp.Properties.Resources.yellow_card;
             this.imgYellowCard.Location = new System.Drawing.Point(61, 147);
             this.imgYellowCard.Name = "imgYellowCard";
             this.imgYellowCard.Size = new System.Drawing.Size(139, 103);

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerGoalsControl));
             this.lblName = new System.Windows.Forms.Label();
             this.imgBall = new System.Windows.Forms.PictureBox();
             this.lblNumberOfGoals = new System.Windows.Forms.Label();
@@ -49,7 +48,7 @@
             // imgBall
             // 
             this.imgBall.BackColor = System.Drawing.Color.Transparent;
-            this.imgBall.Image = ((System.Drawing.Image)(resources.GetObject("imgBall.Image")));
+            this.imgBall.Image = global::WinFormsApp.Properties.Resources.ball;
             this.imgBall.Location = new System.Drawing.Point(90, 168);
             this.imgBall.Name = "imgBall";
             this.imgBall.Size = new System.Drawing.Size(110, 82);

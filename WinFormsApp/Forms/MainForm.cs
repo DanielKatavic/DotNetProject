@@ -8,11 +8,14 @@ namespace WinFormsApp.Forms
     {
         private readonly ISet<StartingEleven>? players;
 
+        private readonly ISet<StartingEleven>? playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
+        private readonly ISet<StartingEleven>? playersWithGoals = PlayerManager.GetPlayersWithGoals();
+
         public MainForm()
         {
             try
             {
-                players = PlayerManager.LoadPlayers();
+                players = PlayerManager.AllPlayers;
             }
             catch 
             {
@@ -68,15 +71,27 @@ namespace WinFormsApp.Forms
             PlayerUserControl.ResetSelectedControls();
         }
 
-        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void SecondPage_Enter(object sender, EventArgs e)
         {
-            PlayerManager.players = players;
+            ClearPage();
+            FillPage();
+        }
 
-            PlayerManager.LoadYellowCards();
-            players?.ToList().ForEach(player => flpYellowCards.Controls.Add(new PlayerYellowCardControl(player)));
+        private void ClearPage()
+        {
+            flpYellowCards.Controls.Clear();
+            flpGoals.Controls.Clear();
+        }
 
-            PlayerManager.LoadGoals();
-            players?.ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
+        private void FillPage()
+        {
+            playersWithYellowCards?
+                .OrderBy(p => p.NumberOfYellowCards)
+                .ToList().ForEach(player => flpYellowCards.Controls.Add(new PlayerYellowCardControl(player)));
+            
+            playersWithGoals?
+                .OrderBy(p => p.NumberOfGoals)
+                .ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
         }
     }
 }
