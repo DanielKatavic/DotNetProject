@@ -15,11 +15,8 @@ namespace WinFormsApp.UserControls
 
         private void FillForm()
         {
-            if(match.HomeTeam?.Code is not null && match.AwayTeam?.Code is not null)
-            {
-                imgHomeTeam.Image = Properties.FlagsResources.ResourceManager.GetObject(match.HomeTeam.Code) as Image;
-                imgAwayTeam.Image = Properties.FlagsResources.ResourceManager.GetObject(match.AwayTeam.Code) as Image;
-            }
+            imgHomeTeam.Image = Properties.FlagsResources.ResourceManager.GetObject(match.HomeTeam?.Code ?? string.Empty) as Image;
+            imgAwayTeam.Image = Properties.FlagsResources.ResourceManager.GetObject(match.AwayTeam?.Code ?? string.Empty) as Image;
             lblHomeTeam.Text = match.HomeTeam?.Country;
             lblAwayTeam.Text = match.AwayTeam?.Country;
             lblLocation.Text = match?.Location;
