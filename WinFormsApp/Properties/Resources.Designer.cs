@@ -63,9 +63,9 @@ namespace WinFormsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _default {
+        internal static System.Drawing.Bitmap captain_band {
             get {
-                object obj = ResourceManager.GetObject("_default", resourceCulture);
+                object obj = ResourceManager.GetObject("captain_band", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,19 @@ namespace WinFormsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ball {
+        internal static System.Drawing.Bitmap football_shirt {
             get {
-                object obj = ResourceManager.GetObject("ball", resourceCulture);
+                object obj = ResourceManager.GetObject("football_shirt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap goal {
+            get {
+                object obj = ResourceManager.GetObject("goal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

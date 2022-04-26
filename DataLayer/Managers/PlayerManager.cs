@@ -4,7 +4,7 @@ namespace Utility.Managers
 {
     public static class PlayerManager
     {
-        private static readonly IList<Match>? matches = DataManager<Match>.LoadFromApi();
+        private static readonly IList<Match>? matches = MatchManager.AllMatches;
 
         private static readonly Predicate<TeamEvent> isYellowCard = te => te.TypeOfEvent is "yellow-card" or "yellow-card-second";
         private static readonly Predicate<TeamEvent> isGoal = te => te.TypeOfEvent is "goal";

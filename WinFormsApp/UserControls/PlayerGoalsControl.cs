@@ -28,7 +28,7 @@ namespace WinFormsApp.UserControls
 
         private void FillForm()
         {
-            lblName.Text = player?.Name;
+            lblName.Text = player?.Name?.ToUpper();
             lblNumberOfGoals.Text = player?.NumberOfGoals.ToString();
         }
     }

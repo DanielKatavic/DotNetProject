@@ -22,9 +22,6 @@ namespace WinFormsApp.Forms
         {
             Thread.Sleep(700);
             backgroundWorker.ReportProgress(50);
-            Thread.Sleep(700);
-            backgroundWorker.ReportProgress(100);
-
             try
             {
                 e.Result = Settings.AccessSelected
@@ -36,6 +33,8 @@ namespace WinFormsApp.Forms
                 MessageBox.Show(ex.Message);
                 e.Cancel = true;
             }
+            Thread.Sleep(300);
+            backgroundWorker.ReportProgress(100);
         }
 
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) 

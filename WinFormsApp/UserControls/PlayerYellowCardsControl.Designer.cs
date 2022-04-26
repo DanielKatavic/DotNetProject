@@ -37,8 +37,8 @@
             // lblName
             // 
             this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(0, 55);
+            this.lblName.Font = new System.Drawing.Font("Agency FB", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(0, 75);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(200, 36);
             this.lblName.TabIndex = 2;
@@ -60,23 +60,25 @@
             // lblNumberOfCards
             // 
             this.lblNumberOfCards.BackColor = System.Drawing.Color.Transparent;
-            this.lblNumberOfCards.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumberOfCards.Location = new System.Drawing.Point(73, 172);
+            this.lblNumberOfCards.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNumberOfCards.Location = new System.Drawing.Point(74, 159);
             this.lblNumberOfCards.Name = "lblNumberOfCards";
-            this.lblNumberOfCards.Size = new System.Drawing.Size(27, 41);
+            this.lblNumberOfCards.Size = new System.Drawing.Size(27, 55);
             this.lblNumberOfCards.TabIndex = 4;
             this.lblNumberOfCards.Text = "1";
+            this.lblNumberOfCards.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblNumberOfCards.Visible = false;
             // 
             // PlayerYellowCardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WinFormsApp.Properties.Resources._default;
+            this.BackgroundImage = global::WinFormsApp.Properties.Resources.football_shirt;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.lblNumberOfCards);
             this.Controls.Add(this.imgYellowCard);
             this.Controls.Add(this.lblName);
+            this.DoubleBuffered = true;
             this.Name = "PlayerYellowCardControl";
             this.Size = new System.Drawing.Size(200, 250);
             ((System.ComponentModel.ISupportInitialize)(this.imgYellowCard)).EndInit();

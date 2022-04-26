@@ -52,6 +52,7 @@
             this.tabPage1.Controls.Add(this.flpFavourites);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.flpPlayers);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -61,18 +62,17 @@
             // 
             // lblTeamName
             // 
-            this.lblTeamName.AutoSize = true;
-            this.lblTeamName.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTeamName.Location = new System.Drawing.Point(359, 40);
+            this.lblTeamName.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTeamName.Location = new System.Drawing.Point(337, 45);
             this.lblTeamName.Name = "lblTeamName";
-            this.lblTeamName.Size = new System.Drawing.Size(184, 37);
+            this.lblTeamName.Size = new System.Drawing.Size(240, 40);
             this.lblTeamName.TabIndex = 1;
             this.lblTeamName.Text = "Country name";
+            this.lblTeamName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flpFavourites
             // 
             this.flpFavourites.AllowDrop = true;
-            this.flpFavourites.AutoScroll = true;
             this.flpFavourites.Location = new System.Drawing.Point(3, 454);
             this.flpFavourites.Name = "flpFavourites";
             this.flpFavourites.Size = new System.Drawing.Size(908, 275);
@@ -83,13 +83,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(349, 397);
+            this.label1.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(337, 394);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 37);
+            this.label1.Size = new System.Drawing.Size(240, 40);
             this.label1.TabIndex = 3;
             this.label1.Text = "Favourite players";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flpPlayers
             // 
@@ -108,6 +108,7 @@
             this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.flpGoals);
             this.tabPage2.Controls.Add(this.flpYellowCards);
+            this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -153,6 +154,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.flpMatches);
+            this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(914, 834);
@@ -178,12 +180,13 @@
             this.ClientSize = new System.Drawing.Size(922, 862);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);

@@ -7,7 +7,7 @@ namespace WinFormsApp.Forms
     public partial class MainForm : Form
     {
         private readonly ISet<StartingEleven>? players;
-        private readonly IList<Match>? matches = MatchManager.matches;
+        private readonly IList<Match>? matches = MatchManager.AllMatches;
 
         private readonly ISet<StartingEleven>? playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
         private readonly ISet<StartingEleven>? playersWithGoals = PlayerManager.GetPlayersWithGoals();
@@ -47,7 +47,7 @@ namespace WinFormsApp.Forms
         }
 
         private void ShowPlayers() 
-            => players?.ToList().ForEach(player => flpPlayers.Controls.Add(new PlayerUserControl(player)));
+            => players?.OrderBy(p => p.ShirtNumber).ToList().ForEach(player => flpPlayers.Controls.Add(new PlayerUserControl(player)));
 
         private void Players_DragEnter(object sender, DragEventArgs e)
         {
@@ -68,9 +68,19 @@ namespace WinFormsApp.Forms
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
             List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
-            panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
+            if (GetFlpFavouritesCount() < 3 || panelsList[0].playerIsFavourite)
+            {
+                panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
+            }
+            else
+            {
+                MessageBox.Show("Ne možete dodati više od tri omiljena igrača!");
+            }
             PlayerUserControl.ResetSelectedControls();
         }
+
+        internal int GetFlpFavouritesCount() 
+            => flpFavourites.Controls.Count;
 
         private void SecondPage_Enter(object sender, EventArgs e)
         {
