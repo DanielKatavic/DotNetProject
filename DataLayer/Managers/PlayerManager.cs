@@ -24,17 +24,18 @@ namespace Utility.Managers
 
         public static ISet<StartingEleven> GetPlayersWithGoals()
         {
-            IEnumerable<List<TeamEvent>?>? teamEvents = GetTeamEvents(methodName);
+            IEnumerable<List<TeamEvent>?>? teamEvents = GetTeamEvents(methodName ?? string.Empty);
             teamEvents?.ToList().ForEach(te => te?.ForEach(g => AddGoalToPlayer(g)));
             return playersWithGoals;
         }
 
         public static ISet<StartingEleven> GetPlayersWithYellowCards()
         {
-            IEnumerable<List<TeamEvent>?>? teamEvents = GetTeamEvents(methodName);
+            IEnumerable<List<TeamEvent>?>? teamEvents = GetTeamEvents(methodName ?? string.Empty);
             teamEvents?.ToList().ForEach(te => te?.ForEach(yc => AddYellowCardToPlayer(yc)));
             return playersWithYellowCards;
         }
+
         private static IEnumerable<List<TeamEvent>?>? GetTeamEvents(string nameOfMethod)
             => matches?.ToList().Select(
               m => m?.HomeTeam?.Country == Settings.TeamSelected?.Country ?

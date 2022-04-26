@@ -93,7 +93,7 @@ namespace WinFormsApp.Forms
             this.btnContinue.TabIndex = 4;
             this.btnContinue.Text = "Dalje";
             this.btnContinue.UseVisualStyleBackColor = false;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            this.btnContinue.Click += new System.EventHandler(this.BtnContinue_Click);
             // 
             // btnCancel
             // 
@@ -103,7 +103,7 @@ namespace WinFormsApp.Forms
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // label3
             // 
@@ -143,7 +143,7 @@ namespace WinFormsApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(285, 300);
             this.ControlBox = false;
             this.Controls.Add(this.cbAccess);

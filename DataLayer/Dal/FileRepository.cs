@@ -5,19 +5,16 @@ namespace Utility.Dal
 {
     public class FileRepository : IRepository
     {
-        private readonly string teamsFilePath = Settings.GenderSelected == Gender.Male ? FileConstants.MaleTeamPath : FileConstants.FemaleTeamPath;
-        private readonly string matchesFilePath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\men\matches.json";
-
         public void SaveSettings(string informations) 
             => File.WriteAllText(FileConstants.SettingsPath, informations);
 
-        public string LoadFile()
+        public string LoadFile(string path)
         {
-            if(!File.Exists(matchesFilePath))
+            if (!File.Exists(path))
             {
                 throw new FileNotFoundException("Dogodila se greška prilikom učitavanja datoteke!");
             }
-            return File.ReadAllText(matchesFilePath);
+            return File.ReadAllText(path);
         }
 
         public static bool SettingsExists() 

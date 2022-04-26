@@ -3,6 +3,6 @@
     public interface IRepository
     {
         void SaveSettings(string informations);
-        string LoadFile();
+        string LoadFile(string path);
     }
 }

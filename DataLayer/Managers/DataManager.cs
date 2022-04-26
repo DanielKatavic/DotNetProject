@@ -1,14 +1,21 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using Utility.Constants;
+using Utility.Dal;
 using Utility.Models;
 
 namespace Utility.Managers
 {
     public class DataManager<T>
     {
-        public static IList<T>? LoadFromFile(string json)
+        private static readonly IRepository repository = RepositoryFactory.GetRepository();
+
+        public static IList<T>? LoadFromFile()
         {
+            string path = FileConstants.GetFilePath(typeof(T), Settings.GenderSelected);
+
+            string json = repository.LoadFile(path);
+
             if (string.IsNullOrWhiteSpace(json))
             {
                 throw new ArgumentException("Dogodila se greška prilikom učitavanja datoteke!");
@@ -18,7 +25,9 @@ namespace Utility.Managers
 
         public static IList<T>? LoadFromApi()
         {
-            var source = ApiConstants.GetEndpoint(typeof(T), Settings.TeamSelected?.FifaCode);
+            var source = ApiConstants.GetEndpoint(typeof(T), 
+                Settings.TeamSelected?.FifaCode ?? string.Empty, 
+                Settings.GenderSelected);
 
             var apiClient = new RestClient(source);
             var apiResult = apiClient.Execute<T>(new RestRequest());

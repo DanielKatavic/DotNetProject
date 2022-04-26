@@ -7,18 +7,13 @@ namespace WinFormsApp.Forms
 {
     public partial class TeamSelectForm : Form
     {
-        private readonly IRepository _repository;
-
-        public TeamSelectForm()
-        {
-            _repository = RepositoryFactory.GetRepository();
-            InitializeComponent();
-        }
+        public TeamSelectForm() 
+            => InitializeComponent();
 
         private void TeamSelectForm_Load(object sender, EventArgs e) 
             => backgroundWorker.RunWorkerAsync();
 
-        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             Thread.Sleep(700);
             backgroundWorker.ReportProgress(50);
@@ -26,7 +21,7 @@ namespace WinFormsApp.Forms
             {
                 e.Result = Settings.AccessSelected
                           == Access.Online ? DataManager<Team>.LoadFromApi()
-                          : DataManager<Team>.LoadFromFile(_repository.LoadFile());
+                          : DataManager<Team>.LoadFromFile();
             }
             catch (Exception ex)
             {
@@ -37,10 +32,10 @@ namespace WinFormsApp.Forms
             backgroundWorker.ReportProgress(100);
         }
 
-        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) 
+        private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) 
             => progressBar.Value = e.ProgressPercentage;
 
-        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             UseWaitCursor = false;
             if (e.Cancelled)
@@ -57,15 +52,15 @@ namespace WinFormsApp.Forms
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) 
-            => Close();
+        private void BtnCancel_Click(object sender, EventArgs e) 
+            => this.Close();
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void BtnContinue_Click(object sender, EventArgs e)
         {
             Settings.TeamSelected = cbTeams.SelectedItem as Team;
             this.Hide();
             MainForm mainForm = new();
-            mainForm.Show();
+            mainForm.ShowDialog();
             this.Close();
         }
     }

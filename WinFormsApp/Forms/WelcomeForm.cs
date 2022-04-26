@@ -14,7 +14,7 @@ namespace WinFormsApp.Forms
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Jeste li sigurni da želite izaæi?", "Izlaz", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK) Application.Exit();
@@ -23,13 +23,13 @@ namespace WinFormsApp.Forms
         private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e) 
             => repository.SaveSettings(SettingsManager.ParseForFileLine());
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void BtnContinue_Click(object sender, EventArgs e)
         {
             SetSettingsData();
-            //this.Hide();
+            this.Hide();
             TeamSelectForm teamSelectForm = new();
             teamSelectForm.ShowDialog();
-            //this.Close();
+            this.Close();
         }
 
         private void WelcomeForm_Load(object sender, EventArgs e) 
