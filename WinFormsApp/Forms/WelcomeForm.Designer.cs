@@ -87,6 +87,7 @@ namespace WinFormsApp.Forms
             // btnContinue
             // 
             this.btnContinue.BackColor = System.Drawing.SystemColors.Control;
+            this.btnContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnContinue.Location = new System.Drawing.Point(86, 240);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(86, 27);
@@ -97,6 +98,7 @@ namespace WinFormsApp.Forms
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(178, 240);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(86, 27);

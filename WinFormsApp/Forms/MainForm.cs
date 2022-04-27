@@ -9,15 +9,18 @@ namespace WinFormsApp.Forms
         private readonly ISet<StartingEleven>? players;
         private readonly IList<Match>? matches;
 
-        private readonly ISet<StartingEleven>? playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
-        private readonly ISet<StartingEleven>? playersWithGoals = PlayerManager.GetPlayersWithGoals();
+        private readonly ISet<StartingEleven>? playersWithYellowCards;
+        private readonly ISet<StartingEleven>? playersWithGoals;
 
         public MainForm()
         {
             try
             {
-                players = PlayerManager.AllPlayers;
-                matches = MatchManager.AllMatches;
+                PlayerManager.ResetCollections();
+                players = PlayerManager.GetAllPlayers();
+                matches = MatchManager.GetAllMatches();
+                playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
+                playersWithGoals = PlayerManager.GetPlayersWithGoals();
             }
             catch 
             {
@@ -119,5 +122,26 @@ namespace WinFormsApp.Forms
             => matches?
                 .OrderByDescending(m => m.Attendance)
                 .ToList().ForEach(match => flpMatches.Controls.Add(new TeamMatchesControl(match)));
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            WelcomeForm welcomeForm = new();
+            if (welcomeForm.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void ChangeLangToCro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChangeLangToEng_Click(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            Dispose();
+            InitializeComponent();
+        }
     }
 }

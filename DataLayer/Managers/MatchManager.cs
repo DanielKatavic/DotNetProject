@@ -2,8 +2,9 @@
 
 namespace Utility.Managers
 {
-    public class MatchManager
+    public static class MatchManager
     {
-        public static readonly IList<Match>? AllMatches = DataManager<Match>.LoadFromApi();
+        public static IList<Match>? GetAllMatches() 
+            => DataManager<Match>.LoadFromApi();
     }
 }

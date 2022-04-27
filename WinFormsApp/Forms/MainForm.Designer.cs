@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblTeamName = new System.Windows.Forms.Label();
             this.flpFavourites = new System.Windows.Forms.FlowLayoutPanel();
@@ -39,10 +40,16 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.flpMatches = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.hrvatskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -56,7 +63,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(914, 834);
+            this.tabPage1.Size = new System.Drawing.Size(914, 801);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Popis igrača";
             // 
@@ -112,7 +119,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(914, 834);
+            this.tabPage2.Size = new System.Drawing.Size(914, 801);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sortirani igrači";
             this.tabPage2.Enter += new System.EventHandler(this.SecondPage_Enter);
@@ -122,9 +129,9 @@
             this.flpGoals.AllowDrop = true;
             this.flpGoals.AutoScroll = true;
             this.flpGoals.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpGoals.Location = new System.Drawing.Point(585, 70);
+            this.flpGoals.Location = new System.Drawing.Point(634, 6);
             this.flpGoals.Name = "flpGoals";
-            this.flpGoals.Size = new System.Drawing.Size(272, 759);
+            this.flpGoals.Size = new System.Drawing.Size(272, 787);
             this.flpGoals.TabIndex = 2;
             this.flpGoals.WrapContents = false;
             // 
@@ -133,9 +140,9 @@
             this.flpYellowCards.AllowDrop = true;
             this.flpYellowCards.AutoScroll = true;
             this.flpYellowCards.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpYellowCards.Location = new System.Drawing.Point(60, 70);
+            this.flpYellowCards.Location = new System.Drawing.Point(8, 6);
             this.flpYellowCards.Name = "flpYellowCards";
-            this.flpYellowCards.Size = new System.Drawing.Size(272, 759);
+            this.flpYellowCards.Size = new System.Drawing.Size(272, 787);
             this.flpYellowCards.TabIndex = 1;
             this.flpYellowCards.WrapContents = false;
             // 
@@ -144,11 +151,10 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Location = new System.Drawing.Point(0, 33);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(922, 862);
+            this.tabControl.Size = new System.Drawing.Size(922, 829);
             this.tabControl.TabIndex = 5;
             // 
             // tabPage3
@@ -157,7 +163,7 @@
             this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(914, 834);
+            this.tabPage3.Size = new System.Drawing.Size(914, 801);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Sve utakmice";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -167,17 +173,71 @@
             // 
             this.flpMatches.AutoScroll = true;
             this.flpMatches.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpMatches.Location = new System.Drawing.Point(8, 138);
+            this.flpMatches.Location = new System.Drawing.Point(8, 3);
             this.flpMatches.Name = "flpMatches";
-            this.flpMatches.Size = new System.Drawing.Size(898, 690);
+            this.flpMatches.Size = new System.Drawing.Size(898, 790);
             this.flpMatches.TabIndex = 0;
             this.flpMatches.WrapContents = false;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripDropDownButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(922, 30);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(30, 30);
+            this.toolStripButton1.Text = "Postavke";
+            this.toolStripButton1.Click += new System.EventHandler(this.Settings_Click);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hrvatskiToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 27);
+            this.toolStripDropDownButton1.Text = "Promijeni jezik";
+            // 
+            // hrvatskiToolStripMenuItem
+            // 
+            this.hrvatskiToolStripMenuItem.Image = global::WinFormsApp.Properties.FlagsResources.CRO;
+            this.hrvatskiToolStripMenuItem.Name = "hrvatskiToolStripMenuItem";
+            this.hrvatskiToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.hrvatskiToolStripMenuItem.Text = "Hrvatski";
+            this.hrvatskiToolStripMenuItem.Click += new System.EventHandler(this.ChangeLangToCro_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Image = global::WinFormsApp.Properties.FlagsResources.ENG;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.ChangeLangToEng_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 862);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -190,6 +250,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -207,5 +269,10 @@
         private FlowLayoutPanel flpGoals;
         private TabPage tabPage3;
         private FlowLayoutPanel flpMatches;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButton1;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem hrvatskiToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
     }
 }

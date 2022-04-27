@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeamMatchesControl));
             this.imgHomeTeam = new System.Windows.Forms.PictureBox();
             this.imgAwayTeam = new System.Windows.Forms.PictureBox();
             this.lblHomeTeam = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             // 
             // imgHomeTeam
             // 
-            this.imgHomeTeam.Image = ((System.Drawing.Image)(resources.GetObject("imgHomeTeam.Image")));
             this.imgHomeTeam.Location = new System.Drawing.Point(63, 42);
             this.imgHomeTeam.Name = "imgHomeTeam";
             this.imgHomeTeam.Size = new System.Drawing.Size(192, 115);

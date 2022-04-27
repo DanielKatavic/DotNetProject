@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utility.Models;
+﻿using Utility.Models;
 
 namespace Utility.Managers
 {
@@ -12,7 +7,7 @@ namespace Utility.Managers
         private const char Del = '|';
 
         public static string ParseForFileLine()
-            => $"{Settings.GenderSelected}{Del}{Settings.LangSelected}{Del}{Settings.AccessSelected}{Del}{Settings.TeamSelected}";
+            => $"{Settings.GenderSelected}{Del}{Settings.LangSelected}{Del}{Settings.AccessSelected}{Del}{Settings.TeamSelected?.Country}";
 
         public static void ParseFromFileLine(string line)
         {
