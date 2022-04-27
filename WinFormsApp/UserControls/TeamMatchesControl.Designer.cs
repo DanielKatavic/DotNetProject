@@ -65,7 +65,7 @@
             // 
             // lblHomeTeam
             // 
-            this.lblHomeTeam.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHomeTeam.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHomeTeam.Location = new System.Drawing.Point(63, 160);
             this.lblHomeTeam.Name = "lblHomeTeam";
             this.lblHomeTeam.Size = new System.Drawing.Size(192, 37);
@@ -75,7 +75,7 @@
             // 
             // lblAwayTeam
             // 
-            this.lblAwayTeam.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAwayTeam.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAwayTeam.Location = new System.Drawing.Point(560, 160);
             this.lblAwayTeam.Name = "lblAwayTeam";
             this.lblAwayTeam.Size = new System.Drawing.Size(192, 37);
@@ -115,17 +115,17 @@
             // 
             // lblLocation
             // 
-            this.lblLocation.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLocation.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLocation.Location = new System.Drawing.Point(261, 12);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(293, 49);
             this.lblLocation.TabIndex = 7;
             this.lblLocation.Text = "Location";
-            this.lblLocation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLocation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lblAttendance
             // 
-            this.lblAttendance.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAttendance.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAttendance.Location = new System.Drawing.Point(261, 148);
             this.lblAttendance.Name = "lblAttendance";
             this.lblAttendance.Size = new System.Drawing.Size(293, 49);
@@ -135,6 +135,7 @@
             // 
             // label2
             // 
+            this.label2.Font = new System.Drawing.Font("Agency FB", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(357, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
@@ -144,6 +145,7 @@
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Agency FB", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(357, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 23);

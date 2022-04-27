@@ -90,7 +90,7 @@ namespace WinFormsApp.UserControls
             }
             if (e.Button == MouseButtons.Left && (ModifierKeys & Keys.Control) == Keys.Control)
             {
-                if (selectedPlayerCards.Count + (ParentForm as MainForm)?.GetFlpFavouritesCount() < 3)
+                if (selectedPlayerCards.Count + (ParentForm as MainForm)?.GetFlpFavouritesCount() < 3 || playerIsFavourite)
                 {
                     BorderStyle = BorderStyle.FixedSingle;
                     selectedPlayerCards?.Add(this);
