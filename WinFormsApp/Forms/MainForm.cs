@@ -1,4 +1,5 @@
-﻿using Utility.Managers;
+﻿using Utility.Dal;
+using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
 
@@ -12,8 +13,10 @@ namespace WinFormsApp.Forms
         private ISet<StartingEleven>? playersWithYellowCards;
         private ISet<StartingEleven>? playersWithGoals;
 
-        public MainForm() 
-            => InitializeComponent();
+        public MainForm()
+        {
+            InitializeComponent();
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {

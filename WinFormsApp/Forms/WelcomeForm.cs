@@ -21,7 +21,7 @@ namespace WinFormsApp.Forms
         }
 
         private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e) 
-            => repository.SaveSettings(SettingsManager.ParseForFileLine());
+            => repository.SaveSettings(Settings.ParseForFileLine());
 
         private void BtnContinue_Click(object sender, EventArgs e)
         {

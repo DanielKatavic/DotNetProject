@@ -2,7 +2,7 @@
 
 namespace Utility.Models
 {
-    public class Team
+    public class Team 
     {
         [JsonProperty("id")]
         public long Id { get; set; }
@@ -30,7 +30,7 @@ namespace Utility.Models
 
         [JsonProperty("penalties")]
         public long Penalties { get; set; }
-        
+
         public override string ToString()
             => $"{Country} ({FifaCode})";
     }

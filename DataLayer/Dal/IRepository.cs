@@ -4,5 +4,6 @@
     {
         void SaveSettings(string informations);
         string LoadFile(string path);
+        public string LoadSettings();
     }
 }

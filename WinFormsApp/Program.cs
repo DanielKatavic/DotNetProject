@@ -1,4 +1,5 @@
 using Utility.Dal;
+using Utility.Managers;
 using WinFormsApp.Forms;
 
 namespace WinFormsApp
@@ -14,8 +15,11 @@ namespace WinFormsApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new WelcomeForm());
-            //Application.Run(FileRepository.SettingsExists() ? new TeamSelectForm() : new WelcomeForm());
+            if (FileRepository.SettingsExists())
+            {
+                SettingsManager.LoadSettings();
+            }
+            Application.Run(FileRepository.SettingsExists() ? new MainForm() : new WelcomeForm());
         }
     }
 }

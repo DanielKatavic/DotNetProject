@@ -8,6 +8,12 @@ namespace Utility.Dal
         public void SaveSettings(string informations) 
             => File.WriteAllText(FileConstants.SettingsPath, informations);
 
+        public string LoadSettings()
+            => File.ReadAllText(FileConstants.SettingsPath);
+
+        public static bool SettingsExists()
+            => File.Exists(FileConstants.SettingsPath);
+
         public string LoadFile(string path)
         {
             if (!File.Exists(path))
@@ -16,8 +22,5 @@ namespace Utility.Dal
             }
             return File.ReadAllText(path);
         }
-
-        public static bool SettingsExists() 
-            => File.Exists(FileConstants.SettingsPath);
     }
 }

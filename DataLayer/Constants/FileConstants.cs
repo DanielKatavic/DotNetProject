@@ -10,17 +10,17 @@ namespace Utility.Constants
         private const string MaleMatchPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\men\matches.json";
         private const string FemaleMatchPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\women\matches.json";
 
-        private static string GetMatchPath()
-            => Settings.GenderSelected == Gender.Male ? MaleMatchPath : FemaleMatchPath;
+        private static string GetMatchPath(Gender genderSelected)
+            => genderSelected == Gender.Male ? MaleMatchPath : FemaleMatchPath;
 
-        private static string GetTeamPath()
-            => Settings.GenderSelected == Gender.Male ? MaleTeamPath : FemaleTeamPath;
+        private static string GetTeamPath(Gender genderSelected)
+            => genderSelected == Gender.Male ? MaleTeamPath : FemaleTeamPath;
 
         public static string GetFilePath(Type t, Gender genderSelected)
         {
-            if (t == typeof(Team)) return GetTeamPath();
+            if (t == typeof(Team)) return GetTeamPath(genderSelected);
 
-            if (t == typeof(Match)) return GetMatchPath();
+            if (t == typeof(Match)) return GetMatchPath(genderSelected);
 
             return string.Empty;
         }
