@@ -6,34 +6,55 @@ namespace WinFormsApp.Forms
 {
     public partial class MainForm : Form
     {
-        private readonly ISet<StartingEleven>? players;
-        private readonly IList<Match>? matches;
+        private ISet<StartingEleven>? players;
+        private IList<Match>? matches;
 
-        private readonly ISet<StartingEleven>? playersWithYellowCards;
-        private readonly ISet<StartingEleven>? playersWithGoals;
+        private ISet<StartingEleven>? playersWithYellowCards;
+        private ISet<StartingEleven>? playersWithGoals;
 
-        public MainForm()
+        public MainForm() 
+            => InitializeComponent();
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
             try
             {
-                PlayerManager.ResetCollections();
-                players = PlayerManager.GetAllPlayers();
-                matches = MatchManager.GetAllMatches();
-                playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
-                playersWithGoals = PlayerManager.GetPlayersWithGoals();
+                FillFormAsync();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Igrači nisu uspješno učitani!");
                 Application.Exit();
             }
-            InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void FillFormAsync()
         {
-            lblTeamName.Text = Settings.TeamSelected?.ToString();
+            await LoadDataFromManager();
+            lblTeamName.Text = Settings.TeamSelected?.Country;
             ShowPlayers();
+            tabControl.Visible = true;
+        }
+
+        private async Task LoadDataFromManager()
+        {
+            PlayerManager.ResetCollections();
+            ShowProgress(20);
+            await PlayerManager.LoadAllPlayers();
+            players = PlayerManager.Players;
+            ShowProgress(40);
+            matches = await MatchManager.GetAllMatches();
+            ShowProgress(60);
+            playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
+            ShowProgress(80);
+            playersWithGoals = PlayerManager.GetPlayersWithGoals();
+            ShowProgress(100);
+        }
+
+        private void ShowProgress(int progress)
+        {
+            progressBar.Value = progress;
+            lblProgress.Text = $"{progress}%";
         }
 
         internal void ShowFavouritePlayers(PlayerUserControl playerCard)
@@ -50,13 +71,14 @@ namespace WinFormsApp.Forms
             }
         }
 
-        private void ShowPlayers() 
+        private void ShowPlayers()
             => players?.OrderBy(p => p.ShirtNumber).ToList().ForEach(player => flpPlayers.Controls.Add(new PlayerUserControl(player)));
 
         private void Players_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
             List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
+            if (panelsList is null) return;
             if (panelsList[0].playerIsFavourite)
             {
                 flpPlayers.AllowDrop = true;
@@ -72,6 +94,7 @@ namespace WinFormsApp.Forms
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
             List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
+            if (panelsList is null) return;
             if (GetFlpFavouritesCount() < 3 || panelsList[0].playerIsFavourite)
             {
                 panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
@@ -83,7 +106,7 @@ namespace WinFormsApp.Forms
             PlayerUserControl.ResetSelectedControls();
         }
 
-        internal int GetFlpFavouritesCount() 
+        internal int GetFlpFavouritesCount()
             => flpFavourites.Controls.Count;
 
         private void SecondPage_Enter(object sender, EventArgs e)
@@ -109,16 +132,16 @@ namespace WinFormsApp.Forms
             playersWithYellowCards?
                 .OrderByDescending(p => p.NumberOfYellowCards)
                 .ToList().ForEach(player => flpYellowCards.Controls.Add(new PlayerYellowCardControl(player)));
-            
+
             playersWithGoals?
                 .OrderByDescending(p => p.NumberOfGoals)
                 .ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
         }
 
-        private void ClearThirdPage() 
+        private void ClearThirdPage()
             => flpMatches.Controls.Clear();
 
-        private void FillThirdPage() 
+        private void FillThirdPage()
             => matches?
                 .OrderByDescending(m => m.Attendance)
                 .ToList().ForEach(match => flpMatches.Controls.Add(new TeamMatchesControl(match)));
@@ -134,14 +157,18 @@ namespace WinFormsApp.Forms
 
         private void ChangeLangToCro_Click(object sender, EventArgs e)
         {
-
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr");
+            Controls.Clear();
+            InitializeComponent();
+            FillFormAsync();
         }
 
         private void ChangeLangToEng_Click(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-            Dispose();
+            Controls.Clear();
             InitializeComponent();
+            FillFormAsync();
         }
     }
 }

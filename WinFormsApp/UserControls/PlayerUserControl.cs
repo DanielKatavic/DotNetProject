@@ -24,9 +24,9 @@ namespace WinFormsApp.UserControls
             lblShirtNumber.Text = player?.ShirtNumber.ToString();
             lblPosition.Text = player?.Position?.ToString();
             if (player is not null && player.Captain) imgCapitain.Visible = true;
-            ttUserControl.SetToolTip(this, $"{player.Name?.ToUpper()}" +
-                $"{Environment.NewLine}Broj dresa: {player.ShirtNumber}" +
-                $"{Environment.NewLine}{player.Position}");
+            ttUserControl.SetToolTip(this, $"{player?.Name?.ToUpper()}" +
+                $"{Environment.NewLine}Broj dresa: {player?.ShirtNumber}" +
+                $"{Environment.NewLine}{player?.Position}");
         }
 
         private void AddToFavourites_Click(object sender, EventArgs e)

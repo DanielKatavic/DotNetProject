@@ -118,139 +118,139 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ARG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ARG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AUS.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BEL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CHI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CHI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CHN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CHN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CMR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CMR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="COL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\COL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CRC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CRC.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CRO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DEN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EGY" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EGY.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ENG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ENG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ESP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ESP.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FRA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GER.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IRN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IRN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ISL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ISL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ITA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ITA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="JAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JAM.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="JPN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JPN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KOR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\KOR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KSA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\KSA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MEX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MEX.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NED" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NGA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NGA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NOR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NOR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NZL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NZL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PER.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="POL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\POL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="POR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\POR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RSA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RSA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RUS.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SCO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SEN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SRB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SRB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SUI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SWE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SWE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="THA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\THA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TUN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TUN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="URU" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\URU.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BRA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JPN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JPN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SRB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SRB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="COL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\COL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SWE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SWE.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NGA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NGA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ITA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ITA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="USA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\USA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SUI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CHN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CHN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TUN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TUN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ARG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ARG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CHI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CHI.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SEN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NOR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NOR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KSA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KSA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RUS.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IRN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IRN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CRC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CRC.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SCO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AUS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AUS.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PER.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EGY" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EGY.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CRO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ISL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ISL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="POR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ENG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ENG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MEX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MEX.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BEL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="POL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CMR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CMR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KOR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KOR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ESP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ESP.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RSA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RSA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DEN.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GER.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NZL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NZL.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JAM.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
