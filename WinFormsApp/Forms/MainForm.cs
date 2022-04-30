@@ -42,14 +42,17 @@ namespace WinFormsApp.Forms
         private async Task LoadDataFromManager()
         {
             PlayerManager.ResetCollections();
-            ShowProgress(20);
-            await PlayerManager.LoadAllPlayers();
-            players = PlayerManager.Players;
-            ShowProgress(40);
-            matches = await MatchManager.GetAllMatches();
+            ShowProgress(15);
+            players = await PlayerManager.GetAllPlayers();
+            ShowProgress(30);
+            PlayerManager.LoadFavouritePlayers();
+            ShowProgress(45);
+            PlayerManager.LoadPlayersWithImage();
             ShowProgress(60);
+            matches = await MatchManager.GetAllMatches();
+            ShowProgress(75);
             playersWithYellowCards = PlayerManager.GetPlayersWithYellowCards();
-            ShowProgress(80);
+            ShowProgress(90);
             playersWithGoals = PlayerManager.GetPlayersWithGoals();
             ShowProgress(100);
         }
@@ -60,17 +63,17 @@ namespace WinFormsApp.Forms
             lblProgress.Text = $"{progress}%";
         }
 
-        internal void ShowFavouritePlayers(PlayerUserControl playerCard)
+        internal void ShowFavouritePlayers(PlayerUserControl playerUC)
         {
-            if (playerCard.playerIsFavourite)
+            if (playerUC.player.IsFavouritePlayer)
             {
-                flpFavourites.Controls.Add(playerCard);
-                flpPlayers.Controls.Remove(playerCard);
+                flpFavourites.Controls.Add(playerUC);
+                flpPlayers.Controls.Remove(playerUC);
             }
             else
             {
-                flpFavourites.Controls.Remove(playerCard);
-                flpPlayers.Controls.Add(playerCard);
+                flpFavourites.Controls.Remove(playerUC);
+                flpPlayers.Controls.Add(playerUC);
             }
         }
 
@@ -82,7 +85,7 @@ namespace WinFormsApp.Forms
             e.Effect = DragDropEffects.Move;
             List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
             if (panelsList is null) return;
-            if (panelsList[0].playerIsFavourite)
+            if (panelsList[0].player.IsFavouritePlayer)
             {
                 flpPlayers.AllowDrop = true;
                 flpFavourites.AllowDrop = false;
@@ -96,9 +99,8 @@ namespace WinFormsApp.Forms
 
         private void Players_DragDrop(object sender, DragEventArgs e)
         {
-            List<PlayerUserControl>? panelsList = e.Data?.GetData(typeof(List<PlayerUserControl>)) as List<PlayerUserControl>;
-            if (panelsList is null) return;
-            if (GetFlpFavouritesCount() < 3 || panelsList[0].playerIsFavourite)
+            if (e.Data?.GetData(typeof(List<PlayerUserControl>)) is not List<PlayerUserControl> panelsList) return;
+            if (GetFlpFavouritesCount() < 3 || panelsList[0].player.IsFavouritePlayer)
             {
                 panelsList?.ForEach(panel => panel.AddPlayerToFavourites());
             }
@@ -161,6 +163,7 @@ namespace WinFormsApp.Forms
         private void ChangeLangToCro_Click(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr");
+            ShowProgress(0);
             Controls.Clear();
             InitializeComponent();
             FillFormAsync();
@@ -169,9 +172,20 @@ namespace WinFormsApp.Forms
         private void ChangeLangToEng_Click(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            ShowProgress(0);
             Controls.Clear();
             InitializeComponent();
             FillFormAsync();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            IList<StartingEleven> favPlayers = new List<StartingEleven>();
+            foreach (PlayerUserControl puc in flpFavourites.Controls)
+            {
+                favPlayers.Add(puc.player);
+            }
+            PlayerManager.SaveFavouritePlayers(favPlayers);
         }
     }
 }

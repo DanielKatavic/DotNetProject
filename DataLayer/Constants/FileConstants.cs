@@ -5,6 +5,8 @@ namespace Utility.Constants
     public static class FileConstants
     {
         public const string SettingsPath = "settings.txt";
+        public const string PlayersImagePath = "players-with-image.txt";
+        public const string FavouritePlayersPath = "favourite-players.txt";
         private const string MaleTeamPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\men\teams.json";
         private const string FemaleTeamPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\women\teams.json";
         private const string MaleMatchPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\men\matches.json";

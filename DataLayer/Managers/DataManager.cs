@@ -14,7 +14,7 @@ namespace Utility.Managers
         {
             string path = FileConstants.GetFilePath(typeof(T), Settings.GenderSelected);
 
-            string json = repository.LoadFile(path);
+            string json = repository.LoadJson(path);
 
             if (string.IsNullOrWhiteSpace(json))
             {

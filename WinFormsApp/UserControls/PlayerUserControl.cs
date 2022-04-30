@@ -1,21 +1,47 @@
-﻿using Utility.Models;
+﻿using Utility.Managers;
+using Utility.Models;
 using WinFormsApp.Forms;
 
 namespace WinFormsApp.UserControls
 {
     public partial class PlayerUserControl : UserControl
     {
-        private readonly StartingEleven? player;
+        public readonly StartingEleven? player;
         private static IList<PlayerUserControl> selectedPlayerCards = new List<PlayerUserControl>();
-
-        internal bool playerIsFavourite = false;
 
         public PlayerUserControl(StartingEleven player)
         {
             InitializeComponent();
             this.player = player;
             DoubleBuffered = true;
+            CkeckIfImageExists();
+            CkeckIfPlayerIsFav();
             FillForm();
+        }
+
+        private void CkeckIfPlayerIsFav()
+        {
+            if(player is not null && player.IsFavouritePlayer)
+            {
+                SetPlayerFavStatus("Ukloni iz favorita", "★", Color.Orange);
+                (ParentForm as MainForm)?.ShowFavouritePlayers(this);
+            }
+        }
+
+        private void CkeckIfImageExists()
+        {
+            if(player?.PicturePath is not null)
+            {
+                SetImageToPlayer(player.PicturePath);
+            }
+        }
+
+        private void SetImageToPlayer(string path)
+        {
+            BackgroundImage = Image.FromFile(path);
+            lblName.ForeColor = Color.White;
+            lblPosition.ForeColor = Color.White;
+            lblShirtNumber.Visible = false;
         }
 
         private void FillForm()
@@ -31,7 +57,7 @@ namespace WinFormsApp.UserControls
 
         private void AddToFavourites_Click(object sender, EventArgs e)
         {
-            if ((ParentForm as MainForm)?.GetFlpFavouritesCount() < 3 || playerIsFavourite)
+            if ((ParentForm as MainForm)?.GetFlpFavouritesCount() < 3 || player.IsFavouritePlayer)
             {
                 AddPlayerToFavourites();
             }
@@ -46,9 +72,9 @@ namespace WinFormsApp.UserControls
 
         internal void AddPlayerToFavourites()
         {
-            playerIsFavourite = !playerIsFavourite;
+            player.IsFavouritePlayer = !player.IsFavouritePlayer;
 
-            if (playerIsFavourite) SetPlayerFavStatus("Ukloni iz favorita", "★", Color.Orange);
+            if (player.IsFavouritePlayer) SetPlayerFavStatus("Ukloni iz favorita", "★", Color.Orange);
             else SetPlayerFavStatus("Dodaj u favorite", "☆", Color.Black);
 
             (ParentForm as MainForm)?.ShowFavouritePlayers(this);
@@ -71,10 +97,12 @@ namespace WinFormsApp.UserControls
             };
             if (ofp.ShowDialog() == DialogResult.OK)
             {
-                BackgroundImage = Image.FromFile(ofp.FileName);
-                lblName.ForeColor = Color.White;
-                lblPosition.ForeColor = Color.White;
-                lblShirtNumber.Visible = false;
+                if (player is not null)
+                {
+                    player.PicturePath = ofp.FileName;
+                    PlayerManager.SavePlayerWithImage(player);
+                }
+                SetImageToPlayer(ofp.FileName);
             }
         }
 
@@ -90,7 +118,7 @@ namespace WinFormsApp.UserControls
             }
             if (e.Button == MouseButtons.Left && (ModifierKeys & Keys.Control) == Keys.Control)
             {
-                if (selectedPlayerCards.Count + (ParentForm as MainForm)?.GetFlpFavouritesCount() < 3 || playerIsFavourite)
+                if (selectedPlayerCards.Count + (ParentForm as MainForm)?.GetFlpFavouritesCount() < 3 || player.IsFavouritePlayer)
                 {
                     BorderStyle = BorderStyle.FixedSingle;
                     selectedPlayerCards?.Add(this);

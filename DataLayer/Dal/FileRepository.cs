@@ -14,7 +14,19 @@ namespace Utility.Dal
         public static bool SettingsExists()
             => File.Exists(FileConstants.SettingsPath);
 
-        public string LoadFile(string path)
+        public void SavePlayersImage(StartingEleven player) 
+            => File.AppendAllText(FileConstants.PlayersImagePath, player.FormatForFileImages());
+
+        public string[] LoadPlayersWithImage() 
+            => File.ReadAllLines(FileConstants.PlayersImagePath);
+
+        public void SaveFavouritePlayers(IList<StartingEleven> favouritePlayers)
+            => File.WriteAllLines(FileConstants.FavouritePlayersPath, favouritePlayers.ToList().Select(p => p.FormatForFileFavourites()));
+
+        public string[] LoadFavouritePlayers()
+            => File.ReadAllLines(FileConstants.FavouritePlayersPath);
+
+        public string LoadJson(string path)
         {
             if (!File.Exists(path))
             {

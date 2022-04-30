@@ -6,6 +6,8 @@ namespace Utility.Models
 
     public class StartingEleven : IComparable<StartingEleven>
     {
+        private const char Del = '|';
+
         [JsonProperty("name")]
         public string? Name { get; set; }
 
@@ -20,12 +22,22 @@ namespace Utility.Models
 
         public int NumberOfYellowCards { get; set; }
 
+        public bool IsFavouritePlayer { get; set; }
+
         public int NumberOfGoals { get; set; }
 
         public int NumberOfRedCards => NumberOfYellowCards == 2 ? 1 : 0;
 
+        public string? PicturePath { get; set; }
+
+        public string FormatForFileImages()
+            => $"{Name}{Del}{PicturePath}{Environment.NewLine}";
+
+        public string FormatForFileFavourites()
+            => $"{Name}";
+
         public override string ToString() 
-            => $"{Name} | {ShirtNumber}";
+            => $"{Name}{Del}{ShirtNumber}";
 
         public override bool Equals(object? obj)
             => obj is StartingEleven startingEleven && Name == startingEleven.Name;
