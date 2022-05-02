@@ -1,5 +1,4 @@
-﻿using Utility.Dal;
-using Utility.Managers;
+﻿using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
 
@@ -13,10 +12,8 @@ namespace WinFormsApp.Forms
         private ISet<StartingEleven>? playersWithYellowCards;
         private ISet<StartingEleven>? playersWithGoals;
 
-        public MainForm()
-        {
-            InitializeComponent();
-        }
+        public MainForm() 
+            => InitializeComponent();
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -163,29 +160,29 @@ namespace WinFormsApp.Forms
         private void ChangeLangToCro_Click(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr");
-            ShowProgress(0);
-            Controls.Clear();
-            InitializeComponent();
-            FillFormAsync();
+            ResetForm();
         }
 
         private void ChangeLangToEng_Click(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+            ResetForm();
+        }
+
+        private void ResetForm()
+        {
             ShowProgress(0);
             Controls.Clear();
             InitializeComponent();
             FillFormAsync();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) 
+            => PlayerManager.SaveFavouritePlayers();
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            IList<StartingEleven> favPlayers = new List<StartingEleven>();
-            foreach (PlayerUserControl puc in flpFavourites.Controls)
-            {
-                favPlayers.Add(puc.player);
-            }
-            PlayerManager.SaveFavouritePlayers(favPlayers);
+            printPreviewDialog.ShowDialog();
         }
     }
 }

@@ -53,6 +53,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -185,6 +188,7 @@
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hrvatskiToolStripMenuItem,
             this.englishToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = global::WinFormsApp.Properties.Resources.translate;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             // 
             // hrvatskiToolStripMenuItem
@@ -212,6 +216,7 @@
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton2.Image = global::WinFormsApp.Properties.Resources.printing;
             this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // statusStrip
             // 
@@ -230,6 +235,17 @@
             // 
             resources.ApplyResources(this.lblProgress, "lblProgress");
             this.lblProgress.Name = "lblProgress";
+            // 
+            // printDialog
+            // 
+            this.printDialog.Document = this.printDocument;
+            this.printDialog.UseEXDialog = true;
+            // 
+            // printPreviewDialog
+            // 
+            resources.ApplyResources(this.printPreviewDialog, "printPreviewDialog");
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Name = "printPreviewDialog";
             // 
             // MainForm
             // 
@@ -283,5 +299,8 @@
         private StatusStrip statusStrip;
         private ToolStripProgressBar progressBar;
         private ToolStripStatusLabel lblProgress;
+        private PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private PrintPreviewDialog printPreviewDialog;
     }
 }

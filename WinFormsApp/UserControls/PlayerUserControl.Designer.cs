@@ -149,6 +149,7 @@
             this.Name = "PlayerUserControl";
             this.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Size = new System.Drawing.Size(200, 250);
+            this.Load += new System.EventHandler(this.PlayerUserControl_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerCardControl_MouseDown);
             this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgCapitain)).EndInit();

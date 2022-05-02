@@ -105,7 +105,6 @@ namespace WinFormsApp.Forms
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // label3
             // 

@@ -6,7 +6,7 @@ namespace WinFormsApp.UserControls
 {
     public partial class PlayerUserControl : UserControl
     {
-        public readonly StartingEleven? player;
+        public readonly StartingEleven player;
         private static IList<PlayerUserControl> selectedPlayerCards = new List<PlayerUserControl>();
 
         public PlayerUserControl(StartingEleven player)
@@ -14,14 +14,18 @@ namespace WinFormsApp.UserControls
             InitializeComponent();
             this.player = player;
             DoubleBuffered = true;
-            CkeckIfImageExists();
+        }
+
+        private void PlayerUserControl_Load(object sender, EventArgs e)
+        {
             CkeckIfPlayerIsFav();
+            CkeckIfImageExists();
             FillForm();
         }
 
         private void CkeckIfPlayerIsFav()
         {
-            if(player is not null && player.IsFavouritePlayer)
+            if(player.IsFavouritePlayer)
             {
                 SetPlayerFavStatus("Ukloni iz favorita", "★", Color.Orange);
                 (ParentForm as MainForm)?.ShowFavouritePlayers(this);
@@ -30,7 +34,7 @@ namespace WinFormsApp.UserControls
 
         private void CkeckIfImageExists()
         {
-            if(player?.PicturePath is not null)
+            if(player.PicturePath is not null)
             {
                 SetImageToPlayer(player.PicturePath);
             }
@@ -46,10 +50,10 @@ namespace WinFormsApp.UserControls
 
         private void FillForm()
         {
-            lblName.Text = player?.Name?.ToUpper();
-            lblShirtNumber.Text = player?.ShirtNumber.ToString();
-            lblPosition.Text = player?.Position?.ToString();
-            if (player is not null && player.Captain) imgCapitain.Visible = true;
+            lblName.Text = player.Name?.ToUpper();
+            lblShirtNumber.Text = player.ShirtNumber.ToString();
+            lblPosition.Text = player.Position?.ToString();
+            if (player.Captain) imgCapitain.Visible = true;
             ttUserControl.SetToolTip(this, $"{player?.Name?.ToUpper()}" +
                 $"{Environment.NewLine}Broj dresa: {player?.ShirtNumber}" +
                 $"{Environment.NewLine}{player?.Position}");
@@ -114,7 +118,6 @@ namespace WinFormsApp.UserControls
             {
                 if (sender is PlayerUserControl pcc) pcc.DoDragDrop(data, DragDropEffects.Move);
                 if (sender is Label lbl) lbl.DoDragDrop(data, DragDropEffects.Move);
-
             }
             if (e.Button == MouseButtons.Left && (ModifierKeys & Keys.Control) == Keys.Control)
             {

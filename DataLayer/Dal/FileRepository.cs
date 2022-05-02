@@ -1,12 +1,13 @@
-﻿using Utility.Constants;
+﻿using System.Text;
+using Utility.Constants;
 using Utility.Models;
 
 namespace Utility.Dal
 {
     public class FileRepository : IRepository
     {
-        public void SaveSettings(string informations) 
-            => File.WriteAllText(FileConstants.SettingsPath, informations);
+        public void SaveSettings(string settings) 
+            => File.WriteAllText(FileConstants.SettingsPath, settings);
 
         public string LoadSettings()
             => File.ReadAllText(FileConstants.SettingsPath);
@@ -20,8 +21,8 @@ namespace Utility.Dal
         public string[] LoadPlayersWithImage() 
             => File.ReadAllLines(FileConstants.PlayersImagePath);
 
-        public void SaveFavouritePlayers(IList<StartingEleven> favouritePlayers)
-            => File.WriteAllLines(FileConstants.FavouritePlayersPath, favouritePlayers.ToList().Select(p => p.FormatForFileFavourites()));
+        public void SaveFavouritePlayers(IList<StartingEleven> favouritePlayers) 
+            => File.WriteAllLines(FileConstants.FavouritePlayersPath, favouritePlayers.ToList().Select(fp => fp.FormatForFileFavourites()));
 
         public string[] LoadFavouritePlayers()
             => File.ReadAllLines(FileConstants.FavouritePlayersPath);

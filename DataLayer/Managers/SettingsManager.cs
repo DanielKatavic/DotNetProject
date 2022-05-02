@@ -5,9 +5,12 @@ namespace Utility.Managers
 {
     public class SettingsManager
     {
-        private static IRepository repository = RepositoryFactory.GetRepository();
+        private static readonly IRepository repository = RepositoryFactory.GetRepository();
 
         public static void LoadSettings()
             => Settings.ParseFromFileLine(repository.LoadSettings());
+
+        public static void SaveSettings(string settings) 
+            => repository.SaveSettings(settings);
     }
 }

@@ -6,22 +6,13 @@ namespace WinFormsApp.Forms
 {
     public partial class WelcomeForm : Form
     {
-        private readonly IRepository repository;
-
         public WelcomeForm()
         {
-            repository = RepositoryFactory.GetRepository();
             InitializeComponent();
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("Jeste li sigurni da želite izaæi?", "Izlaz", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK) Application.Exit();
-        }
-
         private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e) 
-            => repository.SaveSettings(Settings.ParseForFileLine());
+            => SettingsManager.SaveSettings(Settings.ParseForFileLine());
 
         private void BtnContinue_Click(object sender, EventArgs e)
         {

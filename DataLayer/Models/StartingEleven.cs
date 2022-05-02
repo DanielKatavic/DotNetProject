@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Text;
 
 namespace Utility.Models
 {
@@ -9,7 +10,7 @@ namespace Utility.Models
         private const char Del = '|';
 
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("captain")]
         public bool Captain { get; set; }
@@ -33,8 +34,8 @@ namespace Utility.Models
         public string FormatForFileImages()
             => $"{Name}{Del}{PicturePath}{Environment.NewLine}";
 
-        public string FormatForFileFavourites()
-            => $"{Name}";
+        public string FormatForFileFavourites() 
+            => Name;
 
         public override string ToString() 
             => $"{Name}{Del}{ShirtNumber}";

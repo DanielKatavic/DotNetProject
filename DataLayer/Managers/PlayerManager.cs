@@ -56,8 +56,11 @@ namespace Utility.Managers
             });
         }
 
-        public static void SaveFavouritePlayers(IList<StartingEleven> favouritePlayers) 
-            => repository.SaveFavouritePlayers(favouritePlayers);
+        public static void SaveFavouritePlayers()
+        {
+            List<StartingEleven>? favouritePlayers = players?.ToList().FindAll(p => p.IsFavouritePlayer);
+            repository.SaveFavouritePlayers(favouritePlayers ?? new List<StartingEleven>());
+        }
 
         public static void LoadFavouritePlayers()
         {
