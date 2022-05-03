@@ -1,4 +1,5 @@
-﻿using Utility.Managers;
+﻿using System.Drawing.Printing;
+using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
 
@@ -12,7 +13,7 @@ namespace WinFormsApp.Forms
         private ISet<StartingEleven>? playersWithYellowCards;
         private ISet<StartingEleven>? playersWithGoals;
 
-        public MainForm() 
+        public MainForm()
             => InitializeComponent();
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -146,9 +147,16 @@ namespace WinFormsApp.Forms
         private void FillThirdPage()
             => matches?
                 .OrderByDescending(m => m.Attendance)
-                .ToList().ForEach(match => flpMatches.Controls.Add(new TeamMatchesControl(match)));
+                .ToList().ForEach(match =>
+                {
+                    if(match.HomeTeam?.Country == Settings.TeamSelected?.Country 
+                    || match.AwayTeam?.Country == Settings.TeamSelected?.Country)
+                    {
+                        flpMatches.Controls.Add(new TeamMatchesControl(match));
+                    }
+                });
 
-        private void Settings_Click(object sender, EventArgs e)
+        private void SettingsIcon_Click(object sender, EventArgs e)
         {
             WelcomeForm welcomeForm = new();
             if (welcomeForm.ShowDialog() == DialogResult.OK)
@@ -177,12 +185,59 @@ namespace WinFormsApp.Forms
             FillFormAsync();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
             => PlayerManager.SaveFavouritePlayers();
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void PrintPlayers(Control parent, PrintPageEventArgs e)
         {
+            int x = 10, y = 10;
+
+            for (int i = 0; i < parent.Controls.Count; i++)
+            {
+                var child = parent.Controls[i];
+                Bitmap bmp = new(child.Size.Width, child.Size.Height);
+                parent.Controls[i].DrawToBitmap(bmp, new Rectangle
+                {
+                    X = 0,
+                    Y = 0,
+                    Width = bmp.Width,
+                    Height = bmp.Height
+                });
+                if (i == 4)
+                {
+                    x = child.Size.Width + 30;
+                    y = 10;
+                }
+                if (i == 8)
+                {
+                    x = (child.Size.Width + 30) * 2;
+                    y = 10;
+                }
+                e.Graphics?.DrawImage(bmp, e.MarginBounds.X + x, e.MarginBounds.Y + y);
+                y += child.Size.Height;
+            }
+        }
+
+        private void PrintPlayersWithYellowCards_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog.Document = printDocYellowCards;
             printPreviewDialog.ShowDialog();
+        }
+
+        private void PrintPlayersWithGoals_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog.Document = printDocGoals;
+            printPreviewDialog.ShowDialog();
+        }
+
+        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            PrintPlayers(flpYellowCards, e);
+        }
+
+        private void Goals_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            PrintPlayers(flpGoals, e);
         }
     }
 }
