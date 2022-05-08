@@ -39,6 +39,7 @@
             // cbTeams
             // 
             this.cbTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeams.Enabled = false;
             this.cbTeams.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbTeams.FormattingEnabled = true;
             this.cbTeams.Location = new System.Drawing.Point(129, 20);

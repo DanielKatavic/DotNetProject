@@ -16,25 +16,23 @@ namespace WinFormsApp.Forms
         public MainForm()
             => InitializeComponent();
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e) 
+            => FillFormAsync();
+
+        private async void FillFormAsync()
         {
             try
             {
-                FillFormAsync();
+                await LoadDataFromManager();
+                lblTeamName.Text = Settings.TeamSelected?.Country;
+                ShowPlayers();
+                tabControl.Visible = true;
             }
             catch
             {
                 MessageBoxManager.ShowErrorMessage("Igrači nisu uspješno učitani", "Greška");
                 Application.Exit();
             }
-        }
-
-        private async void FillFormAsync()
-        {
-            await LoadDataFromManager();
-            lblTeamName.Text = Settings.TeamSelected?.Country;
-            ShowPlayers();
-            tabControl.Visible = true;
         }
 
         private async Task LoadDataFromManager()
@@ -149,7 +147,7 @@ namespace WinFormsApp.Forms
                 .OrderByDescending(m => m.Attendance)
                 .ToList().ForEach(match =>
                 {
-                    if(match.HomeTeam?.Country == Settings.TeamSelected?.Country 
+                    if (match.HomeTeam?.Country == Settings.TeamSelected?.Country
                     || match.AwayTeam?.Country == Settings.TeamSelected?.Country)
                     {
                         flpMatches.Controls.Add(new TeamMatchesControl(match));

@@ -5,30 +5,34 @@ namespace WinFormsApp.Forms
 {
     public partial class TeamSelectForm : Form
     {
-        public TeamSelectForm() 
+        public TeamSelectForm()
             => InitializeComponent();
 
-        private void TeamSelectForm_Load(object sender, EventArgs e)
+        private void TeamSelectForm_Load(object sender, EventArgs e) 
+            => FillFormAsync();
+
+        private async void FillFormAsync()
         {
             try
             {
-                FillFormAsync();
+                await LoadDataFromManager();
+                SetProgressBarLabel("Timovi uspješno učitani!", Color.Green);
+                btnContinue.Enabled = true;
+                cbTeams.Enabled = true;
             }
             catch
             {
                 MessageBoxManager.ShowErrorMessage("Timovi nisu uspješno učitani!", "Greška");
-                lblProgress.Text = "Timovi nisu uspješno učitani";
-                lblProgress.ForeColor = Color.Red;
+                progressBar.Value = 100;
+                SetProgressBarLabel("Timovi nisu uspješno učitani!", Color.Red);
             }
+            UseWaitCursor = false;
         }
 
-        private async void FillFormAsync()
+        private void SetProgressBarLabel(string text, Color color)
         {
-            await LoadDataFromManager();
-            UseWaitCursor = false;
-            lblProgress.Text = "Timovi uspješno učitani";
-            lblProgress.ForeColor = Color.Green;
-            btnContinue.Enabled = true;
+            lblProgress.Text = text;
+            lblProgress.ForeColor = color;
         }
 
         private async Task LoadDataFromManager()
@@ -45,7 +49,7 @@ namespace WinFormsApp.Forms
             progressBar.Value = progress;
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e) 
+        private void BtnCancel_Click(object sender, EventArgs e)
             => this.Close();
 
         private void BtnContinue_Click(object sender, EventArgs e)
