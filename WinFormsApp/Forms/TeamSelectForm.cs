@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using Utility.Dal;
-using Utility.Managers;
+﻿using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
@@ -10,46 +8,41 @@ namespace WinFormsApp.Forms
         public TeamSelectForm() 
             => InitializeComponent();
 
-        private void TeamSelectForm_Load(object sender, EventArgs e) 
-            => backgroundWorker.RunWorkerAsync();
-
-        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        private void TeamSelectForm_Load(object sender, EventArgs e)
         {
-            Thread.Sleep(700);
-            backgroundWorker.ReportProgress(50);
             try
             {
-                e.Result = Settings.AccessSelected
-                          == Access.Online ? DataManager<Team>.LoadFromApi()
-                          : DataManager<Team>.LoadFromFile();
+                FillFormAsync();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
-                e.Cancel = true;
-            }
-            Thread.Sleep(300);
-            backgroundWorker.ReportProgress(100);
-        }
-
-        private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e) 
-            => progressBar.Value = e.ProgressPercentage;
-
-        private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            UseWaitCursor = false;
-            if (e.Cancelled)
-            {
+                MessageBoxManager.ShowErrorMessage("Timovi nisu uspješno učitani!", "Greška");
                 lblProgress.Text = "Timovi nisu uspješno učitani";
                 lblProgress.ForeColor = Color.Red;
             }
-            else
-            {
-                lblProgress.Text = "Timovi uspješno učitani";
-                lblProgress.ForeColor = Color.Green;
-                btnContinue.Enabled = true;
-                cbTeams.DataSource = e.Result;
-            }
+        }
+
+        private async void FillFormAsync()
+        {
+            await LoadDataFromManager();
+            UseWaitCursor = false;
+            lblProgress.Text = "Timovi uspješno učitani";
+            lblProgress.ForeColor = Color.Green;
+            btnContinue.Enabled = true;
+        }
+
+        private async Task LoadDataFromManager()
+        {
+            ShowProgress(50);
+            IList<Team>? teams = await TeamManager.GetAllTeams();
+            ShowProgress(100);
+            cbTeams.DataSource = teams;
+        }
+
+        private void ShowProgress(int progress)
+        {
+            Thread.Sleep(700);
+            progressBar.Value = progress;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e) 
@@ -57,11 +50,20 @@ namespace WinFormsApp.Forms
 
         private void BtnContinue_Click(object sender, EventArgs e)
         {
+            if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
+            {
+                SaveSettings();
+                this.Hide();
+                MainForm mainForm = new();
+                mainForm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void SaveSettings()
+        {
             Settings.TeamSelected = cbTeams.SelectedItem as Team;
-            this.Hide();
-            MainForm mainForm = new();
-            mainForm.ShowDialog();
-            this.Close();
+            SettingsManager.SaveSettings(Settings.ParseForFileLine());
         }
     }
 }

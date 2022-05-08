@@ -24,7 +24,7 @@ namespace WinFormsApp.Forms
             }
             catch
             {
-                MessageBox.Show("Igrači nisu uspješno učitani!");
+                MessageBoxManager.ShowErrorMessage("Igrači nisu uspješno učitani", "Greška");
                 Application.Exit();
             }
         }
@@ -104,7 +104,7 @@ namespace WinFormsApp.Forms
             }
             else
             {
-                MessageBox.Show("Ne možete dodati više od tri omiljena igrača!");
+                MessageBoxManager.ShowErrorMessage();
             }
             PlayerUserControl.ResetSelectedControls();
         }
@@ -188,7 +188,7 @@ namespace WinFormsApp.Forms
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
             => PlayerManager.SaveFavouritePlayers();
 
-        private void PrintPlayers(Control parent, PrintPageEventArgs e)
+        private static void PrintPlayers(Control parent, PrintPageEventArgs e)
         {
             int x = 10, y = 10;
 
@@ -218,16 +218,30 @@ namespace WinFormsApp.Forms
             }
         }
 
-        private void PrintPlayersWithYellowCards_Click(object sender, EventArgs e)
+        private static void PrintMatches(Control parent, PrintPageEventArgs e)
         {
-            printPreviewDialog.Document = printDocYellowCards;
-            printPreviewDialog.ShowDialog();
-        }
+            int x = 0, y = 0;
 
-        private void PrintPlayersWithGoals_Click(object sender, EventArgs e)
-        {
-            printPreviewDialog.Document = printDocGoals;
-            printPreviewDialog.ShowDialog();
+            for (int i = 0; i < parent.Controls.Count; i++)
+            {
+                var child = parent.Controls[i];
+                Bitmap bmp = new(child.Size.Width, child.Size.Height);
+                parent.Controls[i].DrawToBitmap(bmp, new Rectangle
+                {
+                    X = 0,
+                    Y = 0,
+                    Width = bmp.Width,
+                    Height = bmp.Height
+                });
+                if (i == 4)
+                {
+                    x = 0;
+                    y = 0;
+                }
+                e.Graphics?.DrawImage(bmp, x, y);
+                y += child.Size.Height;
+            }
+
         }
 
         private void YellowCards_PrintPage(object sender, PrintPageEventArgs e)
@@ -238,6 +252,21 @@ namespace WinFormsApp.Forms
         private void Goals_PrintPage(object sender, PrintPageEventArgs e)
         {
             PrintPlayers(flpGoals, e);
+        }
+
+        private void Matches_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            PrintMatches(flpMatches, e);
+        }
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            ContextMenuStrip? owner = ((ToolStripItem)sender).Owner as ContextMenuStrip;
+            string? panelName = owner?.SourceControl.Name;
+            if (panelName == nameof(flpYellowCards)) printPreviewDialog.Document = printDocYellowCards;
+            if (panelName == nameof(flpGoals)) printPreviewDialog.Document = printDocGoals;
+            if (panelName == nameof(flpMatches)) printPreviewDialog.Document = printDocMatches;
+            printPreviewDialog.ShowDialog();
         }
     }
 }

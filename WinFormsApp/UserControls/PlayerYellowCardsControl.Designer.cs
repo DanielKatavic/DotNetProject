@@ -49,9 +49,9 @@
             // 
             this.imgYellowCard.BackColor = System.Drawing.Color.Transparent;
             this.imgYellowCard.Image = global::WinFormsApp.Properties.Resources.yellow_card;
-            this.imgYellowCard.Location = new System.Drawing.Point(61, 147);
+            this.imgYellowCard.Location = new System.Drawing.Point(107, 147);
             this.imgYellowCard.Name = "imgYellowCard";
-            this.imgYellowCard.Size = new System.Drawing.Size(139, 103);
+            this.imgYellowCard.Size = new System.Drawing.Size(93, 103);
             this.imgYellowCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgYellowCard.TabIndex = 3;
             this.imgYellowCard.TabStop = false;
@@ -61,7 +61,7 @@
             // 
             this.lblNumberOfCards.BackColor = System.Drawing.Color.Transparent;
             this.lblNumberOfCards.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumberOfCards.Location = new System.Drawing.Point(74, 159);
+            this.lblNumberOfCards.Location = new System.Drawing.Point(83, 159);
             this.lblNumberOfCards.Name = "lblNumberOfCards";
             this.lblNumberOfCards.Size = new System.Drawing.Size(27, 55);
             this.lblNumberOfCards.TabIndex = 4;
@@ -76,8 +76,8 @@
             this.BackgroundImage = global::WinFormsApp.Properties.Resources.football_shirt;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.lblNumberOfCards);
-            this.Controls.Add(this.imgYellowCard);
             this.Controls.Add(this.lblName);
+            this.Controls.Add(this.imgYellowCard);
             this.DoubleBuffered = true;
             this.Name = "PlayerYellowCardControl";
             this.Size = new System.Drawing.Size(200, 250);

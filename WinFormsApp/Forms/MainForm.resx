@@ -264,6 +264,24 @@
   <data name="flpGoals.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <metadata name="cmPrint.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>928, 19</value>
+  </metadata>
+  <data name="isprintajToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="isprintajToolStripMenuItem.Text" xml:space="preserve">
+    <value>Isprintaj</value>
+  </data>
+  <data name="cmPrint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 48</value>
+  </data>
+  <data name="&gt;&gt;cmPrint.Name" xml:space="preserve">
+    <value>cmPrint</value>
+  </data>
+  <data name="&gt;&gt;cmPrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="flpGoals.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
@@ -431,7 +449,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -663,21 +681,6 @@
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 30</value>
   </data>
-  <data name="printPlayersWithYellowCardsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 22</value>
-  </data>
-  <data name="printPlayersWithYellowCardsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Isprintaj igrace sa zutim kartonima</value>
-  </data>
-  <data name="printPlayersWithGoalsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 22</value>
-  </data>
-  <data name="printPlayersWithGoalsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Isprintaj igrace sa golovima</value>
-  </data>
-  <data name="toolStripDropDownButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 27</value>
-  </data>
   <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -700,10 +703,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>272, 17</value>
+    <value>124, 18</value>
   </metadata>
   <data name="progressBar.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -739,16 +742,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="printDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>381, 17</value>
+    <value>233, 17</value>
   </metadata>
   <metadata name="printDocYellowCards.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>494, 17</value>
+    <value>338, 16</value>
   </metadata>
   <metadata name="printPreviewDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>701, 16</value>
+    <value>499, 19</value>
   </metadata>
   <data name="printPreviewDialog.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
     <value>0, 0</value>
@@ -795,7 +798,10 @@
     <value>System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="printDocGoals.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>856, 16</value>
+    <value>654, 19</value>
+  </metadata>
+  <metadata name="printDocMatches.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>783, 19</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -811,6 +817,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Svjetsko prvenstvo</value>
+  </data>
+  <data name="&gt;&gt;isprintajToolStripMenuItem.Name" xml:space="preserve">
+    <value>isprintajToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;isprintajToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
     <value>toolStripButton1</value>
@@ -848,24 +860,6 @@
   <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripDropDownButton2.Name" xml:space="preserve">
-    <value>toolStripDropDownButton2</value>
-  </data>
-  <data name="&gt;&gt;toolStripDropDownButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;printPlayersWithYellowCardsToolStripMenuItem.Name" xml:space="preserve">
-    <value>printPlayersWithYellowCardsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;printPlayersWithYellowCardsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;printPlayersWithGoalsToolStripMenuItem.Name" xml:space="preserve">
-    <value>printPlayersWithGoalsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;printPlayersWithGoalsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
     <value>progressBar</value>
   </data>
@@ -894,6 +888,12 @@
     <value>printDocGoals</value>
   </data>
   <data name="&gt;&gt;printDocGoals.Type" xml:space="preserve">
+    <value>System.Drawing.Printing.PrintDocument, System.Drawing.Common, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
+  </data>
+  <data name="&gt;&gt;printDocMatches.Name" xml:space="preserve">
+    <value>printDocMatches</value>
+  </data>
+  <data name="&gt;&gt;printDocMatches.Type" xml:space="preserve">
     <value>System.Drawing.Printing.PrintDocument, System.Drawing.Common, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

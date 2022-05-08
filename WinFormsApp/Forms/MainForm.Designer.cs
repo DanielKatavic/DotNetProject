@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblTeamName = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.flpGoals = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmPrint = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.isprintajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flpYellowCards = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -49,9 +52,6 @@
             this.hrvatskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.printPlayersWithYellowCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPlayersWithGoalsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,8 +59,10 @@
             this.printDocYellowCards = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocGoals = new System.Drawing.Printing.PrintDocument();
+            this.printDocMatches = new System.Drawing.Printing.PrintDocument();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.cmPrint.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -129,12 +131,28 @@
             // 
             this.flpGoals.AllowDrop = true;
             resources.ApplyResources(this.flpGoals, "flpGoals");
+            this.flpGoals.ContextMenuStrip = this.cmPrint;
             this.flpGoals.Name = "flpGoals";
+            // 
+            // cmPrint
+            // 
+            this.cmPrint.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.isprintajToolStripMenuItem});
+            this.cmPrint.Name = "cmMatches";
+            this.cmPrint.ShowImageMargin = false;
+            resources.ApplyResources(this.cmPrint, "cmPrint");
+            // 
+            // isprintajToolStripMenuItem
+            // 
+            this.isprintajToolStripMenuItem.Name = "isprintajToolStripMenuItem";
+            resources.ApplyResources(this.isprintajToolStripMenuItem, "isprintajToolStripMenuItem");
+            this.isprintajToolStripMenuItem.Click += new System.EventHandler(this.Print_Click);
             // 
             // flpYellowCards
             // 
             this.flpYellowCards.AllowDrop = true;
             resources.ApplyResources(this.flpYellowCards, "flpYellowCards");
+            this.flpYellowCards.ContextMenuStrip = this.cmPrint;
             this.flpYellowCards.Name = "flpYellowCards";
             // 
             // tabControl
@@ -157,6 +175,7 @@
             // flpMatches
             // 
             resources.ApplyResources(this.flpMatches, "flpMatches");
+            this.flpMatches.ContextMenuStrip = this.cmPrint;
             this.flpMatches.Name = "flpMatches";
             // 
             // toolStrip
@@ -167,8 +186,7 @@
             this.toolStripButton1,
             this.toolStripSeparator1,
             this.toolStripDropDownButton1,
-            this.toolStripSeparator2,
-            this.toolStripDropDownButton2});
+            this.toolStripSeparator2});
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             // 
@@ -213,28 +231,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.printPlayersWithYellowCardsToolStripMenuItem,
-            this.printPlayersWithGoalsToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = global::WinFormsApp.Properties.Resources.printing;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            resources.ApplyResources(this.toolStripDropDownButton2, "toolStripDropDownButton2");
-            // 
-            // printPlayersWithYellowCardsToolStripMenuItem
-            // 
-            this.printPlayersWithYellowCardsToolStripMenuItem.Name = "printPlayersWithYellowCardsToolStripMenuItem";
-            resources.ApplyResources(this.printPlayersWithYellowCardsToolStripMenuItem, "printPlayersWithYellowCardsToolStripMenuItem");
-            this.printPlayersWithYellowCardsToolStripMenuItem.Click += new System.EventHandler(this.PrintPlayersWithYellowCards_Click);
-            // 
-            // printPlayersWithGoalsToolStripMenuItem
-            // 
-            this.printPlayersWithGoalsToolStripMenuItem.Name = "printPlayersWithGoalsToolStripMenuItem";
-            resources.ApplyResources(this.printPlayersWithGoalsToolStripMenuItem, "printPlayersWithGoalsToolStripMenuItem");
-            this.printPlayersWithGoalsToolStripMenuItem.Click += new System.EventHandler(this.PrintPlayersWithGoals_Click);
-            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -272,6 +268,10 @@
             // 
             this.printDocGoals.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.Goals_PrintPage);
             // 
+            // printDocMatches
+            // 
+            this.printDocMatches.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.Matches_PrintPage);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -287,6 +287,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.cmPrint.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
@@ -326,9 +327,9 @@
         private PrintDialog printDialog;
         private System.Drawing.Printing.PrintDocument printDocYellowCards;
         private PrintPreviewDialog printPreviewDialog;
-        private ToolStripDropDownButton toolStripDropDownButton2;
-        private ToolStripMenuItem printPlayersWithYellowCardsToolStripMenuItem;
-        private ToolStripMenuItem printPlayersWithGoalsToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument printDocGoals;
+        private System.Drawing.Printing.PrintDocument printDocMatches;
+        private ContextMenuStrip cmPrint;
+        private ToolStripMenuItem isprintajToolStripMenuItem;
     }
 }

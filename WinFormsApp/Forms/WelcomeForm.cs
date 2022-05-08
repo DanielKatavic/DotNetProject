@@ -1,26 +1,21 @@
-using Utility.Dal;
-using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
 {
     public partial class WelcomeForm : Form
     {
-        public WelcomeForm()
-        {
-            InitializeComponent();
-        }
-
-        private void WelcomeForm_FormClosing(object sender, FormClosingEventArgs e) 
-            => SettingsManager.SaveSettings(Settings.ParseForFileLine());
+        public WelcomeForm() 
+            => InitializeComponent();
 
         private void BtnContinue_Click(object sender, EventArgs e)
         {
-            SetSettingsData();
-            this.Hide();
-            TeamSelectForm teamSelectForm = new();
-            teamSelectForm.ShowDialog();
-            this.Close();
+            if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
+            {
+                SetSettingsData();
+                TeamSelectForm teamSelectForm = new();
+                teamSelectForm.ShowDialog();
+                this.Close();
+            }
         }
 
         private void WelcomeForm_Load(object sender, EventArgs e) 
@@ -39,5 +34,8 @@ namespace WinFormsApp.Forms
             cbLanguage.DataSource = Enum.GetValues(typeof(Language));
             cbAccess.DataSource = Enum.GetValues(typeof(Access));
         }
+
+        private void btnCancel_Click(object sender, EventArgs e) 
+            => this.Close();
     }
 }

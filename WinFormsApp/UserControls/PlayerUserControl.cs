@@ -67,7 +67,7 @@ namespace WinFormsApp.UserControls
             }
             else
             {
-                MessageBox.Show("Ne možete dodati više od tri omiljena igrača!");
+                MessageBoxManager.ShowErrorMessage();
             }
         }
 

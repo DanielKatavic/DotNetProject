@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.cbTeams = new System.Windows.Forms.ComboBox();
-            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.lblProgress = new System.Windows.Forms.Label();
@@ -47,14 +46,6 @@
             this.cbTeams.Size = new System.Drawing.Size(203, 28);
             this.cbTeams.TabIndex = 0;
             this.cbTeams.UseWaitCursor = true;
-            // 
-            // backgroundWorker
-            // 
-            this.backgroundWorker.WorkerReportsProgress = true;
-            this.backgroundWorker.WorkerSupportsCancellation = true;
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorker_ProgressChanged);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
             // 
             // progressBar
             // 
@@ -136,7 +127,6 @@
         #endregion
 
         private ComboBox cbTeams;
-        private System.ComponentModel.BackgroundWorker backgroundWorker;
         private ProgressBar progressBar;
         private Label label1;
         private Label lblProgress;
