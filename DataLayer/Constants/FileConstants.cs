@@ -7,14 +7,10 @@ namespace Utility.Constants
         public const string SettingsPath = "settings.txt";
         public const string PlayersImagePath = "players-with-image.txt";
         public const string FavouritePlayersPath = "favourite-players.txt";
-        //private const string MaleTeamPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\men\teams.json";
-        //private const string FemaleTeamPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\women\teams.json";
-        //private const string MaleMatchPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\men\matches.json";
-        //private const string FemaleMatchPath = @"C:\Users\Daniel\Desktop\worldcup.sfg.io\women\matches.json";
-        private const string MaleTeamPath = @"C:\Users\";
-        private const string FemaleTeamPath = @"C:\Users\";
-        private const string MaleMatchPath = @"C:\Users\";
-        private const string FemaleMatchPath = @"C:\Users\";
+        private const string MaleTeamPath = @"..\..\..\..\worldcup.sfg.io\men\teams.json";
+        private const string FemaleTeamPath = @"..\..\..\..\worldcup.sfg.io\women\teams.json";
+        private const string MaleMatchPath = @"..\..\..\..\worldcup.sfg.io\men\matches.json";
+        private const string FemaleMatchPath = @"..\..\..\..\worldcup.sfg.io\women\matches.json";
 
         private static string GetMatchPath(Gender genderSelected)
             => genderSelected == Gender.Male ? MaleMatchPath : FemaleMatchPath;
