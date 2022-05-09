@@ -20,7 +20,7 @@ namespace Utility.Dal
 
         public string[] LoadPlayersWithImage()
         {
-            if (!File.Exists(FileConstants.FavouritePlayersPath)) return Array.Empty<string>();
+            if (!File.Exists(FileConstants.PlayersImagePath)) return Array.Empty<string>();
             return File.ReadAllLines(FileConstants.PlayersImagePath);
         }
 
