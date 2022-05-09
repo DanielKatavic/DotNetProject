@@ -18,14 +18,20 @@ namespace Utility.Dal
         public void SavePlayersImage(StartingEleven player) 
             => File.AppendAllText(FileConstants.PlayersImagePath, player.FormatForFileImages());
 
-        public string[] LoadPlayersWithImage() 
-            => File.ReadAllLines(FileConstants.PlayersImagePath);
+        public string[] LoadPlayersWithImage()
+        {
+            if (!File.Exists(FileConstants.FavouritePlayersPath)) return Array.Empty<string>();
+            return File.ReadAllLines(FileConstants.PlayersImagePath);
+        }
 
         public void SaveFavouritePlayers(IList<StartingEleven> favouritePlayers) 
             => File.WriteAllLines(FileConstants.FavouritePlayersPath, favouritePlayers.ToList().Select(fp => fp.FormatForFileFavourites()));
 
         public string[] LoadFavouritePlayers()
-            => File.ReadAllLines(FileConstants.FavouritePlayersPath);
+        {
+            if(!File.Exists(FileConstants.FavouritePlayersPath)) return Array.Empty<string>();
+            return File.ReadAllLines(FileConstants.FavouritePlayersPath);
+        }
 
         public string LoadJson(string path)
         {

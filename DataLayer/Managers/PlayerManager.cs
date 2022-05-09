@@ -48,6 +48,7 @@ namespace Utility.Managers
         public static void LoadPlayersWithImage()
         {
             string[] lines = repository.LoadPlayersWithImage();
+            if (lines.Length == 0) return;
             lines.ToList().ForEach(line =>
             {
                 string[] details = line.Split("|");
@@ -65,6 +66,7 @@ namespace Utility.Managers
         public static void LoadFavouritePlayers()
         {
             string[] lines = repository.LoadFavouritePlayers();
+            if (lines.Length == 0) return;
             lines.ToList().ForEach(line => 
             {
                 StartingEleven? player = players?.ToList().FirstOrDefault(p => p.Name == line);
