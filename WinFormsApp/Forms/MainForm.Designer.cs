@@ -56,8 +56,8 @@
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.lblProgress = new System.Windows.Forms.ToolStripStatusLabel();
             this.printDialog = new System.Windows.Forms.PrintDialog();
-            this.printDocYellowCards = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocYellowCards = new System.Drawing.Printing.PrintDocument();
             this.printDocGoals = new System.Drawing.Printing.PrintDocument();
             this.printDocMatches = new System.Drawing.Printing.PrintDocument();
             this.tabPage1.SuspendLayout();
@@ -251,18 +251,16 @@
             // 
             // printDialog
             // 
-            this.printDialog.Document = this.printDocYellowCards;
             this.printDialog.UseEXDialog = true;
-            // 
-            // printDocYellowCards
-            // 
-            this.printDocYellowCards.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.YellowCards_PrintPage);
             // 
             // printPreviewDialog
             // 
             resources.ApplyResources(this.printPreviewDialog, "printPreviewDialog");
-            this.printPreviewDialog.Document = this.printDocYellowCards;
             this.printPreviewDialog.Name = "printPreviewDialog";
+            // 
+            // printDocYellowCards
+            // 
+            this.printDocYellowCards.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.YellowCards_PrintPage);
             // 
             // printDocGoals
             // 
@@ -325,11 +323,11 @@
         private ToolStripProgressBar progressBar;
         private ToolStripStatusLabel lblProgress;
         private PrintDialog printDialog;
-        private System.Drawing.Printing.PrintDocument printDocYellowCards;
         private PrintPreviewDialog printPreviewDialog;
-        private System.Drawing.Printing.PrintDocument printDocGoals;
-        private System.Drawing.Printing.PrintDocument printDocMatches;
         private ContextMenuStrip cmPrint;
         private ToolStripMenuItem isprintajToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument printDocYellowCards;
+        private System.Drawing.Printing.PrintDocument printDocGoals;
+        private System.Drawing.Printing.PrintDocument printDocMatches;
     }
 }

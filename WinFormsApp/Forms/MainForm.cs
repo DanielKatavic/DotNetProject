@@ -186,29 +186,32 @@ namespace WinFormsApp.Forms
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
             => PlayerManager.SaveFavouritePlayers();
 
-        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            PrintManager.PrintPlayers(flpYellowCards, e);
-        }
+        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e) 
+            => PrintManager.PrintPlayers(flpYellowCards, e);
 
-        private void Goals_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            PrintManager.PrintPlayers(flpGoals, e);
-        }
+        private void Goals_PrintPage(object sender, PrintPageEventArgs e) 
+            => PrintManager.PrintPlayers(flpGoals, e);
 
-        private void Matches_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            PrintManager.PrintMatches(flpMatches, e);
-        }
+        private void Matches_PrintPage(object sender, PrintPageEventArgs e) 
+            => PrintManager.PrintMatches(flpMatches, e);
 
         private void Print_Click(object sender, EventArgs e)
         {
             ContextMenuStrip? owner = ((ToolStripItem)sender).Owner as ContextMenuStrip;
             string? panelName = owner?.SourceControl.Name;
-            if (panelName == nameof(flpYellowCards)) printPreviewDialog.Document = printDocYellowCards;
-            if (panelName == nameof(flpGoals)) printPreviewDialog.Document = printDocGoals;
-            if (panelName == nameof(flpMatches)) printPreviewDialog.Document = printDocMatches;
+            printPreviewDialog.Document = GetCorrectDocument(panelName ?? string.Empty);
             printPreviewDialog.ShowDialog();
+        }
+
+        private PrintDocument GetCorrectDocument(string panelName)
+        {
+            return panelName switch
+            {
+                nameof(flpYellowCards) => printDocYellowCards,
+                nameof(flpGoals) => printDocGoals,
+                nameof(flpMatches) => printDocMatches,
+                _ => new PrintDocument(),
+            };
         }
     }
 }
