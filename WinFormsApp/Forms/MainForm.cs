@@ -14,7 +14,10 @@ namespace WinFormsApp.Forms
         private ISet<StartingEleven>? playersWithGoals;
 
         public MainForm()
-            => InitializeComponent();
+        {
+            SetFormLanguage(Settings.LangSelected.ToString());
+            InitializeComponent();
+        }
 
         private void MainForm_Load(object sender, EventArgs e) 
             => FillFormAsync();
@@ -163,16 +166,16 @@ namespace WinFormsApp.Forms
             }
         }
 
-        private void ChangeLangToCro_Click(object sender, EventArgs e)
+        private void ChangeLanguage_Click(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hr");
+            SetFormLanguage(((ToolStripMenuItem)sender).Text);
             ResetForm();
         }
 
-        private void ChangeLangToEng_Click(object sender, EventArgs e)
+        private void SetFormLanguage(string language)
         {
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-            ResetForm();
+            string culture = language == "Hrvatski" ? "hr" : "en";
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(culture);
         }
 
         private void ResetForm()
@@ -187,7 +190,7 @@ namespace WinFormsApp.Forms
             => PlayerManager.SaveFavouritePlayers();
 
         private void YellowCards_PrintPage(object sender, PrintPageEventArgs e) 
-            => PrintManager.PrintPlayers(flpYellowCards, e);
+            => PrintManager.PrintPlayers(flpPlayers, e);
 
         private void Goals_PrintPage(object sender, PrintPageEventArgs e) 
             => PrintManager.PrintPlayers(flpGoals, e);
@@ -213,5 +216,8 @@ namespace WinFormsApp.Forms
                 _ => new PrintDocument(),
             };
         }
+
+        private void Document_EndPrint(object sender, PrintEventArgs e) 
+            => PrintManager.ResetVariables();
     }
 }

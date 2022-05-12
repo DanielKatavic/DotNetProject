@@ -1,7 +1,7 @@
 ﻿namespace Utility.Models
 {
     public enum Gender { Male, Female }
-    public enum Language { Croatian, English }
+    public enum Language { Hrvatski, English }
     public enum Access { Offline, Online }
 
     public static class Settings

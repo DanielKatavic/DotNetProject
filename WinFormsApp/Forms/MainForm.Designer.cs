@@ -48,9 +48,9 @@
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.hrvatskiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsmiCroatian = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiEnglish = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -185,7 +185,7 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator1,
-            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton,
             this.toolStripSeparator2});
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -202,29 +202,29 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // toolStripDropDownButton1
+            // toolStripDropDownButton
             // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hrvatskiToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::WinFormsApp.Properties.Resources.translate;
-            resources.ApplyResources(this.toolStripDropDownButton1, "toolStripDropDownButton1");
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiCroatian,
+            this.tsmiEnglish});
+            this.toolStripDropDownButton.Image = global::WinFormsApp.Properties.Resources.translate;
+            resources.ApplyResources(this.toolStripDropDownButton, "toolStripDropDownButton");
+            this.toolStripDropDownButton.Name = "toolStripDropDownButton";
             // 
-            // hrvatskiToolStripMenuItem
+            // tsmiCroatian
             // 
-            this.hrvatskiToolStripMenuItem.Image = global::WinFormsApp.Properties.FlagsResources.CRO;
-            this.hrvatskiToolStripMenuItem.Name = "hrvatskiToolStripMenuItem";
-            resources.ApplyResources(this.hrvatskiToolStripMenuItem, "hrvatskiToolStripMenuItem");
-            this.hrvatskiToolStripMenuItem.Click += new System.EventHandler(this.ChangeLangToCro_Click);
+            this.tsmiCroatian.Image = global::WinFormsApp.Properties.FlagsResources.CRO;
+            this.tsmiCroatian.Name = "tsmiCroatian";
+            resources.ApplyResources(this.tsmiCroatian, "tsmiCroatian");
+            this.tsmiCroatian.Click += new System.EventHandler(this.ChangeLanguage_Click);
             // 
-            // englishToolStripMenuItem
+            // tsmiEnglish
             // 
-            this.englishToolStripMenuItem.Image = global::WinFormsApp.Properties.FlagsResources.ENG;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.ChangeLangToEng_Click);
+            this.tsmiEnglish.Image = global::WinFormsApp.Properties.FlagsResources.ENG;
+            this.tsmiEnglish.Name = "tsmiEnglish";
+            resources.ApplyResources(this.tsmiEnglish, "tsmiEnglish");
+            this.tsmiEnglish.Click += new System.EventHandler(this.ChangeLanguage_Click);
             // 
             // toolStripSeparator2
             // 
@@ -260,14 +260,17 @@
             // 
             // printDocYellowCards
             // 
+            this.printDocYellowCards.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.Document_EndPrint);
             this.printDocYellowCards.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.YellowCards_PrintPage);
             // 
             // printDocGoals
             // 
+            this.printDocGoals.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.Document_EndPrint);
             this.printDocGoals.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.Goals_PrintPage);
             // 
             // printDocMatches
             // 
+            this.printDocMatches.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.Document_EndPrint);
             this.printDocMatches.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.Matches_PrintPage);
             // 
             // MainForm
@@ -312,9 +315,9 @@
         private FlowLayoutPanel flpMatches;
         private ToolStrip toolStrip;
         private ToolStripButton toolStripButton1;
-        private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripMenuItem hrvatskiToolStripMenuItem;
-        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripDropDownButton toolStripDropDownButton;
+        private ToolStripMenuItem tsmiCroatian;
+        private ToolStripMenuItem tsmiEnglish;
         private Label label3;
         private Label label2;
         private ToolStripSeparator toolStripSeparator1;

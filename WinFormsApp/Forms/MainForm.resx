@@ -57,7 +57,87 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;lblTeamName.Name" xml:space="preserve">
+    <value>lblTeamName</value>
+  </data>
+  <data name="&gt;&gt;lblTeamName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTeamName.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;lblTeamName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;flpFavourites.Name" xml:space="preserve">
+    <value>flpFavourites</value>
+  </data>
+  <data name="&gt;&gt;flpFavourites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpFavourites.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;flpFavourites.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;flpPlayers.Name" xml:space="preserve">
+    <value>flpPlayers</value>
+  </data>
+  <data name="&gt;&gt;flpPlayers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpPlayers.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;flpPlayers.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tabPage1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>914, 776</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Popis igrača</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lblTeamName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Agency FB, 20.25pt</value>
   </data>
@@ -67,7 +147,6 @@
   <data name="lblTeamName.Size" type="System.Drawing.Size, System.Drawing">
     <value>240, 40</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTeamName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -170,36 +249,83 @@
   <data name="&gt;&gt;flpPlayers.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tabPage1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;flpGoals.Name" xml:space="preserve">
+    <value>flpGoals</value>
+  </data>
+  <data name="&gt;&gt;flpGoals.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpGoals.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;flpGoals.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;flpYellowCards.Name" xml:space="preserve">
+    <value>flpYellowCards</value>
+  </data>
+  <data name="&gt;&gt;flpYellowCards.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpYellowCards.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;flpYellowCards.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPage2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
     <value>914, 776</value>
   </data>
-  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Popis igrača</value>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Sortirani igrači</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
+    <value>tabPage2</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
     <value>tabControl</value>
   </data>
-  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Agency FB, 20.25pt</value>
@@ -267,12 +393,6 @@
   <metadata name="cmPrint.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>648, 21</value>
   </metadata>
-  <data name="isprintajToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 22</value>
-  </data>
-  <data name="isprintajToolStripMenuItem.Text" xml:space="preserve">
-    <value>Isprintaj</value>
-  </data>
   <data name="cmPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 26</value>
   </data>
@@ -310,6 +430,12 @@
   <data name="&gt;&gt;flpGoals.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="isprintajToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 22</value>
+  </data>
+  <data name="isprintajToolStripMenuItem.Text" xml:space="preserve">
+    <value>Isprintaj</value>
+  </data>
   <data name="flpYellowCards.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -340,53 +466,41 @@
   <data name="&gt;&gt;flpYellowCards.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tabPage2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
-  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
-  <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>914, 776</value>
-  </data>
-  <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Sortirani igrači</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Name" xml:space="preserve">
-    <value>tabPage2</value>
-  </data>
-  <data name="&gt;&gt;tabPage2.Type" xml:space="preserve">
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
     <value>tabControl</value>
   </data>
-  <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="flpMatches.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 33</value>
   </data>
-  <data name="flpMatches.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
+  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>922, 804</value>
   </data>
-  <data name="flpMatches.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
+  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="flpMatches.Size" type="System.Drawing.Size, System.Drawing">
-    <value>898, 790</value>
-  </data>
-  <data name="flpMatches.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="flpMatches.WrapContents" type="System.Boolean, mscorlib">
+  <data name="tabControl.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;flpMatches.Name" xml:space="preserve">
     <value>flpMatches</value>
@@ -427,35 +541,65 @@
   <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 33</value>
+  <data name="flpMatches.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>922, 804</value>
+  <data name="flpMatches.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
   </data>
-  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="flpMatches.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
   </data>
-  <data name="tabControl.Visible" type="System.Boolean, mscorlib">
+  <data name="flpMatches.Size" type="System.Drawing.Size, System.Drawing">
+    <value>898, 790</value>
+  </data>
+  <data name="flpMatches.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="flpMatches.WrapContents" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
-    <value>tabControl</value>
+  <data name="&gt;&gt;flpMatches.Name" xml:space="preserve">
+    <value>flpMatches</value>
   </data>
-  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;flpMatches.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;flpMatches.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
-  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;flpMatches.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="toolStrip.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>922, 30</value>
+  </data>
+  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
+    <value>toolStrip</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="toolStripButton1.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -657,69 +801,33 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 30</value>
   </data>
-  <data name="hrvatskiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="hrvatskiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hrvatski</value>
-  </data>
-  <data name="englishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="englishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="toolStripDropDownButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="toolStripDropDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="toolStripDropDownButton1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="toolStripDropDownButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 27</value>
   </data>
-  <data name="toolStripDropDownButton1.Text" xml:space="preserve">
+  <data name="toolStripDropDownButton.Text" xml:space="preserve">
     <value>Promijeni jezik</value>
+  </data>
+  <data name="tsmiCroatian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsmiCroatian.Text" xml:space="preserve">
+    <value>Hrvatski</value>
+  </data>
+  <data name="tsmiEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsmiEnglish.Text" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 30</value>
   </data>
-  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>922, 30</value>
-  </data>
-  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
-    <value>toolStrip</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>124, 18</value>
   </metadata>
-  <data name="progressBar.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 16</value>
-  </data>
-  <data name="lblProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 17</value>
-  </data>
-  <data name="lblProgress.Text" xml:space="preserve">
-    <value>0%</value>
-  </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 840</value>
   </data>
@@ -743,6 +851,18 @@
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="progressBar.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 16</value>
+  </data>
+  <data name="lblProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 17</value>
+  </data>
+  <data name="lblProgress.Text" xml:space="preserve">
+    <value>0%</value>
   </data>
   <metadata name="printDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>233, 17</value>
@@ -836,22 +956,22 @@
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripDropDownButton1.Name" xml:space="preserve">
-    <value>toolStripDropDownButton1</value>
+  <data name="&gt;&gt;toolStripDropDownButton.Name" xml:space="preserve">
+    <value>toolStripDropDownButton</value>
   </data>
-  <data name="&gt;&gt;toolStripDropDownButton1.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStripDropDownButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;hrvatskiToolStripMenuItem.Name" xml:space="preserve">
-    <value>hrvatskiToolStripMenuItem</value>
+  <data name="&gt;&gt;tsmiCroatian.Name" xml:space="preserve">
+    <value>tsmiCroatian</value>
   </data>
-  <data name="&gt;&gt;hrvatskiToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;tsmiCroatian.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;englishToolStripMenuItem.Name" xml:space="preserve">
-    <value>englishToolStripMenuItem</value>
+  <data name="&gt;&gt;tsmiEnglish.Name" xml:space="preserve">
+    <value>tsmiEnglish</value>
   </data>
-  <data name="&gt;&gt;englishToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;tsmiEnglish.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
