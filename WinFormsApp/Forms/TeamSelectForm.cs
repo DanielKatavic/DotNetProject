@@ -67,7 +67,7 @@ namespace WinFormsApp.Forms
         private void SaveSettings()
         {
             Settings.TeamSelected = cbTeams.SelectedItem as Team;
-            SettingsManager.SaveSettings(Settings.ParseForFileLine());
+            SettingsManager.SaveSettings();
         }
     }
 }

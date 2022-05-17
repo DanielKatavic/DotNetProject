@@ -10,7 +10,7 @@ namespace Utility.Managers
         public static void LoadSettings()
             => Settings.ParseFromFileLine(repository.LoadSettings());
 
-        public static void SaveSettings(string settings) 
-            => repository.SaveSettings(settings);
+        public static void SaveSettings() 
+            => repository.SaveSettings(Settings.ParseForFileLine());
     }
 }

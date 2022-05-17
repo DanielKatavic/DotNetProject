@@ -2,6 +2,7 @@
 using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
+using System.Globalization;
 
 namespace WinFormsApp.Forms
 {
@@ -167,15 +168,17 @@ namespace WinFormsApp.Forms
         }
 
         private void ChangeLanguage_Click(object sender, EventArgs e)
-        {
-            SetFormLanguage(((ToolStripMenuItem)sender).Text);
+        { 
+            string language = ((ToolStripMenuItem)sender).Text;
+            SetFormLanguage(language);
+            Settings.LangSelected = (Language)Enum.Parse(typeof(Language), language);
             ResetForm();
         }
 
         private void SetFormLanguage(string language)
         {
             string culture = language == "Hrvatski" ? "hr" : "en";
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(culture);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
         }
 
         private void ResetForm()
@@ -186,11 +189,8 @@ namespace WinFormsApp.Forms
             FillFormAsync();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-            => PlayerManager.SaveFavouritePlayers();
-
         private void YellowCards_PrintPage(object sender, PrintPageEventArgs e) 
-            => PrintManager.PrintPlayers(flpPlayers, e);
+            => PrintManager.PrintPlayers(flpYellowCards, e);
 
         private void Goals_PrintPage(object sender, PrintPageEventArgs e) 
             => PrintManager.PrintPlayers(flpGoals, e);
@@ -219,5 +219,18 @@ namespace WinFormsApp.Forms
 
         private void Document_EndPrint(object sender, PrintEventArgs e) 
             => PrintManager.ResetVariables();
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBoxManager.ShowWarningMessage("Jeste li sigurni da želite izaći?", "Izlaz") == DialogResult.OK)
+            {
+                PlayerManager.SaveFavouritePlayers();
+                SettingsManager.SaveSettings();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

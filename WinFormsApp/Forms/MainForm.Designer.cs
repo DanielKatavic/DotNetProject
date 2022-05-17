@@ -246,6 +246,7 @@
             // 
             // lblProgress
             // 
+            this.lblProgress.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.lblProgress.Name = "lblProgress";
             resources.ApplyResources(this.lblProgress, "lblProgress");
             // 
