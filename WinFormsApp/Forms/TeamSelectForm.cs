@@ -1,4 +1,5 @@
-﻿using Utility.Managers;
+﻿using System.Globalization;
+using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
@@ -6,7 +7,10 @@ namespace WinFormsApp.Forms
     public partial class TeamSelectForm : Form
     {
         public TeamSelectForm()
-            => InitializeComponent();
+        {
+            SettingsManager.SetFormLanguage(Settings.LangSelected);
+            InitializeComponent();
+        }
 
         private void TeamSelectForm_Load(object sender, EventArgs e) 
             => FillFormAsync();
@@ -49,17 +53,11 @@ namespace WinFormsApp.Forms
             progressBar.Value = progress;
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-            => this.Close();
-
         private void BtnContinue_Click(object sender, EventArgs e)
         {
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
             {
                 SaveSettings();
-                this.Hide();
-                MainForm mainForm = new();
-                mainForm.ShowDialog();
                 this.Close();
             }
         }
@@ -67,7 +65,9 @@ namespace WinFormsApp.Forms
         private void SaveSettings()
         {
             Settings.TeamSelected = cbTeams.SelectedItem as Team;
-            SettingsManager.SaveSettings(Settings.ParseForFileLine());
+            SettingsManager.SaveSettings();
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e) => this.Close();
     }
 }

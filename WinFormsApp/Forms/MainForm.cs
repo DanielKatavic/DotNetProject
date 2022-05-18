@@ -2,6 +2,8 @@
 using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
+using System.Globalization;
+using WinFormsApp.Tabs;
 
 namespace WinFormsApp.Forms
 {
@@ -13,13 +15,15 @@ namespace WinFormsApp.Forms
         private ISet<StartingEleven>? playersWithYellowCards;
         private ISet<StartingEleven>? playersWithGoals;
 
+        private WelcomeForm? welcomeForm;
+
         public MainForm()
         {
-            SetFormLanguage(Settings.LangSelected.ToString());
+            SettingsManager.SetFormLanguage(Settings.LangSelected);
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e) 
+        private void MainForm_Load(object sender, EventArgs e)
             => FillFormAsync();
 
         private async void FillFormAsync()
@@ -115,87 +119,49 @@ namespace WinFormsApp.Forms
 
         private void SecondPage_Enter(object sender, EventArgs e)
         {
-            ClearSecondPage();
-            FillSecondPage();
+            TabManager.ClearTab(flpYellowCards, flpGoals);
+            TabManager.FillSecondTab(playersWithYellowCards, playersWithGoals, flpYellowCards, flpGoals);
         }
 
         private void ThirdPage_Enter(object sender, EventArgs e)
         {
-            ClearThirdPage();
-            FillThirdPage();
+            TabManager.ClearTab(flpMatches);
+            TabManager.FillThirdTab(matches, flpMatches);
         }
-
-        private void ClearSecondPage()
-        {
-            flpYellowCards.Controls.Clear();
-            flpGoals.Controls.Clear();
-        }
-
-        private void FillSecondPage()
-        {
-            playersWithYellowCards?
-                .OrderByDescending(p => p.NumberOfYellowCards)
-                .ToList().ForEach(player => flpYellowCards.Controls.Add(new PlayerYellowCardControl(player)));
-
-            playersWithGoals?
-                .OrderByDescending(p => p.NumberOfGoals)
-                .ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
-        }
-
-        private void ClearThirdPage()
-            => flpMatches.Controls.Clear();
-
-        private void FillThirdPage()
-            => matches?
-                .OrderByDescending(m => m.Attendance)
-                .ToList().ForEach(match =>
-                {
-                    if (match.HomeTeam?.Country == Settings.TeamSelected?.Country
-                    || match.AwayTeam?.Country == Settings.TeamSelected?.Country)
-                    {
-                        flpMatches.Controls.Add(new TeamMatchesControl(match));
-                    }
-                });
 
         private void SettingsIcon_Click(object sender, EventArgs e)
         {
-            WelcomeForm welcomeForm = new();
+            welcomeForm = new WelcomeForm();
             if (welcomeForm.ShowDialog() == DialogResult.OK)
             {
-                this.Close();
+                ResetForm();
             }
         }
 
         private void ChangeLanguage_Click(object sender, EventArgs e)
         {
-            SetFormLanguage(((ToolStripMenuItem)sender).Text);
+            string language = ((ToolStripMenuItem)sender).Text;
+            SettingsManager.SetFormLanguage((Language)Enum.Parse(typeof(Language), language));
+            Settings.LangSelected = (Language)Enum.Parse(typeof(Language), language);
             ResetForm();
-        }
-
-        private void SetFormLanguage(string language)
-        {
-            string culture = language == "Hrvatski" ? "hr" : "en";
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(culture);
         }
 
         private void ResetForm()
         {
             ShowProgress(0);
             Controls.Clear();
+            FormClosing -= new FormClosingEventHandler(MainForm_FormClosing);
             InitializeComponent();
             FillFormAsync();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-            => PlayerManager.SaveFavouritePlayers();
+        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e)
+            => PrintManager.PrintPlayers(flpYellowCards, e);
 
-        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e) 
-            => PrintManager.PrintPlayers(flpPlayers, e);
-
-        private void Goals_PrintPage(object sender, PrintPageEventArgs e) 
+        private void Goals_PrintPage(object sender, PrintPageEventArgs e)
             => PrintManager.PrintPlayers(flpGoals, e);
 
-        private void Matches_PrintPage(object sender, PrintPageEventArgs e) 
+        private void Matches_PrintPage(object sender, PrintPageEventArgs e)
             => PrintManager.PrintMatches(flpMatches, e);
 
         private void Print_Click(object sender, EventArgs e)
@@ -217,7 +183,20 @@ namespace WinFormsApp.Forms
             };
         }
 
-        private void Document_EndPrint(object sender, PrintEventArgs e) 
+        private void Document_EndPrint(object sender, PrintEventArgs e)
             => PrintManager.ResetVariables();
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBoxManager.ShowWarningMessage("Jeste li sigurni da želite izaći?", "Izlaz") == DialogResult.OK)
+            {
+                PlayerManager.SaveFavouritePlayers();
+                SettingsManager.SaveSettings();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

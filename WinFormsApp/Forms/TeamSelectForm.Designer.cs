@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeamSelectForm));
             this.cbTeams = new System.Windows.Forms.ComboBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,75 +39,55 @@
             // 
             // cbTeams
             // 
+            resources.ApplyResources(this.cbTeams, "cbTeams");
             this.cbTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTeams.Enabled = false;
-            this.cbTeams.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbTeams.FormattingEnabled = true;
-            this.cbTeams.Location = new System.Drawing.Point(129, 20);
             this.cbTeams.Name = "cbTeams";
-            this.cbTeams.Size = new System.Drawing.Size(203, 28);
-            this.cbTeams.TabIndex = 0;
             this.cbTeams.UseWaitCursor = true;
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(29, 55);
+            resources.ApplyResources(this.progressBar, "progressBar");
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(303, 15);
-            this.progressBar.TabIndex = 1;
             this.progressBar.UseWaitCursor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(29, 26);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Odaberi tim:";
             this.label1.UseWaitCursor = true;
             // 
             // lblProgress
             // 
-            this.lblProgress.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblProgress.Location = new System.Drawing.Point(29, 73);
+            resources.ApplyResources(this.lblProgress, "lblProgress");
             this.lblProgress.Name = "lblProgress";
-            this.lblProgress.Size = new System.Drawing.Size(303, 13);
-            this.lblProgress.TabIndex = 3;
-            this.lblProgress.Text = "Učitavanje timova...";
-            this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblProgress.UseWaitCursor = true;
             // 
             // btnContinue
             // 
-            this.btnContinue.Enabled = false;
-            this.btnContinue.Location = new System.Drawing.Point(176, 97);
+            resources.ApplyResources(this.btnContinue, "btnContinue");
+            this.btnContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(75, 23);
-            this.btnContinue.TabIndex = 4;
-            this.btnContinue.Text = "Dalje";
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.UseWaitCursor = true;
             this.btnContinue.Click += new System.EventHandler(this.BtnContinue_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(257, 97);
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.UseWaitCursor = true;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TeamSelectForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AcceptButton = this.btnContinue;
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(360, 128);
+            this.CancelButton = this.btnCancel;
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnContinue);
@@ -116,8 +97,6 @@
             this.Controls.Add(this.cbTeams);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TeamSelectForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Odaberi tim";
             this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.TeamSelectForm_Load);
             this.ResumeLayout(false);

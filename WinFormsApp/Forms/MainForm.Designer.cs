@@ -246,6 +246,7 @@
             // 
             // lblProgress
             // 
+            this.lblProgress.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.lblProgress.Name = "lblProgress";
             resources.ApplyResources(this.lblProgress, "lblProgress");
             // 
@@ -309,10 +310,7 @@
         private FlowLayoutPanel flpPlayers;
         private TabPage tabPage2;
         private TabControl tabControl;
-        private FlowLayoutPanel flpYellowCards;
-        private FlowLayoutPanel flpGoals;
         private TabPage tabPage3;
-        private FlowLayoutPanel flpMatches;
         private ToolStrip toolStrip;
         private ToolStripButton toolStripButton1;
         private ToolStripDropDownButton toolStripDropDownButton;
@@ -332,5 +330,8 @@
         private System.Drawing.Printing.PrintDocument printDocYellowCards;
         private System.Drawing.Printing.PrintDocument printDocGoals;
         private System.Drawing.Printing.PrintDocument printDocMatches;
+        private FlowLayoutPanel flpYellowCards;
+        private FlowLayoutPanel flpGoals;
+        private FlowLayoutPanel flpMatches;
     }
 }

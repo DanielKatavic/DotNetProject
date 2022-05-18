@@ -1,3 +1,4 @@
+using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
@@ -7,6 +8,9 @@ namespace WinFormsApp.Forms
         public WelcomeForm() 
             => InitializeComponent();
 
+        private void WelcomeForm_Load(object sender, EventArgs e)
+            => SetComboBoxesValues();
+
         private void BtnContinue_Click(object sender, EventArgs e)
         {
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
@@ -14,12 +18,8 @@ namespace WinFormsApp.Forms
                 SetSettingsData();
                 TeamSelectForm teamSelectForm = new();
                 teamSelectForm.ShowDialog();
-                this.Close();
             }
         }
-
-        private void WelcomeForm_Load(object sender, EventArgs e) 
-            => SetComboBoxesValues();
 
         private void SetSettingsData()
         {
@@ -35,7 +35,21 @@ namespace WinFormsApp.Forms
             cbAccess.DataSource = Enum.GetValues(typeof(Access));
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) 
-            => this.Close();
+        private void BtnCancel_Click(object sender, EventArgs e) => this.Close();
+
+        private void LanguageChanged(object sender, EventArgs e)
+        {
+            Language selectedLanguage = (Language)cbLanguage.SelectedItem;
+            SettingsManager.SetFormLanguage(selectedLanguage);
+            ResetForm(cbLanguage.SelectedIndex);
+        }
+
+        private void ResetForm(int selectedIndex)
+        {
+            Controls.Clear();
+            InitializeComponent();
+            SetComboBoxesValues();
+            cbLanguage.SelectedIndex = selectedIndex;
+        }
     }
 }
