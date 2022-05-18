@@ -8,14 +8,8 @@ namespace WinFormsApp.Forms
     {
         public TeamSelectForm()
         {
-            SetFormLanguage(Settings.LangSelected);
+            SettingsManager.SetFormLanguage(Settings.LangSelected);
             InitializeComponent();
-        }
-
-        private static void SetFormLanguage(Language language)
-        {
-            string culture = language == Language.Hrvatski ? "hr" : "en";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
         }
 
         private void TeamSelectForm_Load(object sender, EventArgs e) 
@@ -64,9 +58,6 @@ namespace WinFormsApp.Forms
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
             {
                 SaveSettings();
-                this.Hide();
-                MainForm mainForm = new();
-                mainForm.ShowDialog();
                 this.Close();
             }
         }
@@ -76,5 +67,7 @@ namespace WinFormsApp.Forms
             Settings.TeamSelected = cbTeams.SelectedItem as Team;
             SettingsManager.SaveSettings();
         }
+
+        private void BtnCancel_Click(object sender, EventArgs e) => this.Close();
     }
 }

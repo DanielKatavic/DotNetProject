@@ -1,4 +1,5 @@
-﻿using Utility.Dal;
+﻿using System.Globalization;
+using Utility.Dal;
 using Utility.Models;
 
 namespace Utility.Managers
@@ -12,5 +13,11 @@ namespace Utility.Managers
 
         public static void SaveSettings() 
             => repository.SaveSettings(Settings.ParseForFileLine());
+
+        public static void SetFormLanguage(Language language)
+        {
+            string culture = language == Language.Hrvatski ? "hr" : "en";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+        }
     }
 }

@@ -1,4 +1,4 @@
-using System.Globalization;
+using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
@@ -8,21 +8,18 @@ namespace WinFormsApp.Forms
         public WelcomeForm() 
             => InitializeComponent();
 
+        private void WelcomeForm_Load(object sender, EventArgs e)
+            => SetComboBoxesValues();
+
         private void BtnContinue_Click(object sender, EventArgs e)
         {
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
             {
+                SetSettingsData();
                 TeamSelectForm teamSelectForm = new();
-                if (teamSelectForm.ShowDialog() == DialogResult.OK)
-                {
-                    SetSettingsData();
-                    this.Close();
-                }
+                teamSelectForm.ShowDialog();
             }
         }
-
-        private void WelcomeForm_Load(object sender, EventArgs e) 
-            => SetComboBoxesValues();
 
         private void SetSettingsData()
         {
@@ -43,7 +40,7 @@ namespace WinFormsApp.Forms
         private void LanguageChanged(object sender, EventArgs e)
         {
             Language selectedLanguage = (Language)cbLanguage.SelectedItem;
-            SetFormLanguage(selectedLanguage);
+            SettingsManager.SetFormLanguage(selectedLanguage);
             ResetForm(cbLanguage.SelectedIndex);
         }
 
@@ -53,12 +50,6 @@ namespace WinFormsApp.Forms
             InitializeComponent();
             SetComboBoxesValues();
             cbLanguage.SelectedIndex = selectedIndex;
-        }
-
-        private static void SetFormLanguage(Language language)
-        {
-            string culture = language == Language.Hrvatski ? "hr" : "en";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
         }
     }
 }

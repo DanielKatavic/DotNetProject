@@ -66,6 +66,7 @@
             // btnContinue
             // 
             resources.ApplyResources(this.btnContinue, "btnContinue");
+            this.btnContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.UseWaitCursor = true;
@@ -74,9 +75,11 @@
             // btnCancel
             // 
             resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.UseWaitCursor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TeamSelectForm
             // 

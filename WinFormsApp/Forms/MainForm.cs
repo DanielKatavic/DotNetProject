@@ -15,13 +15,15 @@ namespace WinFormsApp.Forms
         private ISet<StartingEleven>? playersWithYellowCards;
         private ISet<StartingEleven>? playersWithGoals;
 
+        private WelcomeForm? welcomeForm;
+
         public MainForm()
         {
-            SetFormLanguage(Settings.LangSelected.ToString());
+            SettingsManager.SetFormLanguage(Settings.LangSelected);
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e) 
+        private void MainForm_Load(object sender, EventArgs e)
             => FillFormAsync();
 
         private async void FillFormAsync()
@@ -129,42 +131,37 @@ namespace WinFormsApp.Forms
 
         private void SettingsIcon_Click(object sender, EventArgs e)
         {
-            WelcomeForm welcomeForm = new();
+            welcomeForm = new WelcomeForm();
             if (welcomeForm.ShowDialog() == DialogResult.OK)
             {
-                this.Close();
+                ResetForm();
             }
         }
 
         private void ChangeLanguage_Click(object sender, EventArgs e)
-        { 
+        {
             string language = ((ToolStripMenuItem)sender).Text;
-            SetFormLanguage(language);
+            SettingsManager.SetFormLanguage((Language)Enum.Parse(typeof(Language), language));
             Settings.LangSelected = (Language)Enum.Parse(typeof(Language), language);
             ResetForm();
-        }
-
-        private static void SetFormLanguage(string language)
-        {
-            string culture = language == "Hrvatski" ? "hr" : "en";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
         }
 
         private void ResetForm()
         {
             ShowProgress(0);
             Controls.Clear();
+            FormClosing -= new FormClosingEventHandler(MainForm_FormClosing);
             InitializeComponent();
             FillFormAsync();
         }
 
-        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e) 
+        private void YellowCards_PrintPage(object sender, PrintPageEventArgs e)
             => PrintManager.PrintPlayers(flpYellowCards, e);
 
-        private void Goals_PrintPage(object sender, PrintPageEventArgs e) 
+        private void Goals_PrintPage(object sender, PrintPageEventArgs e)
             => PrintManager.PrintPlayers(flpGoals, e);
 
-        private void Matches_PrintPage(object sender, PrintPageEventArgs e) 
+        private void Matches_PrintPage(object sender, PrintPageEventArgs e)
             => PrintManager.PrintMatches(flpMatches, e);
 
         private void Print_Click(object sender, EventArgs e)
@@ -186,7 +183,7 @@ namespace WinFormsApp.Forms
             };
         }
 
-        private void Document_EndPrint(object sender, PrintEventArgs e) 
+        private void Document_EndPrint(object sender, PrintEventArgs e)
             => PrintManager.ResetVariables();
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
