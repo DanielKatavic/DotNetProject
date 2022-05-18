@@ -1,4 +1,5 @@
-﻿using Utility.Managers;
+﻿using System.Globalization;
+using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
@@ -6,7 +7,16 @@ namespace WinFormsApp.Forms
     public partial class TeamSelectForm : Form
     {
         public TeamSelectForm()
-            => InitializeComponent();
+        {
+            SetFormLanguage(Settings.LangSelected);
+            InitializeComponent();
+        }
+
+        private static void SetFormLanguage(Language language)
+        {
+            string culture = language == Language.Hrvatski ? "hr" : "en";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+        }
 
         private void TeamSelectForm_Load(object sender, EventArgs e) 
             => FillFormAsync();

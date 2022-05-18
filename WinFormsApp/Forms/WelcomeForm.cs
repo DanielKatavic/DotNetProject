@@ -1,3 +1,4 @@
+using System.Globalization;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
@@ -37,7 +38,27 @@ namespace WinFormsApp.Forms
             cbAccess.DataSource = Enum.GetValues(typeof(Access));
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) 
-            => this.Close();
+        private void BtnCancel_Click(object sender, EventArgs e) => this.Close();
+
+        private void LanguageChanged(object sender, EventArgs e)
+        {
+            Language selectedLanguage = (Language)cbLanguage.SelectedItem;
+            SetFormLanguage(selectedLanguage);
+            ResetForm(cbLanguage.SelectedIndex);
+        }
+
+        private void ResetForm(int selectedIndex)
+        {
+            Controls.Clear();
+            InitializeComponent();
+            SetComboBoxesValues();
+            cbLanguage.SelectedIndex = selectedIndex;
+        }
+
+        private static void SetFormLanguage(Language language)
+        {
+            string culture = language == Language.Hrvatski ? "hr" : "en";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+        }
     }
 }

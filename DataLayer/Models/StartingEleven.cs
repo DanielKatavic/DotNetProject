@@ -47,6 +47,6 @@ namespace Utility.Models
             => 13 * Name.GetHashCode();
 
         public int CompareTo(StartingEleven? other) 
-            => Name.CompareTo(other.Name);
+            => Name.CompareTo(other?.Name);
     }
 }
