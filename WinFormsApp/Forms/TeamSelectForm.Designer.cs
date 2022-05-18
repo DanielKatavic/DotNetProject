@@ -99,13 +99,14 @@
             this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.UseWaitCursor = true;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TeamSelectForm
             // 
+            this.AcceptButton = this.btnContinue;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(360, 128);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);

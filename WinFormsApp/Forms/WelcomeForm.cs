@@ -11,10 +11,12 @@ namespace WinFormsApp.Forms
         {
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
             {
-                SetSettingsData();
                 TeamSelectForm teamSelectForm = new();
-                teamSelectForm.ShowDialog();
-                this.Close();
+                if (teamSelectForm.ShowDialog() == DialogResult.OK)
+                {
+                    SetSettingsData();
+                    this.Close();
+                }
             }
         }
 

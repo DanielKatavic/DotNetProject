@@ -3,6 +3,7 @@ using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
 using System.Globalization;
+using WinFormsApp.Tabs;
 
 namespace WinFormsApp.Forms
 {
@@ -116,47 +117,15 @@ namespace WinFormsApp.Forms
 
         private void SecondPage_Enter(object sender, EventArgs e)
         {
-            ClearSecondPage();
-            FillSecondPage();
+            TabManager.ClearTab(flpYellowCards, flpGoals);
+            TabManager.FillSecondTab(playersWithYellowCards, playersWithGoals, flpYellowCards, flpGoals);
         }
 
         private void ThirdPage_Enter(object sender, EventArgs e)
         {
-            ClearThirdPage();
-            FillThirdPage();
+            TabManager.ClearTab(flpMatches);
+            TabManager.FillThirdTab(matches, flpMatches);
         }
-
-        private void ClearSecondPage()
-        {
-            flpYellowCards.Controls.Clear();
-            flpGoals.Controls.Clear();
-        }
-
-        private void FillSecondPage()
-        {
-            playersWithYellowCards?
-                .OrderByDescending(p => p.NumberOfYellowCards)
-                .ToList().ForEach(player => flpYellowCards.Controls.Add(new PlayerYellowCardControl(player)));
-
-            playersWithGoals?
-                .OrderByDescending(p => p.NumberOfGoals)
-                .ToList().ForEach(player => flpGoals.Controls.Add(new PlayerGoalsControl(player)));
-        }
-
-        private void ClearThirdPage()
-            => flpMatches.Controls.Clear();
-
-        private void FillThirdPage()
-            => matches?
-                .OrderByDescending(m => m.Attendance)
-                .ToList().ForEach(match =>
-                {
-                    if (match.HomeTeam?.Country == Settings.TeamSelected?.Country
-                    || match.AwayTeam?.Country == Settings.TeamSelected?.Country)
-                    {
-                        flpMatches.Controls.Add(new TeamMatchesControl(match));
-                    }
-                });
 
         private void SettingsIcon_Click(object sender, EventArgs e)
         {
@@ -175,7 +144,7 @@ namespace WinFormsApp.Forms
             ResetForm();
         }
 
-        private void SetFormLanguage(string language)
+        private static void SetFormLanguage(string language)
         {
             string culture = language == "Hrvatski" ? "hr" : "en";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);

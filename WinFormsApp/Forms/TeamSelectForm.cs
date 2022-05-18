@@ -49,9 +49,6 @@ namespace WinFormsApp.Forms
             progressBar.Value = progress;
         }
 
-        private void BtnCancel_Click(object sender, EventArgs e)
-            => this.Close();
-
         private void BtnContinue_Click(object sender, EventArgs e)
         {
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
