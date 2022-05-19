@@ -13,7 +13,6 @@ namespace Utility.Managers
         public static IList<T>? LoadFromFile()
         {
             string path = FileConstants.GetFilePath(typeof(T), Settings.GenderSelected);
-
             string json = repository.LoadJson(path);
 
             if (string.IsNullOrWhiteSpace(json))

@@ -6,13 +6,18 @@ namespace WinFormsApp.Forms
 {
     public partial class TeamSelectForm : Form
     {
+        private MainForm? mainForm;
+
         public TeamSelectForm()
         {
             SettingsManager.SetFormLanguage(Settings.LangSelected);
             InitializeComponent();
         }
 
-        private void TeamSelectForm_Load(object sender, EventArgs e) 
+        public TeamSelectForm(MainForm? mainForm) : this()
+            => this.mainForm = mainForm;
+
+        private void TeamSelectForm_Load(object sender, EventArgs e)
             => FillFormAsync();
 
         private async void FillFormAsync()
@@ -24,13 +29,28 @@ namespace WinFormsApp.Forms
                 btnContinue.Enabled = true;
                 cbTeams.Enabled = true;
             }
-            catch
+            catch (HttpRequestException)
+            {
+                if (MessageBoxManager.ShowNoConnectionMessage() == DialogResult.Yes)
+                {
+                    Settings.AccessSelected = Access.Offline;
+                    ResetForm();
+                }
+            }
+            catch (Exception)
             {
                 MessageBoxManager.ShowErrorMessage("Timovi nisu uspješno učitani!", "Greška");
                 progressBar.Value = 100;
                 SetProgressBarLabel("Timovi nisu uspješno učitani!", Color.Red);
             }
             UseWaitCursor = false;
+        }
+
+        private void ResetForm()
+        {
+            Controls.Clear();
+            InitializeComponent();
+            FillFormAsync();
         }
 
         private void SetProgressBarLabel(string text, Color color)
@@ -43,6 +63,7 @@ namespace WinFormsApp.Forms
         {
             ShowProgress(50);
             IList<Team>? teams = await TeamManager.GetAllTeams();
+            if (teams is null) throw new HttpRequestException();
             ShowProgress(100);
             cbTeams.DataSource = teams;
         }
@@ -58,7 +79,13 @@ namespace WinFormsApp.Forms
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
             {
                 SaveSettings();
-                this.Close();
+                if (mainForm is null)
+                {
+                    this.Hide();
+                    mainForm = new MainForm();
+                    mainForm.FormClosing += (s, e) => this.Close();
+                    mainForm.Show();
+                }
             }
         }
 

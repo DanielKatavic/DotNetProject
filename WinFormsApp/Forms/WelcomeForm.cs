@@ -5,8 +5,13 @@ namespace WinFormsApp.Forms
 {
     public partial class WelcomeForm : Form
     {
-        public WelcomeForm() 
+        private readonly MainForm? mainForm;
+
+        public WelcomeForm()
             => InitializeComponent();
+
+        public WelcomeForm(MainForm mainForm) : this()
+            => this.mainForm = mainForm;
 
         private void WelcomeForm_Load(object sender, EventArgs e)
             => SetComboBoxesValues();
@@ -16,8 +21,17 @@ namespace WinFormsApp.Forms
             if (MessageBoxManager.ShowWarningMessage() == DialogResult.OK)
             {
                 SetSettingsData();
-                TeamSelectForm teamSelectForm = new();
-                teamSelectForm.ShowDialog();
+                TeamSelectForm teamSelectForm = new(mainForm);
+                if (mainForm is null)
+                {
+                    this.Hide();
+                    teamSelectForm.FormClosing += (s, e) => this.Close();
+                    teamSelectForm.Show();
+                }
+                else
+                {
+                    teamSelectForm.ShowDialog();
+                }
             }
         }
 

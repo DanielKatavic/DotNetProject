@@ -2,7 +2,6 @@
 using Utility.Managers;
 using Utility.Models;
 using WinFormsApp.UserControls;
-using System.Globalization;
 using WinFormsApp.Tabs;
 
 namespace WinFormsApp.Forms
@@ -131,7 +130,7 @@ namespace WinFormsApp.Forms
 
         private void SettingsIcon_Click(object sender, EventArgs e)
         {
-            welcomeForm = new WelcomeForm();
+            welcomeForm = new WelcomeForm(this);
             if (welcomeForm.ShowDialog() == DialogResult.OK)
             {
                 ResetForm();
