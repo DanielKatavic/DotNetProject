@@ -21,7 +21,7 @@
       <li>clicking on star which is part of UserControl</li>
       <li>right clicking on user control and selecting "add to favourite players"</li>
       <li>dragging-and-dropping one by one to FlowLayoutPanel</li>
-      <li>holding ctrl + rmb and dragging-and-dropping multiple users to FlowLayoutPanel</li>
+      <li>holding ctrl + lmb and dragging-and-dropping multiple users to FlowLayoutPanel</li>
     </ul>
   </ul>
   <li>Second page:</li>
