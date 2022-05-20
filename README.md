@@ -1,4 +1,4 @@
-# DotNetProject
+# WorldCupApp
 <h3>Project contains:</h3>
 <ul>
   <li>Data layer (Class Library)</li>
