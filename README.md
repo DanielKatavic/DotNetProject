@@ -23,7 +23,7 @@
       <li>dragging-and-dropping one by one to FlowLayoutPanel</li>
       <li>holding ctrl + lmb and dragging-and-dropping multiple users to FlowLayoutPanel</li>
     </ul>
-    <li>User can add custom image of player by right clicking on UserControl</li>
+    <li>User can add custom image of player by right clicking on user control</li>
   </ul>
   <li>Second page:</li>
   <ul>
