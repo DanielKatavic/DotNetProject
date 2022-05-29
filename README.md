@@ -10,19 +10,20 @@
   <li>Application gets data from API or local JSON files</li>
   <li>All data that Windows Forms and WPF applications are using is managed here 
 </ul>
-<h3>Windows Forms appliaction:</h3>
+<h3>Windows Forms application:</h3>
 <ul>   
   <li>If user is starting app for the first time it asks him to select gender, language and favourite team</li>
   <li>First page:</li>
   <ul>
     <li>All players from selected team are listed as UserControls in FlowLayoutPanel</li>
-  <li>User can add up to three favourite players by:</li> 
+    <li>User can add up to three favourite players by:</li> 
     <ul>
       <li>clicking on star which is part of UserControl</li>
       <li>right clicking on user control and selecting "add to favourite players"</li>
       <li>dragging-and-dropping one by one to FlowLayoutPanel</li>
       <li>holding ctrl + lmb and dragging-and-dropping multiple users to FlowLayoutPanel</li>
     </ul>
+    <li>User can add custom image of player by right clicking on UserControl</li>
   </ul>
   <li>Second page:</li>
   <ul>
