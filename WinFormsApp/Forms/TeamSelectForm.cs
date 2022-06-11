@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using Utility.Managers;
+﻿using Utility.Managers;
 using Utility.Models;
 
 namespace WinFormsApp.Forms
