@@ -20,6 +20,7 @@ namespace WpfApp
     {
         private IList<Team>? teams;
         private IList<Match>? matches;
+        private IEnumerable<Match>? playedMatches;
 
         public MainWindow()
         {
@@ -69,8 +70,8 @@ namespace WpfApp
 
         private void FillCBOpponent()
         {
-            IEnumerable<Match>? enumerable = matches?.ToList().Where(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode || m.AwayTeam?.Code == Settings.TeamSelected?.FifaCode);
-            cbOpponent.ItemsSource = enumerable?.Select(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode ? m.AwayTeam : m.HomeTeam);
+            playedMatches = matches?.ToList().Where(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode || m.AwayTeam?.Code == Settings.TeamSelected?.FifaCode);
+            cbOpponent.ItemsSource = playedMatches?.Select(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode ? m.AwayTeam : m.HomeTeam);
         }
 
         private void ChangeOpponent_Click(object sender, RoutedEventArgs e)
@@ -78,8 +79,8 @@ namespace WpfApp
             exOpponent.IsExpanded = false;
             Team? selectedOpponent = cbOpponent.SelectedItem as Team;
             exOpponent.Header = selectedOpponent;
-            Match? match = matches?.ToList().FirstOrDefault(m => m.HomeTeam?.Code == selectedOpponent?.Code || m.AwayTeam?.Code == selectedOpponent?.Code);
-            lblResult.Content = $"{(match?.HomeTeam == selectedOpponent ? match?.HomeTeam?.Goals : match?.AwayTeam?.Goals)} : {selectedOpponent?.Goals}";
+            Match? match = playedMatches?.ToList().FirstOrDefault(m => m.HomeTeam?.Code == selectedOpponent?.Code || m.AwayTeam?.Code == selectedOpponent?.Code);
+            lblResult.Content = $"{(match?.HomeTeam != selectedOpponent ? match?.HomeTeam?.Goals : match?.AwayTeam?.Goals)} : {selectedOpponent?.Goals}";
             btnOpponent.Content = "Change opponent";
         }
     }
