@@ -9,37 +9,42 @@
         WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
         FontSize="17"
         Loaded="Window_Loaded">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Expander x:Name="exTeamSelected" Width="300" Padding="5" Margin="0 25 0 0">
-                <Expander.Content>
-                    <StackPanel Margin="10">
-                        <ComboBox x:Name="cbTeams" Margin="0 0 0 10"/>
-                        <Button Click="ChangeTeam_Click" Content="Change team" Width="110" Padding="2">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="7"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                    </StackPanel>
-                </Expander.Content>
-            </Expander>
-            <Expander x:Name="exOpponent" Header="Please select opponent" Width="300" Padding="5" Margin="0 25 0 0">
-                <Expander.Content>
-                    <StackPanel Margin="10">
-                        <ComboBox x:Name="cbOpponent" Margin="0 0 0 10"/>
-                        <Button x:Name="btnOpponent" Click="ChangeOpponent_Click" Content="Select opponent" Width="120" Padding="2">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="7"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                    </StackPanel>
-                </Expander.Content>
-            </Expander>
+    <DockPanel>
+        <Canvas DockPanel.Dock="Top" Width="400" Panel.ZIndex="100" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Expander x:Name="exTeamSelected" Opacity=".9" Background="LightGreen" Header="Select team" Width="160" Padding="5" Margin="0 20 0 20">
+                    <Expander.Content>
+                        <StackPanel Margin="10">
+                            <ComboBox x:Name="cbTeams" Margin="0 0 0 10"/>
+                            <Button Click="ChangeTeam_Click" Content="Change team" Width="110" Padding="2">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="7"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </Expander.Content>
+                </Expander>
+                <Label x:Name="lblResult" Content="x : x" VerticalAlignment="Center" FontSize="25" Padding="20 0 20 0"/>
+                <Expander x:Name="exOpponent" Opacity=".9" Background="LightGreen" Header="Select opponent" Width="160" Padding="5" Margin="0 20 0 20">
+                    <Expander.Content>
+                        <StackPanel Margin="10">
+                            <ComboBox x:Name="cbOpponent" Margin="0 0 0 10"/>
+                            <Button x:Name="btnOpponent" Click="ChangeOpponent_Click" Content="Select opponent" Width="120" Padding="2">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="7"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </Expander.Content>
+                </Expander>
+            </StackPanel>
+        </Canvas>
+        <StackPanel >
+            <Image Margin="0 65 0 0" Source="https://thumbs.dreamstime.com/b/soccer-field-football-background-green-court-pattern-lawn-148794562.jpg"/>
         </StackPanel>
-        
-    </StackPanel>
+    </DockPanel>
 </Window>

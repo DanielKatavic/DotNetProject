@@ -16,9 +16,6 @@ using Utility.Models;
 
 namespace WpfApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private IList<Team>? teams;
@@ -51,7 +48,7 @@ namespace WpfApp
         private async void FillWindowAsync()
         {
             await LoadDataAsync();
-            exTeamSelected.Header = $"Selected team: {Settings.TeamSelected}";
+            //exTeamSelected.Header = Settings.TeamSelected;
             cbTeams.ItemsSource = teams;
             FillCBOpponent();
         }
@@ -64,7 +61,7 @@ namespace WpfApp
 
         private void ChangeTeam_Click(object sender, RoutedEventArgs e)
         {
-            exTeamSelected.Header = $"Selected team: {cbTeams.SelectedItem}";
+            exTeamSelected.Header = cbTeams.SelectedItem;
             Settings.TeamSelected = (Team?)cbTeams.SelectedItem;
             FillCBOpponent();
             exTeamSelected.IsExpanded = false;
@@ -79,7 +76,10 @@ namespace WpfApp
         private void ChangeOpponent_Click(object sender, RoutedEventArgs e)
         {
             exOpponent.IsExpanded = false;
-            exOpponent.Header = $"Selected opponent: {cbOpponent.SelectedItem}";
+            Team? selectedOpponent = cbOpponent.SelectedItem as Team;
+            exOpponent.Header = selectedOpponent;
+            Match? match = matches?.ToList().FirstOrDefault(m => m.HomeTeam?.Code == selectedOpponent?.Code || m.AwayTeam?.Code == selectedOpponent?.Code);
+            lblResult.Content = $"{(match?.HomeTeam == selectedOpponent ? match?.HomeTeam?.Goals : match?.AwayTeam?.Goals)} : {selectedOpponent?.Goals}";
             btnOpponent.Content = "Change opponent";
         }
     }

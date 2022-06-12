@@ -30,7 +30,7 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to proceed?", "Alert", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            if(MessageBox.Show("Are you sure you want to proceed?", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
                 SaveSettings();
                 MainWindow mainWindow = new();
