@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="800" MinHeight="600" MinWidth="800"
+        WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
+        FontSize="17">
+    <StackPanel>
+        <Expander x:Name="exTeamSelected" Width="300" Background="SkyBlue" Padding="5" Margin="0 25 0 0">
+            <Expander.Content>
+                <StackPanel Margin="10">
+                    <ComboBox x:Name="cbTeams" Margin="0 0 0 10"/>
+                    <Button Click="ChangeTeam_Click" Content="Change team" Width="110" Padding="2">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Expander.Content>
+        </Expander>
+        <Grid Margin="0 20 0 0" >
+            
+        </Grid>
+    </StackPanel>
 </Window>

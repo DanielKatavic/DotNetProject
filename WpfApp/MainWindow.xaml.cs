@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Utility.Managers;
 using Utility.Models;
 
 namespace WpfApp
@@ -24,6 +25,7 @@ namespace WpfApp
         {
             InitializeComponent();
             SetResolution();
+            FillWindowAsync();
         }
 
         private void SetResolution()
@@ -37,6 +39,18 @@ namespace WpfApp
                 this.Height = Settings.WindowHeight;
                 this.Width = Settings.WindowWidth;
             }
+        }
+
+        private async void FillWindowAsync()
+        {
+            IList<Team>? teams = await TeamManager.GetAllTeams();
+            exTeamSelected.Header = $"Selected team: {Settings.TeamSelected}";
+            cbTeams.ItemsSource = teams;
+        }
+
+        private void ChangeTeam_Click(object sender, RoutedEventArgs e)
+        {
+            exTeamSelected.Header = $"Selected team: {cbTeams.SelectedItem}";
         }
     }
 }
