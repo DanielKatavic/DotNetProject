@@ -5,53 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Welcome" Height="450" Width="350" 
-        MinWidth="350" MinHeight="450" 
-        WindowStartupLocation="CenterScreen"
-        FontFamily="Bahnschrift SemiCondensed"
-        FontSize="17">
-    <Grid Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label Grid.ColumnSpan="2" 
-               Content="Welcome" 
-               FontSize="32" 
-               FontWeight="Bold" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Center"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Select gender:" />
-        <ComboBox Height="30" Grid.Column="1" 
-                      Grid.Row="1" x:Name="cbGender" 
-                      SelectedIndex="0" Width="100" 
-                      FontWeight="DemiBold" Padding="5" />
-        <Label Grid.Column="0" Grid.Row="2" Content="Select language:" />
-        <ComboBox Height="30" Grid.Column="1" Grid.Row="2" x:Name="cbLanguage" SelectedIndex="0" Width="100" Padding="5"/>
-        <CheckBox IsChecked="True" Click="CheckBox_Click" HorizontalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="3" Content="FullScreen" Padding="5"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Select resolution:"/>
-        <ComboBox Height="30" x:Name="cbResolution" Grid.Column="1" Grid.Row="4" Width="100" Visibility="Hidden">
-            <ComboBoxItem IsSelected="True" Tag="Small" Content="800x600" />
-            <ComboBoxItem Tag="Medium" Content="1280x720" />
-            <ComboBoxItem Tag="Large" Content="1920x1080" />
-        </ComboBox>
-        <DockPanel Grid.Row="5" Grid.ColumnSpan="2">
-            <Button Content="Accept" Width="110" Padding="3" Height="30" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </DockPanel>
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        
     </Grid>
-
 </Window>

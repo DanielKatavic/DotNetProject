@@ -10,8 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Utility.Models;
 
 namespace WpfApp
 {
@@ -23,19 +23,20 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
-            FillWindow();
-            
+            SetResolution();
         }
 
-        private void FillWindow()
+        private void SetResolution()
         {
-            cbGender.ItemsSource = Enum.GetValues(typeof(Utility.Models.Gender));
-            cbLanguage.ItemsSource = Enum.GetValues(typeof(Utility.Models.Language));
-        }
-
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            cbResolution.Visibility = cbResolution.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
+            if (Settings.IsFullScreen)
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.Height = Settings.WindowHeight;
+                this.Width = Settings.WindowWidth;
+            }
         }
     }
 }

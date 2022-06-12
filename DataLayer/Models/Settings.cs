@@ -7,14 +7,18 @@
     public static class Settings
     {
         private const char Del = '|';
+        private const char ResSplitter = 'x';
 
         public static Gender GenderSelected { get; set; }
         public static Language LangSelected { get; set; }
         public static Access AccessSelected { get; set; }
         public static Team? TeamSelected { get; set; }
+        public static int WindowHeight { get; set; }
+        public static int WindowWidth { get; set; }
+        public static bool IsFullScreen { get; set; }
 
         public static string ParseForFileLine()
-            => $"{GenderSelected}{Del}{LangSelected}{Del}{AccessSelected}{Del}{TeamSelected?.Country}{Del}{TeamSelected?.FifaCode}";
+            => $"{GenderSelected}{Del}{LangSelected}{Del}{AccessSelected}{Del}{TeamSelected?.Country}{Del}{TeamSelected?.FifaCode}{Del}{WindowHeight}{ResSplitter}{WindowWidth}{Del}{IsFullScreen}";
 
         public static void ParseFromFileLine(string line)
         {
@@ -27,6 +31,13 @@
                 Country = details[3],
                 FifaCode = details[4]
             };
+        }
+
+        public static void SaveResolution(string? resolution)
+        {
+            string[]? res = resolution?.Split(ResSplitter);
+            WindowWidth = int.Parse(res[0]);
+            WindowHeight = int.Parse(res[1]);
         }
     }
 }
