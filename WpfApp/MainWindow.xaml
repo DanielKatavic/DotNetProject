@@ -7,24 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" MinHeight="600" MinWidth="800"
         WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
-        FontSize="17">
+        FontSize="17"
+        Loaded="Window_Loaded">
     <StackPanel>
-        <Expander x:Name="exTeamSelected" Width="300" Background="SkyBlue" Padding="5" Margin="0 25 0 0">
-            <Expander.Content>
-                <StackPanel Margin="10">
-                    <ComboBox x:Name="cbTeams" Margin="0 0 0 10"/>
-                    <Button Click="ChangeTeam_Click" Content="Change team" Width="110" Padding="2">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="7"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </StackPanel>
-            </Expander.Content>
-        </Expander>
-        <Grid Margin="0 20 0 0" >
-            
-        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Expander x:Name="exTeamSelected" Width="300" Padding="5" Margin="0 25 0 0">
+                <Expander.Content>
+                    <StackPanel Margin="10">
+                        <ComboBox x:Name="cbTeams" Margin="0 0 0 10"/>
+                        <Button Click="ChangeTeam_Click" Content="Change team" Width="110" Padding="2">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="7"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </Expander.Content>
+            </Expander>
+            <Expander x:Name="exOpponent" Header="Please select opponent" Width="300" Padding="5" Margin="0 25 0 0">
+                <Expander.Content>
+                    <StackPanel Margin="10">
+                        <ComboBox x:Name="cbOpponent" Margin="0 0 0 10"/>
+                        <Button x:Name="btnOpponent" Click="ChangeOpponent_Click" Content="Select opponent" Width="120" Padding="2">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="7"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </Expander.Content>
+            </Expander>
+        </StackPanel>
+        
     </StackPanel>
 </Window>

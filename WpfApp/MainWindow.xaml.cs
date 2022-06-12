@@ -21,10 +21,17 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IList<Team>? teams;
+        private IList<Match>? matches;
+
         public MainWindow()
         {
             InitializeComponent();
             SetResolution();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             FillWindowAsync();
         }
 
@@ -43,14 +50,37 @@ namespace WpfApp
 
         private async void FillWindowAsync()
         {
-            IList<Team>? teams = await TeamManager.GetAllTeams();
+            await LoadDataAsync();
             exTeamSelected.Header = $"Selected team: {Settings.TeamSelected}";
             cbTeams.ItemsSource = teams;
+            FillCBOpponent();
+        }
+
+        private async Task LoadDataAsync()
+        {
+            teams = await TeamManager.GetAllTeams();
+            matches = await MatchManager.GetAllMatches();
         }
 
         private void ChangeTeam_Click(object sender, RoutedEventArgs e)
         {
             exTeamSelected.Header = $"Selected team: {cbTeams.SelectedItem}";
+            Settings.TeamSelected = (Team?)cbTeams.SelectedItem;
+            FillCBOpponent();
+            exTeamSelected.IsExpanded = false;
+        }
+
+        private void FillCBOpponent()
+        {
+            IEnumerable<Match>? enumerable = matches?.ToList().Where(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode || m.AwayTeam?.Code == Settings.TeamSelected?.FifaCode);
+            cbOpponent.ItemsSource = enumerable?.Select(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode ? m.AwayTeam : m.HomeTeam);
+        }
+
+        private void ChangeOpponent_Click(object sender, RoutedEventArgs e)
+        {
+            exOpponent.IsExpanded = false;
+            exOpponent.Header = $"Selected opponent: {cbOpponent.SelectedItem}";
+            btnOpponent.Content = "Change opponent";
         }
     }
 }

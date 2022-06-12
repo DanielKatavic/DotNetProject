@@ -32,6 +32,6 @@ namespace Utility.Models
         public long Penalties { get; set; }
 
         public override string ToString()
-            => $"{Country} ({FifaCode})";
+            => $"{Country} ({(FifaCode ?? Code)})";
     }
 }
