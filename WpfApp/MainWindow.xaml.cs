@@ -31,6 +31,7 @@ namespace WpfApp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FillWindowAsync();
+            UCPlaceHolder.Children.Add(new TeamUserControl());
         }
 
         private void SetResolution()
