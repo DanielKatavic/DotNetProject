@@ -12,7 +12,7 @@
     <DockPanel>
         <Canvas Panel.ZIndex="100" DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal" Canvas.Left="165">
-                <Button Click="Button_Click" Height="32" Background="White" BorderBrush="White">
+                <Button x:Name="BtnTeam" Click="Button_Click" Height="32" Background="White" BorderBrush="White">
                     <Button.Content>
                         <Image Source="https://cdn-icons-png.flaticon.com/512/1041/1041728.png" Width="32" ></Image>
                     </Button.Content>
@@ -20,7 +20,7 @@
                 <Expander x:Name="exTeamSelected" Opacity=".9" Background="LightGreen" Header="Select team" Width="160" Padding="5" Margin="0 20 0 20">
                     <Expander.Content>
                         <StackPanel Margin="10">
-                            <ComboBox x:Name="cbTeams" Margin="0 0 0 10"/>
+                            <ComboBox x:Name="cbTeams" Margin="0 0 0 10" MaxDropDownHeight="200" />
                             <Button Click="ChangeTeam_Click" Content="Change team" Width="110" Padding="2">
                                 <Button.Resources>
                                     <Style TargetType="{x:Type Border}">
@@ -35,7 +35,7 @@
                 <Expander x:Name="exOpponent" Opacity=".9" Background="LightGreen" Header="Select opponent" Width="160" Padding="5" Margin="0 20 0 20">
                     <Expander.Content>
                         <StackPanel Margin="10">
-                            <ComboBox x:Name="cbOpponent" Margin="0 0 0 10"/>
+                            <ComboBox x:Name="cbOpponent" Margin="0 0 0 10" MaxDropDownHeight="200"/>
                             <Button x:Name="btnOpponent" Click="ChangeOpponent_Click" Content="Select opponent" Width="120" Padding="2">
                                 <Button.Resources>
                                     <Style TargetType="{x:Type Border}">
@@ -46,7 +46,7 @@
                         </StackPanel>
                     </Expander.Content>
                 </Expander>
-                <Button Height="32" Background="White" BorderBrush="White">
+                <Button x:Name="BtnOpponent" Click="Button_Click" Height="32" Background="White" BorderBrush="White">
                     <Button.Content>
                         <Image Source="https://cdn-icons-png.flaticon.com/512/1041/1041728.png" Width="32" ></Image>
                     </Button.Content>

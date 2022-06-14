@@ -21,6 +21,7 @@ namespace WpfApp
         private IList<Team>? teams;
         private IList<Match>? matches;
         private IEnumerable<Match>? playedMatches;
+        private Team? opponent;
 
         public MainWindow()
         {
@@ -51,7 +52,7 @@ namespace WpfApp
             await LoadDataAsync();
             //exTeamSelected.Header = Settings.TeamSelected;
             cbTeams.ItemsSource = teams;
-            FillCBOpponent();
+            //FillCBOpponent();
         }
 
         private async Task LoadDataAsync()
@@ -78,15 +79,27 @@ namespace WpfApp
         {
             exOpponent.IsExpanded = false;
             Team? selectedOpponent = cbOpponent.SelectedItem as Team;
-            exOpponent.Header = selectedOpponent;
-            Match? match = playedMatches?.ToList().FirstOrDefault(m => m.HomeTeam?.Code == selectedOpponent?.Code || m.AwayTeam?.Code == selectedOpponent?.Code);
-            lblResult.Content = $"{(match?.HomeTeam != selectedOpponent ? match?.HomeTeam?.Goals : match?.AwayTeam?.Goals)} : {selectedOpponent?.Goals}";
+            opponent = teams?.FirstOrDefault(t => t.FifaCode == selectedOpponent?.Code);
+            exOpponent.Header = opponent;
+            Match? match = playedMatches?.ToList().FirstOrDefault(m => m.HomeTeam?.Code == opponent?.FifaCode || m.AwayTeam?.Code == opponent?.FifaCode);
+            lblResult.Content = $"{(match?.HomeTeam?.Code != opponent?.FifaCode ? match?.HomeTeam?.Goals : match?.AwayTeam?.Goals)} : {selectedOpponent?.Goals}";
             btnOpponent.Content = "Change opponent";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TeamDetailsWindow teamDetailsWindow = new(Settings.TeamSelected);
+            string btnName = ((Button)sender).Name;
+            if (Settings.TeamSelected is null)
+            {
+                MessageBox.Show("You need to select team!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (btnName == BtnOpponent.Name && opponent is null)
+            {
+                MessageBox.Show("You need to select opponent!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            TeamDetailsWindow teamDetailsWindow = new(btnName == BtnTeam.Name ? Settings.TeamSelected : opponent);
             teamDetailsWindow.ShowDialog();
         }
     }

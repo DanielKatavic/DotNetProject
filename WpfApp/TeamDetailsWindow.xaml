@@ -9,11 +9,43 @@
         FontFamily="Bahnschrift SemiCondensed" FontSize="17"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="18">
+
+            </Setter>
+        </Style>
+    </Window.Resources>
     <StackPanel>
-        <Label x:Name="lblTeamName" Content="Croatia (CRO)" FontSize="20" HorizontalAlignment="Center"/>
-        <Label Content="Croatia (CRO)" FontSize="20"/>
-        <Label Content="Croatia (CRO)" FontSize="20"/>
-        <Label Content="Croatia (CRO)" FontSize="20"/>
-        <Label Content="Croatia (CRO)" FontSize="20"/>
+        <Label Margin="0 10 0 0" x:Name="lblTeamName" Content="Croatia (CRO)" FontSize="20" HorizontalAlignment="Center"/>
+        <Grid Margin="0 20 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Played matches: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="1" Content="Wins: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="2" Content="Losses: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="3" Content="Draws: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="4" Content="Goals for: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="5" Content="Goals against: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="6" Content="Goals differential: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="lblPlayedMatches" Content="2" />
+            <Label Grid.Row="1" Grid.Column="1" x:Name="lblWins" Content="3"/>
+            <Label Grid.Row="2" Grid.Column="1" x:Name="lblLosses" Content="4"/>
+            <Label Grid.Row="3" Grid.Column="1" x:Name="lblDraws" Content="5"/>
+            <Label Grid.Row="4" Grid.Column="1" x:Name="lblGoalsFor" Content="6"/>
+            <Label Grid.Row="5" Grid.Column="1" x:Name="lblGoalsAgainst" Content="7"/>
+            <Label Grid.Row="6" Grid.Column="1" x:Name="lblGoalsDifferential" Content="8"/>
+        </Grid>
     </StackPanel>
 </Window>

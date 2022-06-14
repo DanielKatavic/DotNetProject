@@ -8,22 +8,17 @@ namespace Utility.Constants
         public const string PlayersImagePath = "players-with-image.txt";
         public const string FavouritePlayersPath = "favourite-players.txt";
 
-        private const string MaleTeamPath = @"..\..\..\..\worldcup.sfg.io\men\teams.json";
-        private const string FemaleTeamPath = @"..\..\..\..\worldcup.sfg.io\women\teams.json";
-        private const string MaleMatchPath = @"..\..\..\..\worldcup.sfg.io\men\matches.json";
-        private const string FemaleMatchPath = @"..\..\..\..\worldcup.sfg.io\women\matches.json";
-
-        private static string GetMatchPath(Gender genderSelected)
-            => genderSelected == Gender.Male ? MaleMatchPath : FemaleMatchPath;
-
-        private static string GetTeamPath(Gender genderSelected)
-            => genderSelected == Gender.Male ? MaleTeamPath : FemaleTeamPath;
+        private const string ResultsDir = "worldcup.sfg.io";
 
         public static string GetFilePath(Type t, Gender genderSelected)
         {
-            if (t == typeof(Team)) return GetTeamPath(genderSelected);
+            string genderDir = (genderSelected == Gender.Male ? "men" : "women");
 
-            if (t == typeof(Match)) return GetMatchPath(genderSelected);
+            if (t == typeof(Team)) return @$"..\..\..\..\{ResultsDir}\{genderDir}\teams.json";
+            
+            if (t == typeof(GroupResults)) return @$"..\..\..\..\{ResultsDir}\{genderDir}\group_results.json"; ;
+
+            if (t == typeof(Match)) return @$"..\..\..\..\{ResultsDir}\{genderDir}\matches.json";
 
             return string.Empty;
         }
