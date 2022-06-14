@@ -10,19 +10,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Utility.Models;
 
 namespace WpfApp
 {
     /// <summary>
-    /// Interaction logic for TeamUserControl.xaml
+    /// Interaction logic for TeamDetailsWindow.xaml
     /// </summary>
-    public partial class TeamUserControl : UserControl
+    public partial class TeamDetailsWindow : Window
     {
-        public TeamUserControl()
+        private Team? teamSelected;
+
+        public TeamDetailsWindow()
         {
             InitializeComponent();
+        }
+
+        public TeamDetailsWindow(Team? teamSelected) : this()
+        {
+            this.teamSelected = teamSelected;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lblTeamName.Content = teamSelected;
         }
     }
 }

@@ -31,7 +31,6 @@ namespace WpfApp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             FillWindowAsync();
-            UCPlaceHolder.Children.Add(new TeamUserControl());
         }
 
         private void SetResolution()
@@ -83,6 +82,12 @@ namespace WpfApp
             Match? match = playedMatches?.ToList().FirstOrDefault(m => m.HomeTeam?.Code == selectedOpponent?.Code || m.AwayTeam?.Code == selectedOpponent?.Code);
             lblResult.Content = $"{(match?.HomeTeam != selectedOpponent ? match?.HomeTeam?.Goals : match?.AwayTeam?.Goals)} : {selectedOpponent?.Goals}";
             btnOpponent.Content = "Change opponent";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TeamDetailsWindow teamDetailsWindow = new(Settings.TeamSelected);
+            teamDetailsWindow.ShowDialog();
         }
     }
 }

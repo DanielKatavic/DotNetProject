@@ -12,7 +12,7 @@
     <DockPanel>
         <Canvas Panel.ZIndex="100" DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal" Canvas.Left="165">
-                <Button Height="32" Background="White" BorderBrush="White">
+                <Button Click="Button_Click" Height="32" Background="White" BorderBrush="White">
                     <Button.Content>
                         <Image Source="https://cdn-icons-png.flaticon.com/512/1041/1041728.png" Width="32" ></Image>
                     </Button.Content>
@@ -56,8 +56,5 @@
         <StackPanel DockPanel.Dock="Bottom">
             <Image Margin="0 65 0 0" Source="https://thumbs.dreamstime.com/b/soccer-field-football-background-green-court-pattern-lawn-148794562.jpg"/>
         </StackPanel>
-        <Canvas x:Name="UCPlaceHolder" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-
     </DockPanel>
 </Window>

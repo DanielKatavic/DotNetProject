@@ -22,6 +22,11 @@ namespace Utility.Managers
             return JsonConvert.DeserializeObject<IList<T>>(json);
         }
 
+        public static Team? LoadFromFile(Team team)
+        {
+            throw new NotImplementedException();
+        }
+
         public static IList<T>? LoadFromApi()
         {
             var source = ApiConstants.GetEndpoint(typeof(T), 

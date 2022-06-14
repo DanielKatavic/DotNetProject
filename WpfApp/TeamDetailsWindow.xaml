@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp.TeamDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="Team details" Height="350" Width="250" 
+        FontFamily="Bahnschrift SemiCondensed" FontSize="17"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Loaded="Window_Loaded">
+    <StackPanel>
+        <Label x:Name="lblTeamName" Content="Croatia (CRO)" FontSize="20" HorizontalAlignment="Center"/>
+        <Label Content="Croatia (CRO)" FontSize="20"/>
+        <Label Content="Croatia (CRO)" FontSize="20"/>
+        <Label Content="Croatia (CRO)" FontSize="20"/>
+        <Label Content="Croatia (CRO)" FontSize="20"/>
+    </StackPanel>
+</Window>
