@@ -14,5 +14,12 @@ namespace Utility.Managers
                 GroupResults? team = groups?.FirstOrDefault(g => g.Id == teamSelected?.GroupId);
                 return team?.OrderedTeams?.FirstOrDefault(t => t.FifaCode == (teamSelected?.FifaCode));
             });
+
+        public static async Task<IList<Team?>?> GetAllOpponentsAsync()
+        {
+            IList<Match>? matches = await MatchManager.GetAllMatches();
+            IEnumerable<Match>? playedMatches = matches?.ToList().Where(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode || m.AwayTeam?.Code == Settings.TeamSelected?.FifaCode);
+            return playedMatches?.Select(m => m.HomeTeam?.Code == Settings.TeamSelected?.FifaCode ? m.AwayTeam : m.HomeTeam).ToList();
+        }
     }
 }

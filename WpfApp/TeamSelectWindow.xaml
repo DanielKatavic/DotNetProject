@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp.TeamSelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="Select team" Height="140" Width="270"
+        MinHeight="140" MinWidth="270"
+        WindowStartupLocation="CenterOwner" 
+        ResizeMode="NoResize" Loaded="Window_Loaded"
+        FontFamily="Bahnschrift SemiCondensed" FontSize="17">
+    <Grid>
+        <StackPanel Margin="10">
+            <ComboBox x:Name="cbTeams" Margin="0 0 0 10" MaxDropDownHeight="200"/>
+            <Button x:Name="btnSelectTeam" Click="BtnSelectTeam_Click" Content="Select team" Width="120" Padding="2">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
