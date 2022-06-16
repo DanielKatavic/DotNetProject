@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Utility.Managers;
@@ -11,8 +8,6 @@ namespace WpfApp
 {
     public partial class MainWindow : Window
     {
-        public Team? SelectedOpponent { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -39,7 +34,7 @@ namespace WpfApp
 
         private async void FillLblResultsAsync()
         {
-            lblResult.Content = await MatchManager.GetMatchResultsAsync(SelectedOpponent);
+            lblResult.Content = await MatchManager.GetMatchResultsAsync(Settings.OpponentSelected);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,12 +45,12 @@ namespace WpfApp
                 MessageBox.Show("You need to select team!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            if (SelectedOpponent is null)
+            if (btnName == BtnOpponent.Name && Settings.OpponentSelected is null)
             {
                 MessageBox.Show("You need to select opponent!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            TeamDetailsWindow teamDetailsWindow = new(btnName == BtnTeam.Name ? Settings.TeamSelected : SelectedOpponent);
+            TeamDetailsWindow teamDetailsWindow = new(btnName == BtnTeam.Name ? Settings.TeamSelected : Settings.OpponentSelected);
             teamDetailsWindow.ShowDialog();
         }
 
@@ -72,10 +67,10 @@ namespace WpfApp
             }
             else
             {
-                if (SelectedOpponent is not null)
+                if (Settings.OpponentSelected is not null)
                 {
                     FillLblResultsAsync();
-                    lblOpponent.Content = SelectedOpponent;
+                    lblOpponent.Content = Settings.OpponentSelected;
                 }
             }
         }

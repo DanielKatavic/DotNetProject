@@ -10,9 +10,8 @@ namespace Utility.Managers
         public static Task<Team?> GetTeamData(Team? teamSelected)
             => Task.Run(() =>
             {
-                IList<GroupResults>? groups = DataManager<GroupResults>.LoadFromFile();
-                GroupResults? team = groups?.FirstOrDefault(g => g.Id == teamSelected?.GroupId);
-                return team?.OrderedTeams?.FirstOrDefault(t => t.FifaCode == (teamSelected?.FifaCode));
+                IList<Team>? groups = DataManager<Team>.LoadFromFile(teamSelected != null);
+                return groups?.FirstOrDefault(t => t.FifaCode == (teamSelected?.FifaCode ?? teamSelected?.Code));
             });
 
         public static async Task<IList<Team?>?> GetAllOpponentsAsync()

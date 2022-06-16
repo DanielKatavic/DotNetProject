@@ -10,9 +10,9 @@ namespace Utility.Managers
     {
         private static readonly IRepository repository = RepositoryFactory.GetRepository();
 
-        public static IList<T>? LoadFromFile()
+        public static IList<T>? LoadFromFile(bool isResult = false)
         {
-            string path = FileConstants.GetFilePath(typeof(T), Settings.GenderSelected);
+            string path = FileConstants.GetFilePath(typeof(T), Settings.GenderSelected, isResult);
             string json = repository.LoadJson(path);
 
             if (string.IsNullOrWhiteSpace(json))

@@ -13,6 +13,7 @@
         public static Language LangSelected { get; set; }
         public static Access AccessSelected { get; set; }
         public static Team? TeamSelected { get; set; }
+        public static Team? OpponentSelected { get; set; }
         public static int WindowHeight { get; set; }
         public static int WindowWidth { get; set; }
         public static bool IsFullScreen { get; set; }

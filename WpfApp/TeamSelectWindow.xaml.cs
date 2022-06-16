@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using Utility.Managers;
@@ -34,14 +33,13 @@ namespace WpfApp
 
         private void BtnSelectTeam_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow owner = (MainWindow)Owner;
             if (((Label)parent).Name == "lblTeam")
             {
                 Settings.TeamSelected = (Team?)cbTeams.SelectedItem;
             }
             else
             {
-                owner.SelectedOpponent = (Team?)cbTeams.SelectedItem;
+                Settings.OpponentSelected = (Team?)cbTeams.SelectedItem;
             }
             this.Close();
         }
