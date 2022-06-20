@@ -52,7 +52,7 @@ namespace WinFormsApp.UserControls
         {
             lblName.Text = player.Name?.ToUpper();
             lblShirtNumber.Text = player.ShirtNumber.ToString();
-            lblPosition.Text = player.Position?.ToString();
+            lblPosition.Text = player.Position.ToString();
             if (player.Captain) imgCapitain.Visible = true;
             ttUserControl.SetToolTip(this, $"{player?.Name?.ToUpper()}" +
                 $"{Environment.NewLine}Broj dresa: {player?.ShirtNumber}" +

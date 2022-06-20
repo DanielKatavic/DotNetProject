@@ -19,7 +19,7 @@ namespace Utility.Managers
             {
                 throw new ArgumentException("Dogodila se greška prilikom učitavanja datoteke!");
             }
-            return JsonConvert.DeserializeObject<IList<T>>(json);
+            return JsonConvert.DeserializeObject<IList<T>>(json, Converter.Settings);
         }
 
         public static IList<T>? LoadFromApi()
@@ -31,7 +31,7 @@ namespace Utility.Managers
             var apiClient = new RestClient(source);
             var apiResult = apiClient.Execute<T>(new RestRequest());
 
-            return JsonConvert.DeserializeObject<IList<T>>(apiResult.Content);
+            return JsonConvert.DeserializeObject<IList<T>>(apiResult.Content, Converter.Settings);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Utility.Managers
         private static IList<Match>? matches;
         private static readonly IRepository repository = RepositoryFactory.GetRepository();
 
-        private static readonly Predicate<TeamEvent> isYellowCard = te => te.TypeOfEvent is "yellow-card" or "yellow-card-second";
-        private static readonly Predicate<TeamEvent> isGoal = te => te.TypeOfEvent is "goal";
+        private static readonly Predicate<TeamEvent> isYellowCard = te => te.TypeOfEvent is TypeOfEvent.YellowCard or TypeOfEvent.YellowCardSecond;
+        private static readonly Predicate<TeamEvent> isGoal = te => te.TypeOfEvent is TypeOfEvent.Goal;
         private static readonly Predicate<Match> isHomeTeam = m => m.HomeTeam?.Country == Settings.TeamSelected?.Country;
 
         private static ISet<StartingEleven> playersWithYellowCards = new SortedSet<StartingEleven>();
@@ -28,6 +28,36 @@ namespace Utility.Managers
             return players;
         }
 
+        public static void FillPlayersWithEvents(Match match)
+        {
+            match.HomeTeamEvents?.ToList().ForEach(e =>
+            {
+                if (e.TypeOfEvent is TypeOfEvent.Goal)
+                {
+                    StartingEleven? player = match.HomeTeamStatistics?.StartingEleven?.ToList().FirstOrDefault(se => se.Name == e.Player);
+                    if(player is not null) player.NumberOfGoals++;
+                }
+                if (e.TypeOfEvent is TypeOfEvent.YellowCard || e.TypeOfEvent is TypeOfEvent.YellowCardSecond)
+                {
+                    StartingEleven? player = match.HomeTeamStatistics?.StartingEleven?.ToList().FirstOrDefault(se => se.Name == e.Player);
+                    if (player is not null) player.NumberOfYellowCards = e.TypeOfEvent is TypeOfEvent.YellowCard ? 1 : 2;
+                }
+            });
+            match.AwayTeamEvents?.ToList().ForEach(e =>
+            {
+                if (e.TypeOfEvent is TypeOfEvent.Goal)
+                {
+                    StartingEleven? player = match.AwayTeamStatistics?.StartingEleven?.ToList().FirstOrDefault(se => se.Name == e.Player);
+                    if (player is not null) player.NumberOfGoals++;
+                }
+                if (e.TypeOfEvent is TypeOfEvent.YellowCard || e.TypeOfEvent is TypeOfEvent.YellowCardSecond)
+                {
+                    StartingEleven? player = match.AwayTeamStatistics?.StartingEleven?.ToList().FirstOrDefault(se => se.Name == e.Player);
+                    if (player is not null) player.NumberOfYellowCards = e.TypeOfEvent is TypeOfEvent.YellowCard ? 1 : 2;
+                }
+            });
+        }
+
         public static ISet<StartingEleven> GetPlayersWithGoals()
         {
             var teamEvents = GetTeamEvents(MethodBase.GetCurrentMethod()?.Name ?? string.Empty);
@@ -42,7 +72,7 @@ namespace Utility.Managers
             return playersWithYellowCards;
         }
 
-        public static void SavePlayerWithImage(StartingEleven player) 
+        public static void SavePlayerWithImage(StartingEleven player)
             => repository.SavePlayersImage(player);
 
         public static void LoadPlayersWithImage()
@@ -67,12 +97,12 @@ namespace Utility.Managers
         {
             string[] lines = repository.LoadFavouritePlayers();
             if (lines.Length == 0) return;
-            lines.ToList().ForEach(line => 
+            lines.ToList().ForEach(line =>
             {
                 StartingEleven? player = players?.ToList().FirstOrDefault(p => p.Name == line);
                 if (player is not null) player.IsFavouritePlayer = true;
             });
-        } 
+        }
 
         public static async void ResetCollections()
         {
@@ -102,7 +132,7 @@ namespace Utility.Managers
             StartingEleven? player = players?.ToList().FirstOrDefault(p => p.Name == teamEvent.Player);
             if (player is not null)
             {
-                player.NumberOfYellowCards = teamEvent.TypeOfEvent is "yellow-card" ? 1 : 2;
+                player.NumberOfYellowCards = teamEvent.TypeOfEvent is TypeOfEvent.YellowCard ? 1 : 2;
                 playersWithYellowCards.Add(player);
             }
         }

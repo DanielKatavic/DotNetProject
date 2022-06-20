@@ -1,8 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Utility.Managers;
 using Utility.Models;
+using WpfApp.UserControls;
 
 namespace WpfApp
 {
@@ -32,12 +35,92 @@ namespace WpfApp
             }
         }
 
-        private async void FillLblResultsAsync()
+        private async void FillMatchInfoAsync()
         {
-            lblResult.Content = await MatchManager.GetMatchResultsAsync(Settings.OpponentSelected);
+            ClearPanels();
+            Match? match = await MatchManager.GetMatch();
+            FillFootballField(match);
+            lblResult.Content = MatchManager.GetMatchResultsAsync();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ClearPanels()
+        {
+            foreach (StackPanel stackPanel in FieldGrid.Children)
+            {
+                stackPanel.Children.Clear();
+            }
+        }
+
+        private void FillFootballField(Match? match)
+        {
+            bool isHomeTeam = match?.HomeTeam?.Code == Settings.TeamSelected?.FifaCode;
+            PlayerManager.FillPlayersWithEvents(match);
+            match?.HomeTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
+            {
+                if(isHomeTeam)
+                {
+                    FillHomeTeamSide(se);
+                }
+                else
+                {
+                    FillAwayTeamSide(se);
+                }
+                
+            });
+            match?.AwayTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
+            {
+                if (!isHomeTeam)
+                {
+                    FillHomeTeamSide(se);
+                }
+                else
+                {
+                    FillAwayTeamSide(se);
+                }
+            });
+        }
+
+        private void FillAwayTeamSide(StartingEleven se)
+        {
+            if (se.Position == Position.Goalie)
+            {
+                AwayGoaliePanel.Children.Add(new PlayerIconUserControl(se, false));
+            }
+            if (se.Position == Position.Defender)
+            {
+                AwayDefendersPanel.Children.Add(new PlayerIconUserControl(se, false));
+            }
+            if (se.Position == Position.Midfield)
+            {
+                AwayMidfieldsPanel.Children.Add(new PlayerIconUserControl(se, false));
+            }
+            if (se.Position == Position.Forward)
+            {
+                AwayForwardsPanel.Children.Add(new PlayerIconUserControl(se, false));
+            }
+        }
+
+        private void FillHomeTeamSide(StartingEleven se)
+        {
+            if (se.Position == Position.Goalie)
+            {
+                TeamGoaliePanel.Children.Add(new PlayerIconUserControl(se, true));
+            }
+            if (se.Position == Position.Defender)
+            {
+                TeamDefendersPanel.Children.Add(new PlayerIconUserControl(se, true));
+            }
+            if (se.Position == Position.Midfield)
+            {
+                TeamMidfieldsPanel.Children.Add(new PlayerIconUserControl(se, true));
+            }
+            if (se.Position == Position.Forward)
+            {
+                TeamForwardsPanel.Children.Add(new PlayerIconUserControl(se, true));
+            }
+        }
+
+        private void BtnTeamInfo_Click(object sender, RoutedEventArgs e)
         {
             string btnName = ((Button)sender).Name;
             if (Settings.TeamSelected is null)
@@ -69,7 +152,7 @@ namespace WpfApp
             {
                 if (Settings.OpponentSelected is not null)
                 {
-                    FillLblResultsAsync();
+                    FillMatchInfoAsync();
                     lblOpponent.Content = Settings.OpponentSelected;
                 }
             }

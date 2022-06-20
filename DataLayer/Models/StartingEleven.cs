@@ -19,7 +19,7 @@ namespace Utility.Models
         public long ShirtNumber { get; set; }
 
         [JsonProperty("position")]
-        public string? Position { get; set; }
+        public Position Position { get; set; }
 
         public int NumberOfYellowCards { get; set; }
 

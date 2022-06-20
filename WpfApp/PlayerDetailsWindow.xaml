@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp.PlayerDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="Player details" Height="300" Width="200" ResizeMode="NoResize"
+        FontFamily="Bahnschrift SemiCondensed" FontSize="17" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\Daniel\Downloads\athlete.png" />
+        <Image x:Name="imgCaptain" Source="C:\Users\Daniel\Downloads\captain-band.png" Height="25" Width="23" Margin="100 110 0 0" Visibility="Visible"/>
+        <Label Grid.Row="1" x:Name="lblName" Content="Luka Modric" HorizontalAlignment="Center"/>
+        <Label Grid.Row="0" x:Name="lblShirtNumber" Content="10" HorizontalAlignment="Center" FontSize="25" VerticalAlignment="Bottom" Margin="5 0 30 10"/>
+        <StackPanel Grid.Row="2" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label x:Name="lblGoals" Content="5" FontSize="23"/>
+                <Image Source="C:\Users\Daniel\Downloads\goal (1).png" />
+            </StackPanel>
+            <Label x:Name="lblPosition" Content="Forward" HorizontalAlignment="Center"/>
+            <Grid Margin="0 0 0 5">
+                <Image Source="C:\Users\Daniel\Downloads\yellow_card.png" />
+                <Label x:Name="lblYellowCards" Content="5" FontSize="23" Margin="3 0 0 0"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
