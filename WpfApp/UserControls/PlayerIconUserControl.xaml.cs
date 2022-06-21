@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Utility.Models;
 
 namespace WpfApp.UserControls
@@ -23,21 +12,18 @@ namespace WpfApp.UserControls
     {
         private StartingEleven? player;
 
-        public PlayerIconUserControl()
-        {
-            InitializeComponent();
-        }
+        public PlayerIconUserControl() 
+            => InitializeComponent();
 
         public PlayerIconUserControl(StartingEleven player, bool isHomeTeam) : this()
         {
             this.player = player;
             lblShirtNumber.Content = player.ShirtNumber;
+            lblName.Content = player.Name.ToUpper();
             playerIcon.Fill = isHomeTeam ? new SolidColorBrush(Colors.Blue) : new SolidColorBrush(Colors.Red);
         }
 
-        private void Icon_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            new PlayerDetailsWindow(player).ShowDialog();
-        }
+        private void Icon_MouseDown(object sender, MouseButtonEventArgs e) 
+            => new PlayerDetailsWindow(player).ShowDialog();
     }
 }

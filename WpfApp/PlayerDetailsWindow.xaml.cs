@@ -8,10 +8,8 @@ namespace WpfApp
     /// </summary>
     public partial class PlayerDetailsWindow : Window
     {
-        public PlayerDetailsWindow()
-        {
-            InitializeComponent();
-        }
+        public PlayerDetailsWindow() 
+            => InitializeComponent();
 
         public PlayerDetailsWindow(StartingEleven player) : this()
         {

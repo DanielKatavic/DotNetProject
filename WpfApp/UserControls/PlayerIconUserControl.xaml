@@ -5,9 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Padding="0 15 0 15">
-    <Grid HorizontalAlignment="Right" MouseDown="Icon_MouseDown">
-        <Ellipse x:Name="playerIcon" Width="50" Height="50" Fill="Red" Stroke="White" StrokeThickness="3"/>
-        <Label x:Name="lblShirtNumber" Content="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="White"/>
-    </Grid>
+             d:DesignHeight="450" d:DesignWidth="800" Padding="0 15 0 15" 
+             Cursor="Hand">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid MouseDown="Icon_MouseDown">
+            <Ellipse x:Name="playerIcon" Width="50" Height="50" Fill="Red" Stroke="White" StrokeThickness="3"/>
+            <Label x:Name="lblShirtNumber" Content="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="White"/>
+        </Grid>
+        <Label x:Name="lblName" Content="Luka Modric" Foreground="White"/>
+    </StackPanel>
+    
 </UserControl>
