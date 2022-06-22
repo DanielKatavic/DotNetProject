@@ -118,88 +118,63 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="accept" xml:space="preserve">
-    <value>Prihvati</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="athlete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\athlete.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="captain-band" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\captain-band.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Accept</value>
   </data>
   <data name="draws" xml:space="preserve">
-    <value>Nerijeseno:</value>
-  </data>
-  <data name="field" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\field.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Draws:</value>
   </data>
   <data name="fullscreen" xml:space="preserve">
-    <value>Cijeli zaslon</value>
+    <value>Fullscreen</value>
   </data>
   <data name="genderSelect" xml:space="preserve">
-    <value>Odaberi spol:</value>
-  </data>
-  <data name="goal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\goal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Select gender:</value>
   </data>
   <data name="goalsAgainst" xml:space="preserve">
-    <value>Golovi protiv:</value>
+    <value>Goals against:</value>
   </data>
   <data name="goalsDifferential" xml:space="preserve">
-    <value>Golovi razlike:</value>
+    <value>Goals differential:</value>
   </data>
   <data name="goalsFor" xml:space="preserve">
-    <value>Golovi za:</value>
-  </data>
-  <data name="info-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info-icon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Goals for:</value>
   </data>
   <data name="langSelect" xml:space="preserve">
-    <value>Odaberi jezik:</value>
+    <value>Select language:</value>
   </data>
   <data name="losses" xml:space="preserve">
-    <value>Porazi:</value>
+    <value>Losses:</value>
   </data>
   <data name="mbWarningCaption" xml:space="preserve">
-    <value>Upozorenje</value>
+    <value>Warning</value>
   </data>
   <data name="mbWarningOpponent" xml:space="preserve">
-    <value>Morate odabrati protivnika!</value>
+    <value>You need to select opponent!</value>
   </data>
   <data name="mbWarningTeam" xml:space="preserve">
-    <value>Morate odabrati tim!</value>
+    <value>You need to select team!</value>
   </data>
   <data name="mbWarningText" xml:space="preserve">
-    <value>Jeste li sigurni da želite nastaviti?</value>
+    <value>Are you sure you want to proceed?</value>
   </data>
   <data name="opponentSelect" xml:space="preserve">
-    <value>Odaberi protivnika</value>
+    <value>Select opponent</value>
   </data>
   <data name="playedMatches" xml:space="preserve">
-    <value>Odigrano utakmica:</value>
+    <value>Played matches:</value>
   </data>
   <data name="resolutionSelect" xml:space="preserve">
-    <value>Odaberi rezoluciju:</value>
-  </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Select resolution:</value>
   </data>
   <data name="teamDetails" xml:space="preserve">
-    <value>Detalji tima</value>
+    <value>Team details</value>
   </data>
   <data name="teamSelect" xml:space="preserve">
-    <value>Odaberi tim</value>
-  </data>
-  <data name="translate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\translate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Select team</value>
   </data>
   <data name="welcome" xml:space="preserve">
-    <value>Dobrodošli</value>
+    <value>Welcome</value>
   </data>
   <data name="wins" xml:space="preserve">
-    <value>Pobjede:</value>
-  </data>
-  <data name="yellow_card" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\yellow_card.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Wins:</value>
   </data>
 </root>

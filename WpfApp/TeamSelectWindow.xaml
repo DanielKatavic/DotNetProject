@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WpfApp.Properties"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Select team" Height="140" Width="270"
+        Title="{x:Static lang:Resources.teamSelect}" Height="140" Width="270"
         MinHeight="140" MinWidth="270"
         WindowStartupLocation="CenterOwner" 
         ResizeMode="NoResize" Loaded="Window_Loaded"
@@ -13,9 +14,9 @@
     <Grid>
         <StackPanel Margin="10">
             <ComboBox x:Name="cbTeams" Margin="0 0 0 10" MaxDropDownHeight="200"/>
-            <Button x:Name="btnSelectTeam" Click="BtnSelectTeam_Click" Content="Select team" Width="120" Padding="2">
+            <Button x:Name="btnSelectTeam" Click="BtnSelectTeam_Click" Content="{x:Static lang:Resources.teamSelect}" Width="120" Padding="2">
                 <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
+                    <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>
                     </Style>
                 </Button.Resources>

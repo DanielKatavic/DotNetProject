@@ -3,14 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WpfApp.Properties"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Welcome" Height="450" Width="350" 
+        Title="{x:Static lang:Resources.welcome}" Height="450" Width="350" 
         MinWidth="350" MinHeight="450" 
         WindowStartupLocation="CenterScreen"
         FontFamily="Bahnschrift SemiCondensed"
         FontSize="17"
         Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -25,27 +32,29 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.ColumnSpan="2" 
-               Content="Welcome" 
+               Content="{x:Static lang:Resources.welcome}"
                FontSize="32" 
                FontWeight="Bold" 
                HorizontalAlignment="Center" 
                VerticalAlignment="Center"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Select gender:" />
+        <Label Grid.Column="0" Grid.Row="1" Content="{x:Static lang:Resources.genderSelect}" />
         <ComboBox Height="30" Grid.Column="1" 
                       Grid.Row="1" x:Name="cbGender" 
                       SelectedIndex="0" Width="100" 
                       FontWeight="DemiBold" Padding="5" />
-        <Label Grid.Column="0" Grid.Row="2" Content="Select language:" />
+        <Label Grid.Column="0" Grid.Row="2" Content="{x:Static lang:Resources.langSelect}" />
         <ComboBox Height="30" Grid.Column="1" Grid.Row="2" x:Name="cbLanguage" SelectedIndex="0" Width="100" Padding="5"/>
-        <CheckBox x:Name="chbIsFullScreen" IsChecked="True" Click="CheckBox_Click" HorizontalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="3" Content="FullScreen" Padding="5"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Select resolution:"/>
+        <CheckBox x:Name="chbIsFullScreen" IsChecked="True" Click="CheckBox_Click" 
+                  HorizontalAlignment="Center" VerticalContentAlignment="Center" 
+                  Grid.Column="1" Grid.Row="3" Content="{x:Static lang:Resources.fullscreen}" Padding="5"/>
+        <Label Grid.Column="0" Grid.Row="3" Content="{x:Static lang:Resources.resolutionSelect}"/>
         <ComboBox Height="30" x:Name="cbResolution" Grid.Column="1" Grid.Row="4" Width="100" Visibility="Hidden">
             <ComboBoxItem IsSelected="True" Tag="Small" Content="800x600" />
             <ComboBoxItem Tag="Medium" Content="1024x768" />
             <ComboBoxItem Tag="Large" Content="1920x1080" />
         </ComboBox>
         <DockPanel Grid.Row="5" Grid.ColumnSpan="2">
-            <Button Click="Button_Click" Content="Accept" Width="110" 
+            <Button Click="Button_Click" Content="{x:Static lang:Resources.accept}" Width="110" 
                     Padding="3" Height="30" VerticalAlignment="Bottom" 
                     DockPanel.Dock="Bottom" IsDefault="True" IsCancel="True">
                 <Button.Resources>

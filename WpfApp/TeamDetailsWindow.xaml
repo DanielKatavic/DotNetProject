@@ -3,17 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WpfApp.Properties"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Team details" Height="350" Width="250" 
+        Title="{x:Static lang:Resources.teamDetails}" Height="350" Width="250" 
         FontFamily="Bahnschrift SemiCondensed" FontSize="17"
         WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="Label">
-            <Setter Property="FontSize" Value="18">
-
-            </Setter>
+            <Setter Property="FontSize" Value="18" />
         </Style>
     </Window.Resources>
     <StackPanel>
@@ -32,13 +31,13 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Played matches: " HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="1" Content="Wins: " HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="2" Content="Losses: " HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="3" Content="Draws: " HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="4" Content="Goals for: " HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="5" Content="Goals against: " HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="6" Content="Goals differential: " HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="0" Content="{x:Static lang:Resources.playedMatches}" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="1" Content="{x:Static lang:Resources.wins}" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="2" Content="{x:Static lang:Resources.losses}" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="3" Content="{x:Static lang:Resources.draws}" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="4" Content="{x:Static lang:Resources.goalsFor}" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="5" Content="{x:Static lang:Resources.goalsAgainst}" HorizontalContentAlignment="Right"/>
+            <Label Grid.Row="6" Content="{x:Static lang:Resources.goalsDifferential}" HorizontalContentAlignment="Right"/>
             <Label Grid.Row="0" Grid.Column="1" x:Name="lblPlayedMatches" Content="2" />
             <Label Grid.Row="1" Grid.Column="1" x:Name="lblWins" Content="3"/>
             <Label Grid.Row="2" Grid.Column="1" x:Name="lblLosses" Content="4"/>

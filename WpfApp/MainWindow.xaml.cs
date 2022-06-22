@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -23,7 +21,7 @@ namespace WpfApp
             => SettingsManager.SetFormLanguage();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-            => lblTeam.Content = Settings.TeamSelected != null ? Settings.TeamSelected : "Select team";
+            => lblTeam.Content = Settings.TeamSelected != null ? Settings.TeamSelected : Properties.Resources.teamSelect;
 
         private void SetResolution()
         {
@@ -127,12 +125,12 @@ namespace WpfApp
             string btnName = ((Button)sender).Name;
             if (Settings.TeamSelected is null)
             {
-                MessageBox.Show("You need to select team!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.mbWarningTeam, Properties.Resources.mbWarningCaption, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             if (btnName == BtnOpponent.Name && Settings.OpponentSelected is null)
             {
-                MessageBox.Show("You need to select opponent!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Properties.Resources.mbWarningOpponent, Properties.Resources.mbWarningCaption, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             TeamDetailsWindow teamDetailsWindow = new(btnName == BtnTeam.Name ? Settings.TeamSelected : Settings.OpponentSelected)

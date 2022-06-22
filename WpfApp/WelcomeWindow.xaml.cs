@@ -14,26 +14,28 @@ namespace WpfApp
     {
         public WelcomeWindow()
         {
+            SetLanguage();
             InitializeComponent();
             FillWindow();
         }
 
+        private void SetLanguage()
+            => SettingsManager.SetFormLanguage();
+
         private void FillWindow()
         {
-            cbGender.ItemsSource = Enum.GetValues(typeof(Utility.Models.Gender));
-            cbLanguage.ItemsSource = Enum.GetValues(typeof(Utility.Models.Language));
+            cbGender.ItemsSource = Enum.GetValues(typeof(Gender));
+            cbLanguage.ItemsSource = Enum.GetValues(typeof(Language));
         }
 
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            cbResolution.Visibility = cbResolution.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
-        }
+        private void CheckBox_Click(object sender, RoutedEventArgs e) 
+            => cbResolution.Visibility = cbResolution.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bool windowIsDialog = IsModal();
 
-            if (MessageBox.Show("Are you sure you want to proceed?", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+            if (MessageBox.Show(Properties.Resources.mbWarningText, Properties.Resources.mbWarningCaption, MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
                 SaveSettings();
                 MainWindow mainWindow = new();
@@ -47,10 +49,7 @@ namespace WpfApp
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            SaveSettings();
-        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) => SaveSettings();
 
         private void SaveSettings()
         {

@@ -61,6 +61,15 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prihvati.
+        /// </summary>
+        public static string accept {
+            get {
+                return ResourceManager.GetString("accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] athlete {
@@ -81,12 +90,39 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nerijeseno:.
+        /// </summary>
+        public static string draws {
+            get {
+                return ResourceManager.GetString("draws", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] field {
             get {
                 object obj = ResourceManager.GetObject("field", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cijeli zaslon.
+        /// </summary>
+        public static string fullscreen {
+            get {
+                return ResourceManager.GetString("fullscreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odaberi spol:.
+        /// </summary>
+        public static string genderSelect {
+            get {
+                return ResourceManager.GetString("genderSelect", resourceCulture);
             }
         }
         
@@ -101,12 +137,120 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Golovi protiv:.
+        /// </summary>
+        public static string goalsAgainst {
+            get {
+                return ResourceManager.GetString("goalsAgainst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Golovi razlike:.
+        /// </summary>
+        public static string goalsDifferential {
+            get {
+                return ResourceManager.GetString("goalsDifferential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Golovi za:.
+        /// </summary>
+        public static string goalsFor {
+            get {
+                return ResourceManager.GetString("goalsFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] info_icon {
             get {
                 object obj = ResourceManager.GetObject("info-icon", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odaberi jezik:.
+        /// </summary>
+        public static string langSelect {
+            get {
+                return ResourceManager.GetString("langSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Porazi:.
+        /// </summary>
+        public static string losses {
+            get {
+                return ResourceManager.GetString("losses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upozorenje.
+        /// </summary>
+        public static string mbWarningCaption {
+            get {
+                return ResourceManager.GetString("mbWarningCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morate odabrati protivnika!.
+        /// </summary>
+        public static string mbWarningOpponent {
+            get {
+                return ResourceManager.GetString("mbWarningOpponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morate odabrati tim!.
+        /// </summary>
+        public static string mbWarningTeam {
+            get {
+                return ResourceManager.GetString("mbWarningTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jeste li sigurni da želite nastaviti?.
+        /// </summary>
+        public static string mbWarningText {
+            get {
+                return ResourceManager.GetString("mbWarningText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odaberi protivnika.
+        /// </summary>
+        public static string opponentSelect {
+            get {
+                return ResourceManager.GetString("opponentSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odigrano utakmica:.
+        /// </summary>
+        public static string playedMatches {
+            get {
+                return ResourceManager.GetString("playedMatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odaberi rezoluciju:.
+        /// </summary>
+        public static string resolutionSelect {
+            get {
+                return ResourceManager.GetString("resolutionSelect", resourceCulture);
             }
         }
         
@@ -121,12 +265,48 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detalji tima.
+        /// </summary>
+        public static string teamDetails {
+            get {
+                return ResourceManager.GetString("teamDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odaberi tim.
+        /// </summary>
+        public static string teamSelect {
+            get {
+                return ResourceManager.GetString("teamSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] translate {
             get {
                 object obj = ResourceManager.GetObject("translate", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dobrodošli.
+        /// </summary>
+        public static string welcome {
+            get {
+                return ResourceManager.GetString("welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pobjede:.
+        /// </summary>
+        public static string wins {
+            get {
+                return ResourceManager.GetString("wins", resourceCulture);
             }
         }
         
