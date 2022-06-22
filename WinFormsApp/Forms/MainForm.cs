@@ -18,7 +18,7 @@ namespace WinFormsApp.Forms
 
         public MainForm()
         {
-            SettingsManager.SetFormLanguage(Settings.LangSelected);
+            SettingsManager.SetFormLanguage();
             InitializeComponent();
         }
 
@@ -140,7 +140,8 @@ namespace WinFormsApp.Forms
         private void ChangeLanguage_Click(object sender, EventArgs e)
         {
             string language = ((ToolStripMenuItem)sender).Text;
-            SettingsManager.SetFormLanguage((Language)Enum.Parse(typeof(Language), language));
+            Settings.LangSelected = (Language)Enum.Parse(typeof(Language), language);
+            SettingsManager.SetFormLanguage();
             Settings.LangSelected = (Language)Enum.Parse(typeof(Language), language);
             ResetForm();
         }

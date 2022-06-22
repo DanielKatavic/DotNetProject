@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,9 +14,13 @@ namespace WpfApp
     {
         public MainWindow()
         {
+            SetLanguage();
             InitializeComponent();
             SetResolution();
         }
+
+        private void SetLanguage() 
+            => SettingsManager.SetFormLanguage();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
             => lblTeam.Content = Settings.TeamSelected != null ? Settings.TeamSelected : "Select team";
@@ -51,11 +56,11 @@ namespace WpfApp
 
         private void FillFootballField(Match? match)
         {
-            bool isHomeTeam = match?.HomeTeam?.Code == Settings.TeamSelected?.FifaCode;
+            bool isSelectedTeam = match?.HomeTeam?.Code == Settings.TeamSelected?.FifaCode;
             PlayerManager.FillPlayersWithEvents(match);
             match?.HomeTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
             {
-                if (isHomeTeam)
+                if (isSelectedTeam)
                 {
                     FillHomeTeamSide(se);
                 }
@@ -66,7 +71,7 @@ namespace WpfApp
             });
             match?.AwayTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
             {
-                if (!isHomeTeam)
+                if (!isSelectedTeam)
                 {
                     FillHomeTeamSide(se);
                 }
@@ -160,15 +165,11 @@ namespace WpfApp
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow newWindow = new();
-            Application.Current.MainWindow = newWindow;
-            newWindow.Show();
-            this.Close();
-        }
-
-        private void BtnTranslate_Click(object sender, RoutedEventArgs e)
-        {
-
+            WelcomeWindow welcomeWindow = new();
+            if (welcomeWindow.ShowDialog().Value)
+            {
+                this.Close();
+            }
         }
     }
 }

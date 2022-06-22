@@ -3,6 +3,7 @@ using System.Windows;
 using Utility.Models;
 using Utility.Managers;
 using System.Windows.Controls;
+using System.Reflection;
 
 namespace WpfApp
 {
@@ -30,12 +31,19 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to proceed?", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+            bool windowIsDialog = IsModal();
+
+            if (MessageBox.Show("Are you sure you want to proceed?", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
                 SaveSettings();
                 MainWindow mainWindow = new();
                 mainWindow.Show();
+                if (windowIsDialog) this.DialogResult = true;
                 this.Close();
+            }
+            else
+            {
+                if (windowIsDialog) this.DialogResult = false;
             }
         }
 
@@ -53,5 +61,8 @@ namespace WpfApp
             Settings.SaveResolution(selectedResolution?.Content.ToString());
             SettingsManager.SaveSettings();
         }
+
+        public bool IsModal()
+            => (bool)typeof(Window).GetField("_showingAsDialog", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(this);
     }
 }

@@ -9,7 +9,7 @@ namespace WinFormsApp.Forms
 
         public TeamSelectForm()
         {
-            SettingsManager.SetFormLanguage(Settings.LangSelected);
+            SettingsManager.SetFormLanguage();
             InitializeComponent();
         }
 

@@ -14,9 +14,9 @@ namespace Utility.Managers
         public static void SaveSettings() 
             => repository.SaveSettings(Settings.ParseForFileLine());
 
-        public static void SetFormLanguage(Language language)
+        public static void SetFormLanguage()
         {
-            string culture = language == Language.Hrvatski ? "hr" : "en";
+            string culture = Settings.LangSelected == Language.Hrvatski ? "hr" : "en";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
         }
     }

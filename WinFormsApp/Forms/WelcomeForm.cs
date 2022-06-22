@@ -53,8 +53,8 @@ namespace WinFormsApp.Forms
 
         private void LanguageChanged(object sender, EventArgs e)
         {
-            Language selectedLanguage = (Language)cbLanguage.SelectedItem;
-            SettingsManager.SetFormLanguage(selectedLanguage);
+            Settings.LangSelected = (Language)cbLanguage.SelectedItem;
+            SettingsManager.SetFormLanguage();
             ResetForm(cbLanguage.SelectedIndex);
         }
 

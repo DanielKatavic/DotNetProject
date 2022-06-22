@@ -41,13 +41,15 @@
         <Label Grid.Column="0" Grid.Row="3" Content="Select resolution:"/>
         <ComboBox Height="30" x:Name="cbResolution" Grid.Column="1" Grid.Row="4" Width="100" Visibility="Hidden">
             <ComboBoxItem IsSelected="True" Tag="Small" Content="800x600" />
-            <ComboBoxItem Tag="Medium" Content="1280x720" />
+            <ComboBoxItem Tag="Medium" Content="1024x768" />
             <ComboBoxItem Tag="Large" Content="1920x1080" />
         </ComboBox>
         <DockPanel Grid.Row="5" Grid.ColumnSpan="2">
-            <Button Click="Button_Click" Content="Accept" Width="110" Padding="3" Height="30" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+            <Button Click="Button_Click" Content="Accept" Width="110" 
+                    Padding="3" Height="30" VerticalAlignment="Bottom" 
+                    DockPanel.Dock="Bottom" IsDefault="True" IsCancel="True">
                 <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
+                    <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>
                     </Style>
                 </Button.Resources>
