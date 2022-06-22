@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Team details" Height="350" Width="250" 
         FontFamily="Bahnschrift SemiCondensed" FontSize="17"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="Label">

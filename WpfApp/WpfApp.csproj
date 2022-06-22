@@ -13,6 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\athlete.png" />
+    <None Remove="Resources\captain-band.png" />
+    <None Remove="Resources\field.png" />
+    <None Remove="Resources\goal.png" />
+    <None Remove="Resources\info-icon.png" />
+    <None Remove="Resources\settings.png" />
+    <None Remove="Resources\translate.png" />
+    <None Remove="Resources\yellow_card.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DataLayer\Utility.csproj" />
   </ItemGroup>
 
@@ -21,6 +32,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </Resource>
+    <Resource Include="Resources\athlete.png" />
+    <Resource Include="Resources\captain-band.png" />
+    <Resource Include="Resources\field.png" />
+    <Resource Include="Resources\goal.png" />
+    <Resource Include="Resources\info-icon.png" />
+    <Resource Include="Resources\settings.png" />
+    <Resource Include="Resources\translate.png" />
+    <Resource Include="Resources\yellow_card.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,64 +4,69 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
+        xmlns:img="clr-namespace:WpfApp.Properties"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" MinHeight="600" MinWidth="800"
         WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
         FontSize="17" Loaded="Window_Loaded">
     <DockPanel>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
-            <Button x:Name="BtnSettings" Click="BtnSettings_Click" Background="Transparent" BorderBrush="Transparent" RenderTransformOrigin=".5, .5">
-                <Button.Triggers>
-                    <EventTrigger RoutedEvent="MouseEnter">
-                        <EventTrigger.Actions>
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="SettingsIcon"
+        <Grid DockPanel.Dock="Top" Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnSettings" Click="BtnSettings_Click" Background="Transparent" BorderThickness="0">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SettingsIcon"
                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
                                         By="90" Duration="0:0:1"
                                         AutoReverse="False" RepeatBehavior="Forever"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger.Actions>
-                    </EventTrigger>
-                    <EventTrigger RoutedEvent="MouseLeave">
-                        <EventTrigger.Actions>
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="SettingsIcon"
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="SettingsIcon"
                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
                                         By="0" Duration="0:0:.5"
                                         AutoReverse="False"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger.Actions>
-                    </EventTrigger>
-                </Button.Triggers>
-                <Image x:Name="SettingsIcon" Source="Resources/settings.png" Width="32" >
-                    <Image.RenderTransform>
-                        <RotateTransform Angle="0" CenterX="16" CenterY="16"/>
-                    </Image.RenderTransform>
-                </Image>
-            </Button>
-            <Button x:Name="BtnTranslate" Click="BtnTranslate_Click" Background="Transparent" BorderBrush="Transparent">
-                <Button.Content>
-                    <Image Source="Resources/translation.png" Width="32" />
-                </Button.Content>
-            </Button>
-            <Button x:Name="BtnTeam" Click="BtnTeamInfo_Click" Height="32" Background="White" BorderBrush="White">
-                <Button.Content>
-                    <Image Source="Resources/info-icon.png" Width="32" ></Image>
-                </Button.Content>
-            </Button>
-            <Label x:Name="lblTeam" Content="Select team" VerticalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDownAsync"/>
-            <Label x:Name="lblResult" Content="x : x" VerticalAlignment="Center" FontSize="25" Padding="20 0 20 0"/>
-            <Label x:Name="lblOpponent" Content="Select opponent" VerticalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDownAsync"/>
-            <Button x:Name="BtnOpponent" Click="BtnTeamInfo_Click" Height="32" Background="White" BorderBrush="White">
-                <Button.Content>
-                    <Image Source="Resources/info-icon.png" Width="32" ></Image>
-                </Button.Content>
-            </Button>
-        </StackPanel>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Image x:Name="SettingsIcon" Source="Resources/settings.png" Width="32" >
+                        <Image.RenderTransform>
+                            <RotateTransform Angle="0" CenterX="16" CenterY="16"/>
+                        </Image.RenderTransform>
+                    </Image>
+                </Button>
+                <Button x:Name="BtnTranslate" Click="BtnTranslate_Click" Background="Transparent" BorderThickness="0" Margin="5 0 0 0">
+                    <Button.Content>
+                        <Image Source="Resources/translate.png" Width="32" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="BtnTeam" Click="BtnTeamInfo_Click" Height="32" Background="White" BorderThickness="0">
+                    <Button.Content>
+                        <Image Source="Resources/info-icon.png" Width="32" ></Image>
+                    </Button.Content>
+                </Button>
+                <Label x:Name="lblTeam" Content="Select team" VerticalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDownAsync"/>
+                <Label x:Name="lblResult" Content="x : x" VerticalAlignment="Center" FontSize="25" Padding="20 0 20 0"/>
+                <Label x:Name="lblOpponent" Content="Select opponent" VerticalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDownAsync"/>
+                <Button x:Name="BtnOpponent" Click="BtnTeamInfo_Click" Height="32" Background="White" BorderThickness="0">
+                    <Button.Content>
+                        <Image Source="Resources/info-icon.png" Width="32" ></Image>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
         <Grid x:Name="FieldGrid" DockPanel.Dock="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />

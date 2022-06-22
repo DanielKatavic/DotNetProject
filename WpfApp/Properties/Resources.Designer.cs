@@ -123,9 +123,9 @@ namespace WpfApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] translation {
+        public static byte[] translate {
             get {
-                object obj = ResourceManager.GetObject("translation", resourceCulture);
+                object obj = ResourceManager.GetObject("translate", resourceCulture);
                 return ((byte[])(obj));
             }
         }

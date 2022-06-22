@@ -130,7 +130,10 @@ namespace WpfApp
                 MessageBox.Show("You need to select opponent!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            TeamDetailsWindow teamDetailsWindow = new(btnName == BtnTeam.Name ? Settings.TeamSelected : Settings.OpponentSelected);
+            TeamDetailsWindow teamDetailsWindow = new(btnName == BtnTeam.Name ? Settings.TeamSelected : Settings.OpponentSelected)
+            {
+                Owner = this
+            };
             teamDetailsWindow.ShowDialog();
         }
 
