@@ -23,8 +23,15 @@ namespace Utility.Managers
         public static async Task<ISet<StartingEleven>?> GetAllPlayers()
         {
             matches = await MatchManager.GetAllMatches();
-            var teamIndex = matches?.ToList().FindIndex(isHomeTeam);
-            players = matches?[(int)teamIndex].HomeTeamStatistics?.AllPlayers;
+            int? teamIndex = matches?.ToList().FindIndex(isHomeTeam);
+            if (teamIndex == -1)
+            {
+                players = matches?[0].AwayTeamStatistics?.AllPlayers;
+            }
+            else if (teamIndex is not null)
+            {
+                players = matches?[(int)teamIndex].HomeTeamStatistics?.AllPlayers;
+            }
             return players;
         }
 
@@ -35,7 +42,7 @@ namespace Utility.Managers
                 if (e.TypeOfEvent is TypeOfEvent.Goal)
                 {
                     StartingEleven? player = match.HomeTeamStatistics?.StartingEleven?.ToList().FirstOrDefault(se => se.Name == e.Player);
-                    if(player is not null) player.NumberOfGoals++;
+                    if (player is not null) player.NumberOfGoals++;
                 }
                 if (e.TypeOfEvent is TypeOfEvent.YellowCard || e.TypeOfEvent is TypeOfEvent.YellowCardSecond)
                 {

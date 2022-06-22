@@ -18,9 +18,7 @@ namespace WpfApp
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            lblTeam.Content = Settings.TeamSelected != null ? Settings.TeamSelected : "Select team";
-        }
+            => lblTeam.Content = Settings.TeamSelected != null ? Settings.TeamSelected : "Select team";
 
         private void SetResolution()
         {
@@ -57,7 +55,7 @@ namespace WpfApp
             PlayerManager.FillPlayersWithEvents(match);
             match?.HomeTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
             {
-                if(isHomeTeam)
+                if (isHomeTeam)
                 {
                     FillHomeTeamSide(se);
                 }
@@ -65,7 +63,6 @@ namespace WpfApp
                 {
                     FillAwayTeamSide(se);
                 }
-                
             });
             match?.AwayTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
             {
@@ -156,6 +153,19 @@ namespace WpfApp
                     lblOpponent.Content = Settings.OpponentSelected;
                 }
             }
+        }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow newWindow = new();
+            Application.Current.MainWindow = newWindow;
+            newWindow.Show();
+            this.Close();
+        }
+
+        private void BtnTranslate_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
