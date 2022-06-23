@@ -26,12 +26,31 @@ namespace WpfApp
         {
             cbGender.ItemsSource = Enum.GetValues(typeof(Gender));
             cbLanguage.ItemsSource = Enum.GetValues(typeof(Language));
+            cbLanguage.DropDownClosed += CbLanguage_DropDownClosed;
         }
 
-        private void CheckBox_Click(object sender, RoutedEventArgs e) 
+        private void CbLanguage_DropDownClosed(object? sender, EventArgs e)
+        {
+            Settings.LangSelected = (Language)cbLanguage.SelectedItem;
+            SetLanguage();
+            RefreshWindow();
+        }
+
+        private void RefreshWindow()
+        {
+            this.Title = Properties.Resources.welcome;
+            lblWelcome.Content = Properties.Resources.welcome;
+            lblGender.Content = Properties.Resources.genderSelect;
+            lblLanguage.Content = Properties.Resources.langSelect;
+            lblResolution.Content = Properties.Resources.resolutionSelect;
+            chbIsFullScreen.Content = Properties.Resources.fullscreen;
+            btnAccept.Content = Properties.Resources.accept;
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
             => cbResolution.Visibility = cbResolution.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnAccept_Click(object sender, RoutedEventArgs e)
         {
             bool windowIsDialog = IsModal();
 
@@ -42,10 +61,6 @@ namespace WpfApp
                 mainWindow.Show();
                 if (windowIsDialog) this.DialogResult = true;
                 this.Close();
-            }
-            else
-            {
-                if (windowIsDialog) this.DialogResult = false;
             }
         }
 
@@ -63,5 +78,6 @@ namespace WpfApp
 
         public bool IsModal()
             => (bool)typeof(Window).GetField("_showingAsDialog", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(this);
+
     }
 }
