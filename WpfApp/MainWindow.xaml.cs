@@ -17,11 +17,18 @@ namespace WpfApp
             SetResolution();
         }
 
-        private void SetLanguage() 
+        private static void SetLanguage() 
             => SettingsManager.SetFormLanguage();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-            => lblTeam.Content = Settings.TeamSelected != null ? Settings.TeamSelected : Properties.Resources.teamSelect;
+        {
+            lblTeam.Content = Settings.TeamSelected is not null ? Settings.TeamSelected : Properties.Resources.teamSelect;
+            lblOpponent.Content = Settings.OpponentSelected is not null ? Settings.OpponentSelected : Properties.Resources.opponentSelect;
+            if(Settings.TeamSelected is not null && Settings.OpponentSelected is not null)
+            {
+                FillMatchInfoAsync();
+            }
+        }
 
         private void SetResolution()
         {
