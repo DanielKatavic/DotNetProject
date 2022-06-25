@@ -94,6 +94,20 @@ namespace Utility.Managers
             });
         }
 
+        public static void LoadPlayersWithImage(Match match)
+        {
+            IEnumerable<StartingEleven>? allPlayers = match.HomeTeamStatistics?.StartingEleven?.Concat(match.AwayTeamStatistics?.StartingEleven ?? Array.Empty<StartingEleven>());
+
+            string[] lines = repository.LoadPlayersWithImage();
+            if (lines.Length == 0) return;
+            lines.ToList().ForEach(line =>
+            {
+                string[] details = line.Split("|");
+                StartingEleven? player = allPlayers?.ToList().FirstOrDefault(p => p.Name == details[0]);
+                if (player is not null) player.PicturePath = details[1];
+            });
+        }
+
         public static void SaveFavouritePlayers()
         {
             List<StartingEleven>? favouritePlayers = players?.ToList().FindAll(p => p.IsFavouritePlayer);

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using Utility.Models;
 
 namespace WpfApp
@@ -8,7 +9,7 @@ namespace WpfApp
     /// </summary>
     public partial class PlayerDetailsWindow : Window
     {
-        public PlayerDetailsWindow() 
+        public PlayerDetailsWindow()
             => InitializeComponent();
 
         public PlayerDetailsWindow(StartingEleven player) : this()
@@ -19,6 +20,12 @@ namespace WpfApp
             imgCaptain.Visibility = player.Captain ? Visibility.Visible : Visibility.Hidden;
             lblGoals.Content = player.NumberOfGoals;
             lblYellowCards.Content = player.NumberOfYellowCards;
+            if (player.PicturePath is not null)
+            {
+                imgPlayer.Source = new ImageSourceConverter().ConvertFromString(player.PicturePath) as ImageSource;
+                lblShirtNumber.Visibility = Visibility.Hidden;
+                lblName.Content += $" {player.ShirtNumber}";
+            }
         }
     }
 }

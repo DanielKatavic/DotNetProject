@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" MinHeight="600" MinWidth="800"
         WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
-        FontSize="17" Loaded="Window_Loaded">
+        FontSize="17" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
@@ -36,7 +36,7 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </Grid.Triggers>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="5 0 5 0">
                 <Button x:Name="BtnSettings" Click="BtnSettings_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
@@ -81,7 +81,7 @@
                     </Ellipse.Fill>
                 </Ellipse>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 5">
                 <Button x:Name="BtnTeam" Click="BtnTeamInfo_Click">
                     <Button.Content>
                         <Image Source="Resources/info-icon.png" Width="32" />

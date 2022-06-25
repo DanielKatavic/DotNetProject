@@ -1,1 +1,1 @@
-Male|Hrvatski|Offline|||600x800|False
+Male|English|Offline|||600x800|True

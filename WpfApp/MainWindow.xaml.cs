@@ -49,6 +49,8 @@ namespace WpfApp
         {
             ClearPanels();
             Match? match = await MatchManager.GetMatch();
+            PlayerManager.FillPlayersWithEvents(match ?? new Match());
+            PlayerManager.LoadPlayersWithImage(match ?? new Match());
             FillFootballField(match);
             lblResult.Content = MatchManager.GetMatchResultsAsync();
         }
@@ -64,7 +66,7 @@ namespace WpfApp
         private void FillFootballField(Match? match)
         {
             bool isSelectedTeam = match?.HomeTeam?.Code == Settings.TeamSelected?.FifaCode;
-            PlayerManager.FillPlayersWithEvents(match);
+            
             match?.HomeTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
             {
                 if (isSelectedTeam)
@@ -192,6 +194,18 @@ namespace WpfApp
             if (Settings.TeamSelected is not null || Settings.OpponentSelected is not null) return;
             lblTeam.Content = Properties.Resources.teamSelect;
             lblOpponent.Content = Properties.Resources.opponentSelect;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show(Properties.Resources.mbWarningText, Properties.Resources.mbWarningCaption, MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                SettingsManager.SaveSettings();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
