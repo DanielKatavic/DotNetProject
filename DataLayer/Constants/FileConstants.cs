@@ -4,9 +4,9 @@ namespace Utility.Constants
 {
     public static class FileConstants
     {
-        public const string SettingsPath = "settings.txt";
-        public const string PlayersImagePath = "players-with-image.txt";
-        public const string FavouritePlayersPath = "favourite-players.txt";
+        public const string SettingsPath = @"..\..\..\..\Files\settings.txt";
+        public const string PlayersImagePath = @"..\..\..\..\Files\players-with-image.txt";
+        public const string FavouritePlayersPath = @"..\..\..\..\Files\favourite-players.txt";
 
         private const string ResultsDir = "worldcup.sfg.io";
 

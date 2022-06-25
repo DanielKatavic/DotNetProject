@@ -21,6 +21,18 @@ namespace WpfApp.UserControls
             lblShirtNumber.Content = player.ShirtNumber;
             lblName.Content = player.Name.ToUpper();
             playerIcon.Fill = isSelectedTeam ? new SolidColorBrush(Colors.Blue) : new SolidColorBrush(Colors.Red);
+            SetPlayersImage();
+        }
+
+        private void SetPlayersImage()
+        {
+            if(player?.PicturePath is not null)
+            {
+                ImageBrush imageBrush = new(new ImageSourceConverter().ConvertFromString(player.PicturePath) as ImageSource);
+                imageBrush.Stretch = Stretch.UniformToFill;
+                playerIcon.Fill = imageBrush;
+                lblShirtNumber.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         private void Icon_MouseDown(object sender, MouseButtonEventArgs e) 

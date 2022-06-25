@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Shapes;
 using Utility.Managers;
 using Utility.Models;
 using WpfApp.UserControls;
@@ -17,14 +19,14 @@ namespace WpfApp
             SetResolution();
         }
 
-        private static void SetLanguage() 
+        private static void SetLanguage()
             => SettingsManager.SetFormLanguage();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lblTeam.Content = Settings.TeamSelected is not null ? Settings.TeamSelected : Properties.Resources.teamSelect;
             lblOpponent.Content = Settings.OpponentSelected is not null ? Settings.OpponentSelected : Properties.Resources.opponentSelect;
-            if(Settings.TeamSelected is not null && Settings.OpponentSelected is not null)
+            if (Settings.TeamSelected is not null && Settings.OpponentSelected is not null)
             {
                 FillMatchInfoAsync();
             }
@@ -175,6 +177,21 @@ namespace WpfApp
             {
                 this.Close();
             }
+        }
+
+        private void Ellipse_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Ellipse? ellipse = sender as Ellipse;
+            Settings.LangSelected = ellipse?.Name == nameof(ElCro) ? Utility.Models.Language.Hrvatski : Utility.Models.Language.English;
+            SettingsManager.SetFormLanguage();
+            RefreshWindow();
+        }
+
+        private void RefreshWindow()
+        {
+            if (Settings.TeamSelected is not null || Settings.OpponentSelected is not null) return;
+            lblTeam.Content = Properties.Resources.teamSelect;
+            lblOpponent.Content = Properties.Resources.opponentSelect;
         }
     }
 }

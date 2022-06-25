@@ -11,6 +11,8 @@
   <ItemGroup>
     <None Remove="Resources\athlete.png" />
     <None Remove="Resources\captain-band.png" />
+    <None Remove="Resources\CRO.jpg" />
+    <None Remove="Resources\ENG.jpg" />
     <None Remove="Resources\field.png" />
     <None Remove="Resources\goal.png" />
     <None Remove="Resources\info-icon.png" />
@@ -26,6 +28,8 @@
   <ItemGroup>
     <Resource Include="Resources\athlete.png" />
     <Resource Include="Resources\captain-band.png" />
+    <Resource Include="Resources\CRO.jpg" />
+    <Resource Include="Resources\ENG.jpg" />
     <Resource Include="Resources\field.png" />
     <Resource Include="Resources\goal.png" />
     <Resource Include="Resources\info-icon.png" />

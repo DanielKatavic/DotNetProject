@@ -9,10 +9,35 @@
         Title="MainWindow" Height="600" Width="800" MinHeight="600" MinWidth="800"
         WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
         FontSize="17" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+    </Window.Resources>
     <DockPanel>
-        <Grid DockPanel.Dock="Top" Margin="5">
+        <Grid DockPanel.Dock="Top">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+                    <GradientStop x:Name="gsOne" Color="YellowGreen" Offset="0.0"/>
+                    <GradientStop x:Name="gsTwo" Color="SkyBlue" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                Storyboard.TargetName="gsOne"
+                                Storyboard.TargetProperty="Offset"
+                                To="1.0" Duration="0:0:2"
+                                RepeatBehavior="Forever" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="BtnSettings" Click="BtnSettings_Click" Background="Transparent" BorderThickness="0">
+                <Button x:Name="BtnSettings" Click="BtnSettings_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
                             <EventTrigger.Actions>
@@ -45,9 +70,19 @@
                         </Image.RenderTransform>
                     </Image>
                 </Button>
+                <Ellipse x:Name="ElCro" Width="32" Height="32" Margin="5 0 5 0" Cursor="Hand" MouseDown="Ellipse_MouseDown">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="Resources/CRO.jpg" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse x:Name="ElEng" Width="32" Height="32" Margin="5 0 5 0" Cursor="Hand" MouseDown="Ellipse_MouseDown">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="Resources/ENG.jpg" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="BtnTeam" Click="BtnTeamInfo_Click" Background="Transparent" BorderThickness="0">
+                <Button x:Name="BtnTeam" Click="BtnTeamInfo_Click">
                     <Button.Content>
                         <Image Source="Resources/info-icon.png" Width="32" />
                     </Button.Content>
@@ -55,7 +90,7 @@
                 <Label x:Name="lblTeam" HorizontalContentAlignment="Right" Content="{x:Static lang:Resources.teamSelect}" Width="140" VerticalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDownAsync"/>
                 <Label x:Name="lblResult" Content="x : x" VerticalAlignment="Center" FontSize="25" Padding="20 0 20 0"/>
                 <Label x:Name="lblOpponent" HorizontalContentAlignment="Left" Content="{x:Static lang:Resources.opponentSelect}" Width="140" VerticalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDownAsync"/>
-                <Button x:Name="BtnOpponent" Click="BtnTeamInfo_Click" Background="Transparent" BorderThickness="0">
+                <Button x:Name="BtnOpponent" Click="BtnTeamInfo_Click">
                     <Button.Content>
                         <Image Source="Resources/info-icon.png" Width="32" />
                     </Button.Content>

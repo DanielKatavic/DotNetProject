@@ -90,11 +90,31 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] CRO {
+            get {
+                object obj = ResourceManager.GetObject("CRO", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nerijeseno:.
         /// </summary>
         public static string draws {
             get {
                 return ResourceManager.GetString("draws", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ENG {
+            get {
+                object obj = ResourceManager.GetObject("ENG", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

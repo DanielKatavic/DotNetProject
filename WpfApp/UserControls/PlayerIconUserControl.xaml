@@ -9,7 +9,11 @@
              Cursor="Hand">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid MouseDown="Icon_MouseDown">
-            <Ellipse x:Name="playerIcon" Width="50" Height="50" Fill="Red" Stroke="White" StrokeThickness="3"/>
+            <Ellipse x:Name="playerIcon" Width="50" Height="50" Stroke="White" StrokeThickness="3">
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="Red" />
+                </Ellipse.Fill>
+            </Ellipse>
             <Label x:Name="lblShirtNumber" Content="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="White"/>
         </Grid>
         <Label x:Name="lblName" Content="Luka Modric" Foreground="White"/>
