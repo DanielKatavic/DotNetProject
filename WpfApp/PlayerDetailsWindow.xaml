@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="Player details" Height="300" Width="200" ResizeMode="NoResize"
         FontFamily="Bahnschrift SemiCondensed" FontSize="17" WindowStartupLocation="CenterScreen">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.3" />
+                        <DoubleAnimation Storyboard.TargetProperty="(Window.Top)" From="350" To="500" Duration="0:0:.3"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
