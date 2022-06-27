@@ -12,6 +12,8 @@ namespace WpfApp
 {
     public partial class MainWindow : Window
     {
+        private const int IconOffset = 7;
+
         public MainWindow()
         {
             SetLanguage();
@@ -32,6 +34,20 @@ namespace WpfApp
             }
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            SetLoadingIconPosition();
+        }
+
+        private void SetLoadingIconPosition()
+        {
+            double left = (this.ActualWidth - LoadingIcon.ActualWidth) / 2;
+            Canvas.SetLeft(LoadingIcon, left - IconOffset);
+
+            double top = (this.ActualHeight - LoadingIcon.ActualHeight) / 2;
+            Canvas.SetTop(LoadingIcon, top);
+        }
+
         private void SetResolution()
         {
             if (Settings.IsFullScreen)
@@ -48,11 +64,13 @@ namespace WpfApp
         private async void FillMatchInfoAsync()
         {
             ClearPanels();
+            LoadingIcon.Visibility = Visibility.Visible;
             Match? match = await MatchManager.GetMatch();
             PlayerManager.FillPlayersWithEvents(match ?? new Match());
             PlayerManager.LoadPlayersWithImage(match ?? new Match());
             FillFootballField(match);
             lblResult.Content = MatchManager.GetMatchResultsAsync();
+            LoadingIcon.Visibility = Visibility.Hidden;
         }
 
         private void ClearPanels()

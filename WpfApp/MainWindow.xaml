@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:lang="clr-namespace:WpfApp.Properties"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" MinHeight="600" MinWidth="800"
         WindowStartupLocation="CenterScreen" FontFamily="Bahnschrift SemiCondensed"
-        FontSize="17" Loaded="Window_Loaded" Closing="Window_Closing">
+        FontSize="17" Loaded="Window_Loaded" Closing="Window_Closing" 
+        SizeChanged="Window_SizeChanged">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
@@ -16,6 +18,9 @@
         </Style>
     </Window.Resources>
     <DockPanel>
+        <Canvas x:Name="LoadingCanvas" Panel.ZIndex="100"> 
+            <fa:ImageAwesome x:Name="LoadingIcon" Icon="Spinner" Spin="True" Height="42" Width="42" Visibility="Hidden"/>
+        </Canvas>
         <Grid DockPanel.Dock="Top">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
