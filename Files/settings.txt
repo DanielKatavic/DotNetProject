@@ -1,1 +1,1 @@
-Male|Hrvatski|Online|Croatia|CRO|1243x845|False
+Male|Hrvatski|Offline|Croatia|CRO|1243x845|False

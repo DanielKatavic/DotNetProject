@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using Utility.Managers;
@@ -30,6 +31,11 @@ namespace WpfApp
         {
             try
             {
+                if (!InternetAvailability.IsInternetAvailable())
+                {
+                    MessageBox.Show("No internet connection!", "Error");
+                    Settings.AccessSelected = Access.Offline;
+                }
                 teams = ((Label)parent).Name == "lblTeam" ? await TeamManager.GetAllTeams() : await TeamManager.GetAllOpponentsAsync();
                 cbTeams.ItemsSource = teams;
             }

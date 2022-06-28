@@ -23,18 +23,15 @@ namespace WinFormsApp.Forms
         {
             try
             {
+                if (!InternetAvailability.IsInternetAvailable())
+                {
+                    MessageBoxManager.ShowNoConnectionMessage();
+                    Settings.AccessSelected = Access.Offline;
+                }
                 await LoadDataFromManager();
                 SetProgressBarLabel("Timovi uspješno učitani!", Color.Green);
                 btnContinue.Enabled = true;
                 cbTeams.Enabled = true;
-            }
-            catch (HttpRequestException)
-            {
-                if (MessageBoxManager.ShowNoConnectionMessage() == DialogResult.Yes)
-                {
-                    Settings.AccessSelected = Access.Offline;
-                    ResetForm();
-                }
             }
             catch (Exception)
             {
@@ -62,7 +59,7 @@ namespace WinFormsApp.Forms
         {
             ShowProgress(50);
             IList<Team>? teams = await TeamManager.GetAllTeams();
-            if (teams is null) throw new HttpRequestException();
+            if (teams is null) throw new Exception();
             ShowProgress(100);
             cbTeams.DataSource = teams;
         }

@@ -194,6 +194,7 @@
             // 
             resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::WinFormsApp.Properties.Resources.setting_lines;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.SettingsIcon_Click);
             // 

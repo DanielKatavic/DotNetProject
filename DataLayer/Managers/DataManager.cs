@@ -15,11 +15,9 @@ namespace Utility.Managers
             string path = FileConstants.GetFilePath(typeof(T), Settings.GenderSelected, isResult);
             string json = repository.LoadJson(path);
 
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                throw new ArgumentException("An error occurred while loading file!");
-            }
-            return JsonConvert.DeserializeObject<IList<T>>(json, Converter.Settings);
+            return string.IsNullOrWhiteSpace(json)
+                ? throw new ArgumentException("An error occurred while loading file!")
+                : JsonConvert.DeserializeObject<IList<T>>(json, Converter.Settings);
         }
 
         public static IList<T>? LoadFromApi()
@@ -31,12 +29,9 @@ namespace Utility.Managers
             var apiClient = new RestClient(source);
             var apiResult = apiClient.Execute<T>(new RestRequest());
 
-            if (apiResult.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
-            {
-                throw new Exception("An error occurred while loading json!");
-            }
-
-            return JsonConvert.DeserializeObject<IList<T>>(apiResult.Content, Converter.Settings);
+            return apiResult.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable
+                ? throw new Exception("An error occurred while loading json!")
+                : JsonConvert.DeserializeObject<IList<T>>(apiResult.Content, Converter.Settings);
         }
     }
 }

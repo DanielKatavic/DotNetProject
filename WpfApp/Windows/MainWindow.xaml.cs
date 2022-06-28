@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -66,8 +67,14 @@ namespace WpfApp
         {
             ClearPanels();
             LoadingIcon.Visibility = Visibility.Visible;
+
             try
             {
+                if (!InternetAvailability.IsInternetAvailable())
+                {
+                    MessageBox.Show("No internet connection!", "Error");
+                    Settings.AccessSelected = Access.Offline;
+                }
                 Match? match = await MatchManager.GetMatch();
                 PlayerManager.FillPlayersWithEvents(match ?? new Match());
                 PlayerManager.LoadPlayersWithImage(match ?? new Match());

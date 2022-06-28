@@ -1,4 +1,6 @@
-﻿namespace Utility.Models
+﻿using System.Runtime.InteropServices;
+
+namespace Utility.Models
 {
     public enum Gender { Male, Female }
     public enum Language { Hrvatski, English }
@@ -41,6 +43,18 @@
             string[]? res = resolution?.Split(ResSplitter);
             WindowWidth = int.Parse(res[0]);
             WindowHeight = int.Parse(res[1]);
+        }
+    }
+
+    public class InternetAvailability
+    {
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int description, int reservedValue);
+
+        public static bool IsInternetAvailable()
+        {
+            int description;
+            return InternetGetConnectedState(out description, 0);
         }
     }
 }

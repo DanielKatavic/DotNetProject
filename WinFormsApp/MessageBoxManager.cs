@@ -6,11 +6,11 @@
         private const string ErrorMessageDefaultCaption = "Greška";
         private const string WarningMessageDefaultText = "Jeste li sigurni da želite nastaviti?";
         private const string WarningMessageDefaultCaption = "Potvrdi odabir";
-        private const string NoConnectionMessageDefaultText = "Nije moguće dohvatiti podatke s interneta. \nŽelite li učitati podatke iz lokalnih datoteka?";
-        private const string NoConnectionMessageDefaultCaption = "Nema konekcije";
+        private const string NoConnectionMessageDefaultText = "No internet connection!";
+        private const string NoConnectionMessageDefaultCaption = "Error";
 
         internal static DialogResult ShowNoConnectionMessage() 
-            => MessageBox.Show(NoConnectionMessageDefaultText, NoConnectionMessageDefaultCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            => MessageBox.Show(NoConnectionMessageDefaultText, NoConnectionMessageDefaultCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         internal static void ShowErrorMessage()
             => MessageBox.Show(ErrorMessageDefaultText, ErrorMessageDefaultCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
