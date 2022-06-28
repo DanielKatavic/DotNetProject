@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -65,10 +66,19 @@ namespace WpfApp
         {
             ClearPanels();
             LoadingIcon.Visibility = Visibility.Visible;
-            Match? match = await MatchManager.GetMatch();
-            PlayerManager.FillPlayersWithEvents(match ?? new Match());
-            PlayerManager.LoadPlayersWithImage(match ?? new Match());
-            FillFootballField(match);
+            try
+            {
+                Match? match = await MatchManager.GetMatch();
+                PlayerManager.FillPlayersWithEvents(match ?? new Match());
+                PlayerManager.LoadPlayersWithImage(match ?? new Match());
+                FillFootballField(match);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
+            }
+
             lblResult.Content = MatchManager.GetMatchResultsAsync();
             LoadingIcon.Visibility = Visibility.Hidden;
         }
@@ -84,7 +94,7 @@ namespace WpfApp
         private void FillFootballField(Match? match)
         {
             bool isSelectedTeam = match?.HomeTeam?.Code == Settings.TeamSelected?.FifaCode;
-            
+
             match?.HomeTeamStatistics?.StartingEleven?.ToList().ForEach(se =>
             {
                 if (isSelectedTeam)
@@ -169,16 +179,23 @@ namespace WpfApp
             teamDetailsWindow.ShowDialog();
         }
 
-        private void Label_MouseDownAsync(object sender, MouseButtonEventArgs e)
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
         {
             TeamSelectWindow teamSelectWindow = new(sender)
             {
                 Owner = this
             };
             teamSelectWindow.ShowDialog();
-            if (((Label)sender).Name == nameof(lblTeam) && Settings.TeamSelected is not null)
+            FillLabels(((Label)sender).Name);
+        }
+
+        private void FillLabels(string senderName)
+        {
+            if (senderName == nameof(lblTeam) && Settings.TeamSelected is not null)
             {
                 lblTeam.Content = Settings.TeamSelected;
+                lblResult.Content = "x : x";
+                lblOpponent.Content = Properties.Resources.opponentSelect;
             }
             else
             {
@@ -220,6 +237,7 @@ namespace WpfApp
             {
                 Settings.WindowHeight = (int)this.Height;
                 Settings.WindowWidth = (int)this.Width;
+                Settings.IsFullScreen = WindowState == WindowState.Maximized;
                 SettingsManager.SaveSettings();
             }
             else

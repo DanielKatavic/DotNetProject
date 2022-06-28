@@ -184,6 +184,9 @@
   <data name="playedMatches" xml:space="preserve">
     <value>Odigrano utakmica:</value>
   </data>
+  <data name="playerDetails" xml:space="preserve">
+    <value>Detalji igrača</value>
+  </data>
   <data name="resolutionSelect" xml:space="preserve">
     <value>Odaberi rezoluciju:</value>
   </data>

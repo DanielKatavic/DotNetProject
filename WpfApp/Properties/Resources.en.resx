@@ -162,6 +162,9 @@
   <data name="playedMatches" xml:space="preserve">
     <value>Played matches:</value>
   </data>
+  <data name="playerDetails" xml:space="preserve">
+    <value>Player details</value>
+  </data>
   <data name="resolutionSelect" xml:space="preserve">
     <value>Select resolution:</value>
   </data>

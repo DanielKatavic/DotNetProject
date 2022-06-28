@@ -22,7 +22,7 @@ namespace WpfApp
             {
                 SettingsManager.LoadSettings();
             }
-            StartupUri = new Uri(FileRepository.SettingsExists() ? $"{nameof(MainWindow)}.xaml" : $"{nameof(WelcomeWindow)}.xaml", UriKind.Relative);
+            StartupUri = new Uri(FileRepository.SettingsExists() ? $"Windows/{nameof(MainWindow)}.xaml" : $"Windows/{nameof(WelcomeWindow)}.xaml", UriKind.Relative);
             base.OnStartup(e);
         }
     }

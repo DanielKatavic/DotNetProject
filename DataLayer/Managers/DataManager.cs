@@ -17,19 +17,24 @@ namespace Utility.Managers
 
             if (string.IsNullOrWhiteSpace(json))
             {
-                throw new ArgumentException("Dogodila se greška prilikom učitavanja datoteke!");
+                throw new ArgumentException("An error occurred while loading file!");
             }
             return JsonConvert.DeserializeObject<IList<T>>(json, Converter.Settings);
         }
 
         public static IList<T>? LoadFromApi()
         {
-            var source = ApiConstants.GetEndpoint(typeof(T), 
-                Settings.TeamSelected?.FifaCode ?? string.Empty, 
+            var source = ApiConstants.GetEndpoint(typeof(T),
+                Settings.TeamSelected?.FifaCode ?? string.Empty,
                 Settings.GenderSelected);
 
             var apiClient = new RestClient(source);
             var apiResult = apiClient.Execute<T>(new RestRequest());
+
+            if (apiResult.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
+            {
+                throw new Exception("An error occurred while loading json!");
+            }
 
             return JsonConvert.DeserializeObject<IList<T>>(apiResult.Content, Converter.Settings);
         }

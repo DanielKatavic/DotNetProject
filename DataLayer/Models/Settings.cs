@@ -19,7 +19,7 @@
         public static bool IsFullScreen { get; set; }
 
         public static string ParseForFileLine()
-            => $"{GenderSelected}{Del}{LangSelected}{Del}{AccessSelected}{Del}{TeamSelected?.Country}{Del}{TeamSelected?.FifaCode}{Del}{WindowHeight}{ResSplitter}{WindowWidth}{Del}{IsFullScreen}";
+            => $"{GenderSelected}{Del}{LangSelected}{Del}{AccessSelected}{Del}{TeamSelected?.Country}{Del}{TeamSelected?.FifaCode}{Del}{WindowWidth}{ResSplitter}{WindowHeight}{Del}{IsFullScreen}";
 
         public static void ParseFromFileLine(string line)
         {
@@ -32,6 +32,8 @@
                 Country = details[3],
                 FifaCode = details[4]
             };
+            SaveResolution(details[5]);
+            IsFullScreen = details[6] == "True";
         }
 
         public static void SaveResolution(string? resolution)

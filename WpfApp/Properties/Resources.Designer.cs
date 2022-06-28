@@ -266,6 +266,15 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detalji igrača.
+        /// </summary>
+        public static string playerDetails {
+            get {
+                return ResourceManager.GetString("playerDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Odaberi rezoluciju:.
         /// </summary>
         public static string resolutionSelect {

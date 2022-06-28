@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using Utility.Managers;
@@ -27,8 +28,16 @@ namespace WpfApp
 
         private async void FillWindow()
         {
-            teams = ((Label)parent).Name == "lblTeam" ? await TeamManager.GetAllTeams() : await TeamManager.GetAllOpponentsAsync();
-            cbTeams.ItemsSource = teams;
+            try
+            {
+                teams = ((Label)parent).Name == "lblTeam" ? await TeamManager.GetAllTeams() : await TeamManager.GetAllOpponentsAsync();
+                cbTeams.ItemsSource = teams;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Application.Current.Shutdown();
+            }
         }
 
         private void BtnSelectTeam_Click(object sender, RoutedEventArgs e)
