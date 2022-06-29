@@ -36,7 +36,7 @@ namespace WinFormsApp.Forms
             }
             catch
             {
-                MessageBoxManager.ShowErrorMessage("Igrači nisu uspješno učitani", "Greška");
+                MessageBoxManager.ShowErrorMessage(Properties.MBResource.playerLoadingError, Properties.MBResource.playerLoadingCaption);
                 Application.Exit();
             }
         }
@@ -188,7 +188,7 @@ namespace WinFormsApp.Forms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBoxManager.ShowWarningMessage("Jeste li sigurni da želite izaći?", "Izlaz") == DialogResult.OK)
+            if (MessageBoxManager.ShowWarningMessage(Properties.MBResource.exitFormText, Properties.MBResource.exitFormCaption) == DialogResult.OK)
             {
                 PlayerManager.SaveFavouritePlayers();
                 SettingsManager.SaveSettings();

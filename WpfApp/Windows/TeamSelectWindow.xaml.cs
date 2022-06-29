@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using Utility.Managers;

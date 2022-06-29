@@ -29,15 +29,15 @@ namespace WinFormsApp.Forms
                     Settings.AccessSelected = Access.Offline;
                 }
                 await LoadDataFromManager();
-                SetProgressBarLabel("Timovi uspješno učitani!", Color.Green);
+                SetProgressBarLabel(Properties.MBResource.teamLoadingSuccess, Color.Green);
                 btnContinue.Enabled = true;
                 cbTeams.Enabled = true;
             }
             catch (Exception)
             {
-                MessageBoxManager.ShowErrorMessage("Timovi nisu uspješno učitani!", "Greška");
+                MessageBoxManager.ShowErrorMessage(Properties.MBResource.teamLoadingError, Properties.MBResource.playerLoadingCaption);
                 progressBar.Value = 100;
-                SetProgressBarLabel("Timovi nisu uspješno učitani!", Color.Red);
+                SetProgressBarLabel(Properties.MBResource.teamLoadingError, Color.Red);
             }
             UseWaitCursor = false;
         }

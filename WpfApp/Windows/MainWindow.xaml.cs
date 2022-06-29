@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Http;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -72,7 +70,7 @@ namespace WpfApp
             {
                 if (!InternetAvailability.IsInternetAvailable())
                 {
-                    MessageBox.Show("No internet connection!", "Error");
+                    MessageBox.Show(Properties.Resources.mbNoConnectionText, Properties.Resources.mbNoConnectionCaption);
                     Settings.AccessSelected = Access.Offline;
                 }
                 Match? match = await MatchManager.GetMatch();

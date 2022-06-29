@@ -166,6 +166,12 @@
   <data name="losses" xml:space="preserve">
     <value>Porazi:</value>
   </data>
+  <data name="mbNoConnectionCaption" xml:space="preserve">
+    <value>Greška</value>
+  </data>
+  <data name="mbNoConnectionText" xml:space="preserve">
+    <value>Nema konekcije s internetom!</value>
+  </data>
   <data name="mbWarningCaption" xml:space="preserve">
     <value>Upozorenje</value>
   </data>

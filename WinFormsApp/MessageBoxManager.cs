@@ -2,12 +2,12 @@
 {
     internal static class MessageBoxManager
     {
-        private const string ErrorMessageDefaultText = "Ne možete dodati više od tri omiljena igrača!";
-        private const string ErrorMessageDefaultCaption = "Greška";
-        private const string WarningMessageDefaultText = "Jeste li sigurni da želite nastaviti?";
-        private const string WarningMessageDefaultCaption = "Potvrdi odabir";
-        private const string NoConnectionMessageDefaultText = "No internet connection!";
-        private const string NoConnectionMessageDefaultCaption = "Error";
+        private static string ErrorMessageDefaultText = Properties.MBResource.favPlayersError;
+        private static string ErrorMessageDefaultCaption = Properties.MBResource.playerLoadingCaption;
+        private static string WarningMessageDefaultText = Properties.MBResource.submit;
+        private static string WarningMessageDefaultCaption = Properties.MBResource.submitCaption;
+        private static string NoConnectionMessageDefaultText = Properties.MBResource.connectionError;
+        private static string NoConnectionMessageDefaultCaption = Properties.MBResource.playerLoadingCaption;
 
         internal static DialogResult ShowNoConnectionMessage() 
             => MessageBox.Show(NoConnectionMessageDefaultText, NoConnectionMessageDefaultCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);

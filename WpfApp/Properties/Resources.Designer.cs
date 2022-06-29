@@ -212,6 +212,24 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Greška.
+        /// </summary>
+        public static string mbNoConnectionCaption {
+            get {
+                return ResourceManager.GetString("mbNoConnectionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nema konekcije s internetom!.
+        /// </summary>
+        public static string mbNoConnectionText {
+            get {
+                return ResourceManager.GetString("mbNoConnectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Upozorenje.
         /// </summary>
         public static string mbWarningCaption {
