@@ -11,6 +11,7 @@ namespace WinFormsApp.UserControls
             InitializeComponent();
             this.player = player;
             DoubleBuffered = true;
+            CheckIfImageExists();
             FillForm();
         }
 
@@ -20,6 +21,19 @@ namespace WinFormsApp.UserControls
             imgYellowCard.Visible = player?.NumberOfYellowCards >= 1;
             lblNumberOfCards.Visible = player?.NumberOfYellowCards >= 1;
             lblNumberOfCards.Text = player?.NumberOfYellowCards.ToString();
+        }
+
+        private void CheckIfImageExists()
+        {
+            if (player?.PicturePath is not null)
+            {
+                SetImageToPlayer(player.PicturePath);
+            }
+        }
+
+        private void SetImageToPlayer(string path)
+        {
+            BackgroundImage = Image.FromFile(path);
         }
     }
 }

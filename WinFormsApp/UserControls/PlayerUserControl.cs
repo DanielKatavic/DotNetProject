@@ -18,12 +18,12 @@ namespace WinFormsApp.UserControls
 
         private void PlayerUserControl_Load(object sender, EventArgs e)
         {
-            CkeckIfPlayerIsFav();
-            CkeckIfImageExists();
+            CheckIfPlayerIsFav();
+            CheckIfImageExists();
             FillForm();
         }
 
-        private void CkeckIfPlayerIsFav()
+        private void CheckIfPlayerIsFav()
         {
             if(player.IsFavouritePlayer)
             {
@@ -32,7 +32,7 @@ namespace WinFormsApp.UserControls
             }
         }
 
-        private void CkeckIfImageExists()
+        private void CheckIfImageExists()
         {
             if(player.PicturePath is not null)
             {
